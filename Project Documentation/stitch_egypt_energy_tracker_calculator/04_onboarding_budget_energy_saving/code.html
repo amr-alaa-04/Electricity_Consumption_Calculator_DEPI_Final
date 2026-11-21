@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+
+<html dir="rtl" lang="ar"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>إدارة الميزانية ومراقبة الأجهزة - استهلاك الكهرباء</title>
+<!-- IBM Plex Sans Arabic / Latin -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&amp;family=IBM+Plex+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS v3 -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "primary": "#004131",
+            "outline-variant": "#bfc9c3",
+            "on-error-container": "#93000a",
+            "surface-container-low": "#e7f7ee",
+            "on-tertiary": "#ffffff",
+            "surface-container-highest": "#d6e6dd",
+            "primary-container": "#145a46",
+            "error-container": "#ffdad6",
+            "on-primary": "#ffffff",
+            "background": "#edfdf3",
+            "primary-fixed": "#aef0d6",
+            "tertiary-fixed": "#d2e7de",
+            "on-secondary": "#ffffff",
+            "surface-dim": "#ceded4",
+            "on-primary-container": "#8ecfb6",
+            "secondary-container": "#9af4d4",
+            "on-error": "#ffffff",
+            "surface-container": "#e2f2e8",
+            "surface-bright": "#edfdf3",
+            "on-secondary-container": "#027259",
+            "surface-container-lowest": "#ffffff",
+            "surface": "#edfdf3",
+            "secondary": "#006c53",
+            "on-tertiary-container": "#b2c7be",
+            "on-tertiary-fixed": "#0c1f19",
+            "inverse-primary": "#92d4ba",
+            "error": "#ba1a1a",
+            "tertiary": "#2a3d36",
+            "tertiary-fixed-dim": "#b6cbc2",
+            "on-background": "#111e19",
+            "on-surface-variant": "#404944",
+            "inverse-on-surface": "#e5f5eb",
+            "on-secondary-fixed-variant": "#00513e",
+            "primary-fixed-dim": "#92d4ba",
+            "on-secondary-fixed": "#002117",
+            "outline": "#707974",
+            "tertiary-container": "#40544d",
+            "on-primary-fixed-variant": "#04513d",
+            "secondary-fixed": "#9af4d4",
+            "secondary-fixed-dim": "#7ed7b8",
+            "surface-container-high": "#dcece2",
+            "on-surface": "#111e19",
+            "inverse-surface": "#26332d",
+            "on-primary-fixed": "#002117",
+            "on-tertiary-fixed-variant": "#384b44",
+            "surface-variant": "#d6e6dd",
+            "surface-tint": "#276954"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "space-sm": "0.5rem",
+            "margin": "1.5rem",
+            "margin-mobile": "1rem",
+            "gutter": "1rem",
+            "space-md": "1rem",
+            "space-xs": "0.25rem",
+            "space-lg": "1.5rem",
+            "space-xl": "2rem",
+            "gutter-mobile": "0.75rem"
+          },
+          "fontFamily": {
+            "headline-lg": ["IBM Plex Sans Arabic", "IBM Plex Sans", "sans-serif"],
+            "label-lg": ["IBM Plex Sans Arabic", "IBM Plex Sans", "sans-serif"],
+            "headline-lg-mobile": ["IBM Plex Sans Arabic", "IBM Plex Sans", "sans-serif"],
+            "body-lg": ["IBM Plex Sans Arabic", "IBM Plex Sans", "sans-serif"],
+            "headline-sm": ["IBM Plex Sans Arabic", "IBM Plex Sans", "sans-serif"],
+            "label-md": ["IBM Plex Sans Arabic", "IBM Plex Sans", "sans-serif"],
+            "label-sm": ["IBM Plex Sans Arabic", "IBM Plex Sans", "sans-serif"],
+            "currency-display-mobile": ["IBM Plex Sans Arabic", "IBM Plex Sans", "sans-serif"],
+            "display-lg-mobile": ["IBM Plex Sans Arabic", "IBM Plex Sans", "sans-serif"],
+            "body-md": ["IBM Plex Sans Arabic", "IBM Plex Sans", "sans-serif"],
+            "body-sm": ["IBM Plex Sans Arabic", "IBM Plex Sans", "sans-serif"],
+            "headline-md": ["IBM Plex Sans Arabic", "IBM Plex Sans", "sans-serif"],
+            "display-lg": ["IBM Plex Sans Arabic", "IBM Plex Sans", "sans-serif"],
+            "currency-display": ["IBM Plex Sans Arabic", "IBM Plex Sans", "sans-serif"]
+          },
+          "fontSize": {
+            "headline-lg": ["28px", { "lineHeight": "36px", "fontWeight": "600" }],
+            "label-lg": ["14px", { "lineHeight": "20px", "fontWeight": "600" }],
+            "headline-lg-mobile": ["24px", { "lineHeight": "32px", "fontWeight": "600" }],
+            "body-lg": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+            "headline-sm": ["18px", { "lineHeight": "24px", "fontWeight": "600" }],
+            "label-md": ["12px", { "lineHeight": "16px", "fontWeight": "500" }],
+            "label-sm": ["11px", { "lineHeight": "14px", "fontWeight": "500" }],
+            "currency-display-mobile": ["32px", { "lineHeight": "40px", "fontWeight": "700" }],
+            "display-lg-mobile": ["30px", { "lineHeight": "38px", "fontWeight": "700" }],
+            "body-md": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+            "body-sm": ["12px", { "lineHeight": "16px", "fontWeight": "400" }],
+            "headline-md": ["20px", { "lineHeight": "28px", "fontWeight": "600" }],
+            "display-lg": ["36px", { "lineHeight": "44px", "fontWeight": "700" }],
+            "currency-display": ["40px", { "lineHeight": "48px", "fontWeight": "700" }]
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-family: 'Material Symbols Outlined';
+      font-weight: normal;
+      font-style: normal;
+      font-size: 24px;
+      line-height: 1;
+      letter-spacing: normal;
+      text-transform: none;
+      display: inline-block;
+      white-space: nowrap;
+      word-wrap: normal;
+      direction: ltr;
+      -webkit-font-feature-settings: 'liga';
+      -webkit-font-smoothing: antialiased;
+    }
+    
+    /* Gauge radial conic gradient */
+    .gauge-dial {
+      background: conic-gradient(
+        from 215deg,
+        #145A46 0deg,
+        #2E8B70 180deg,
+        #E6A23C 230deg,
+        rgba(191, 201, 195, 0.25) 235deg 290deg
+      );
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface font-body-md text-on-surface antialiased min-h-screen flex flex-col justify-between selection:bg-secondary-container selection:text-primary">
+<!-- Top App Navigation / Header: Linear Onboarding Task Flow (Skip Button) -->
+<header class="w-full px-space-md py-space-sm flex justify-between items-center bg-transparent">
+<!-- Brand Micro Anchor -->
+<div class="flex items-center gap-1.5 text-primary">
+<span class="material-symbols-outlined text-primary text-[20px]" data-icon="bolt">bolt</span>
+<span class="text-label-md font-headline-sm tracking-tight text-primary">استهلاك الكهرباء</span>
+</div>
+<!-- Skip Button (تخطي) Top Right in RTL -->
+<button class="text-label-md font-label-md text-on-surface-variant hover:text-primary transition-colors py-1.5 px-3 rounded-full hover:bg-surface-container active:scale-95 duration-150" type="button">
+      تخطي
+    </button>
+</header>
+<!-- Main Scrollable / Fluid Content Canvas -->
+<main class="w-full max-w-md mx-auto px-margin-mobile flex-1 flex flex-col justify-around py-space-xs">
+<!-- Hero Visual Area: Modern Financial Neoclassical Gauge & Appliance Cards -->
+<div class="relative w-full rounded-2xl bg-surface-container-lowest p-space-md shadow-[0px_2px_8px_rgba(20,90,70,0.04),0px_1px_2px_rgba(23,43,36,0.02)] border border-outline-variant/30 overflow-hidden">
+<!-- Ambient tinted illumination backdrop -->
+<div class="absolute -top-12 -left-12 w-40 h-40 bg-secondary-container/40 rounded-full blur-3xl pointer-events-none"></div>
+<div class="absolute -bottom-10 -right-10 w-36 h-36 bg-surface-container-low rounded-full blur-2xl pointer-events-none"></div>
+<!-- Top Header of Gauge Card -->
+<div class="flex items-center justify-between mb-2">
+<div class="flex items-center gap-1.5">
+<span class="inline-block w-2 h-2 rounded-full bg-primary-container animate-pulse"></span>
+<span class="text-label-sm font-label-sm text-on-surface-variant">الميزانية الشهرية المقدرة</span>
+</div>
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-label-sm font-label-sm bg-error-container text-on-error-container">
+<span class="material-symbols-outlined text-[13px]" data-icon="warning">warning</span>
+          تم استهلاك 80%
+        </span>
+</div>
+<!-- Central Circular Gauge Architecture -->
+<div class="flex flex-col items-center justify-center my-2 relative">
+<!-- Outer Conic Gauge Ring -->
+<div class="relative w-44 h-44 rounded-full gauge-dial p-2.5 flex items-center justify-center shadow-inner">
+<!-- Inner Dial Mask -->
+<div class="w-full h-full bg-surface-container-lowest rounded-full flex flex-col items-center justify-center p-3 text-center border border-outline-variant/15 shadow-sm">
+<span class="text-label-sm font-label-sm text-outline mb-0.5">الرصيد المتبقي</span>
+<div class="flex items-baseline justify-center gap-1 text-primary">
+<span class="text-currency-display-mobile font-headline-lg tracking-tight">480</span>
+<span class="text-label-md font-label-md text-on-surface-variant">ج.م</span>
+</div>
+<div class="w-16 h-px bg-outline-variant/30 my-1"></div>
+<span class="text-label-sm font-label-sm text-secondary font-medium">سقف الميزانية: 600 ج.م</span>
+</div>
+</div>
+<!-- Float Indicator Alert Bubble -->
+<div class="absolute -bottom-3 bg-primary-container text-surface-container-lowest text-label-sm font-label-md px-3 py-1 rounded-full shadow-md flex items-center gap-1.5 border border-primary-fixed/20">
+<span class="material-symbols-outlined text-[14px]" data-icon="energy_savings_leaf">energy_savings_leaf</span>
+<span>وفّر حتى 95 ج.م هذا الشهر</span>
+</div>
+</div>
+<!-- Miniature Appliance Breakdown Grid (تكييف 42%، ثلاجة، سخان) -->
+<div class="mt-6 pt-3 border-t border-outline-variant/20 grid grid-cols-3 gap-2">
+<!-- Appliance 1: Air Conditioner (Main consumer) -->
+<div class="bg-surface-container-low/70 rounded-xl p-2 flex flex-col items-center text-center border border-outline-variant/20">
+<div class="w-7 h-7 rounded-lg bg-surface-container-lowest flex items-center justify-center text-primary-container mb-1 shadow-xs">
+<span class="material-symbols-outlined text-[18px]" data-icon="mode_fan">mode_fan</span>
+</div>
+<span class="text-label-sm font-label-sm text-on-surface font-semibold truncate w-full">تكييف</span>
+<span class="text-label-sm font-label-sm text-error font-bold mt-0.5">42%</span>
+<span class="text-[10px] text-outline mt-0.5">201 ج.م</span>
+</div>
+<!-- Appliance 2: Water Heater -->
+<div class="bg-surface-container-low/70 rounded-xl p-2 flex flex-col items-center text-center border border-outline-variant/20">
+<div class="w-7 h-7 rounded-lg bg-surface-container-lowest flex items-center justify-center text-secondary mb-1 shadow-xs">
+<span class="material-symbols-outlined text-[18px]" data-icon="water_heater">water_heater</span>
+</div>
+<span class="text-label-sm font-label-sm text-on-surface font-semibold truncate w-full">سخان</span>
+<span class="text-label-sm font-label-sm text-secondary font-bold mt-0.5">26%</span>
+<span class="text-[10px] text-outline mt-0.5">124 ج.م</span>
+</div>
+<!-- Appliance 3: Refrigerator -->
+<div class="bg-surface-container-low/70 rounded-xl p-2 flex flex-col items-center text-center border border-outline-variant/20">
+<div class="w-7 h-7 rounded-lg bg-surface-container-lowest flex items-center justify-center text-secondary mb-1 shadow-xs">
+<span class="material-symbols-outlined text-[18px]" data-icon="kitchen">kitchen</span>
+</div>
+<span class="text-label-sm font-label-sm text-on-surface font-semibold truncate w-full">ثلاجة</span>
+<span class="text-label-sm font-label-sm text-secondary font-bold mt-0.5">18%</span>
+<span class="text-[10px] text-outline mt-0.5">86 ج.م</span>
+</div>
+</div>
+</div>
+<!-- Onboarding Value Proposition & Copywriting -->
+<div class="mt-4 px-1">
+<h1 class="text-headline-lg-mobile font-headline-lg-mobile text-primary tracking-tight leading-snug">
+        راقب ميزانيتك وتحكّم باستهلاك أجهزتك
+      </h1>
+<p class="mt-2 text-body-md font-body-md text-on-surface-variant leading-relaxed">
+        حدد سقفاً لمصاريف الكهرباء الشهرية وتلقَّ تنبيهات مبكرة عند استهلاك 80%، واكتشف الأجهزة الأكثر سحباً للطاقة في منزلك بدقة.
+      </p>
+<!-- Feature Highlight Badges / List -->
+<div class="mt-4 space-y-2.5">
+<div class="flex items-start gap-2.5 p-2 rounded-xl bg-surface-container-lowest/80 border border-outline-variant/20 shadow-xs">
+<div class="w-6 h-6 rounded-full bg-secondary-container text-on-secondary-container flex items-center justify-center shrink-0 mt-0.5">
+<span class="material-symbols-outlined text-[15px]" data-icon="notifications_active">notifications_active</span>
+</div>
+<p class="text-label-md font-label-md text-on-surface">
+            تنبيهات استباقية قبل نفاد الرصيد أو الانتقال إلى شريحة أعلى
+          </p>
+</div>
+<div class="flex items-start gap-2.5 p-2 rounded-xl bg-surface-container-lowest/80 border border-outline-variant/20 shadow-xs">
+<div class="w-6 h-6 rounded-full bg-secondary-container text-on-secondary-container flex items-center justify-center shrink-0 mt-0.5">
+<span class="material-symbols-outlined text-[15px]" data-icon="tune">tune</span>
+</div>
+<p class="text-label-md font-label-md text-on-surface">
+            محاكي سيناريوهات التشغيل لتخفيض ساعات عمل التكييف شهرياً
+          </p>
+</div>
+</div>
+</div>
+<!-- Step Carousel Indicators: Step 4 of 4 active -->
+<div aria-label="مؤشر الخطوات" class="flex justify-center items-center gap-1.5 my-4">
+<span class="w-2 h-1.5 rounded-full bg-outline-variant/60"></span>
+<span class="w-2 h-1.5 rounded-full bg-outline-variant/60"></span>
+<span class="w-2 h-1.5 rounded-full bg-outline-variant/60"></span>
+<span class="w-7 h-1.5 rounded-full bg-primary-container"></span>
+</div>
+</main>
+<!-- Sticky Bottom Actions & Legal Disclaimers (Linear Onboarding Footnote) -->
+<footer class="w-full max-w-md mx-auto px-margin-mobile pb-6 pt-1">
+<!-- Primary CTA Button (Height 52px, Radius 16px, Scale Tap) -->
+<button class="w-full h-[52px] rounded-[16px] bg-primary text-on-primary font-headline-sm text-headline-sm flex items-center justify-center gap-2 shadow-[0px_6px_16px_rgba(20,90,70,0.18)] active:scale-[0.98] transition-transform duration-150" type="button">
+<span class="material-symbols-outlined text-[20px] text-secondary-container" data-icon="bolt">bolt</span>
+<span>ابدأ الآن مجاناً</span>
+</button>
+<!-- Legal Footnote & Methodology Assurance -->
+<p class="text-center text-label-sm font-label-sm text-outline mt-2.5">
+      تقديرات استرشادية لمساعدتك على الترشيد وفقاً لتعريفة الكهرباء المصرية الرسمية
+    </p>
+</footer>
+</body></html>

@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+
+<html dir="rtl" lang="ar"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>تحليلات الاستهلاك وتوزيع الأحمال - استهلاك الكهرباء</title>
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- IBM Plex Sans Arabic & Latin -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&amp;family=IBM+Plex+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS CDN -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "background": "#edfdf3",
+            "primary": "#004131",
+            "tertiary-container": "#40544d",
+            "secondary-fixed-dim": "#7ed7b8",
+            "tertiary-fixed-dim": "#b6cbc2",
+            "surface-container-high": "#dcece2",
+            "surface-container-low": "#e7f7ee",
+            "secondary": "#006c53",
+            "surface-variant": "#d6e6dd",
+            "on-error-container": "#93000a",
+            "on-tertiary-fixed": "#0c1f19",
+            "on-tertiary-container": "#b2c7be",
+            "outline-variant": "#bfc9c3",
+            "on-tertiary": "#ffffff",
+            "on-error": "#ffffff",
+            "on-primary-container": "#8ecfb6",
+            "outline": "#707974",
+            "on-primary-fixed-variant": "#04513d",
+            "surface-container-highest": "#d6e6dd",
+            "on-secondary-fixed": "#002117",
+            "inverse-surface": "#26332d",
+            "primary-container": "#145a46",
+            "on-primary-fixed": "#002117",
+            "surface": "#edfdf3",
+            "surface-bright": "#edfdf3",
+            "error-container": "#ffdad6",
+            "on-secondary-fixed-variant": "#00513e",
+            "surface-tint": "#276954",
+            "on-primary": "#ffffff",
+            "on-secondary-container": "#027259",
+            "inverse-primary": "#92d4ba",
+            "on-tertiary-fixed-variant": "#384b44",
+            "surface-dim": "#ceded4",
+            "surface-container": "#e2f2e8",
+            "on-background": "#111e19",
+            "secondary-fixed": "#9af4d4",
+            "tertiary-fixed": "#d2e7de",
+            "on-surface": "#111e19",
+            "secondary-container": "#9af4d4",
+            "tertiary": "#2a3d36",
+            "primary-fixed-dim": "#92d4ba",
+            "on-surface-variant": "#404944",
+            "error": "#ba1a1a",
+            "on-secondary": "#ffffff",
+            "primary-fixed": "#aef0d6",
+            "inverse-on-surface": "#e5f5eb",
+            "surface-container-lowest": "#ffffff"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "space-xl": "2rem",
+            "margin-mobile": "1rem",
+            "space-lg": "1.5rem",
+            "gutter-mobile": "0.75rem",
+            "space-xs": "0.25rem",
+            "space-md": "1rem",
+            "space-sm": "0.5rem",
+            "margin": "1.5rem",
+            "gutter": "1rem"
+          },
+          "fontFamily": {
+            "body-lg": ["IBM Plex Sans Arabic", "IBM Plex Sans", "sans-serif"],
+            "body-sm": ["IBM Plex Sans Arabic", "IBM Plex Sans", "sans-serif"],
+            "headline-lg": ["IBM Plex Sans Arabic", "IBM Plex Sans", "sans-serif"],
+            "label-sm": ["IBM Plex Sans Arabic", "IBM Plex Sans", "sans-serif"],
+            "headline-md": ["IBM Plex Sans Arabic", "IBM Plex Sans", "sans-serif"],
+            "headline-sm": ["IBM Plex Sans Arabic", "IBM Plex Sans", "sans-serif"],
+            "body-md": ["IBM Plex Sans Arabic", "IBM Plex Sans", "sans-serif"],
+            "display-lg-mobile": ["IBM Plex Sans Arabic", "IBM Plex Sans", "sans-serif"],
+            "display-lg": ["IBM Plex Sans Arabic", "IBM Plex Sans", "sans-serif"],
+            "currency-display": ["IBM Plex Sans Arabic", "IBM Plex Sans", "sans-serif"],
+            "label-lg": ["IBM Plex Sans Arabic", "IBM Plex Sans", "sans-serif"],
+            "headline-lg-mobile": ["IBM Plex Sans Arabic", "IBM Plex Sans", "sans-serif"],
+            "currency-display-mobile": ["IBM Plex Sans Arabic", "IBM Plex Sans", "sans-serif"],
+            "label-md": ["IBM Plex Sans Arabic", "IBM Plex Sans", "sans-serif"]
+          },
+          "fontSize": {
+            "body-lg": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+            "body-sm": ["12px", { "lineHeight": "16px", "fontWeight": "400" }],
+            "headline-lg": ["28px", { "lineHeight": "36px", "fontWeight": "600" }],
+            "label-sm": ["11px", { "lineHeight": "14px", "fontWeight": "500" }],
+            "headline-md": ["20px", { "lineHeight": "28px", "fontWeight": "600" }],
+            "headline-sm": ["18px", { "lineHeight": "24px", "fontWeight": "600" }],
+            "body-md": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+            "display-lg-mobile": ["30px", { "lineHeight": "38px", "fontWeight": "700" }],
+            "display-lg": ["36px", { "lineHeight": "44px", "fontWeight": "700" }],
+            "currency-display": ["40px", { "lineHeight": "48px", "fontWeight": "700" }],
+            "label-lg": ["14px", { "lineHeight": "20px", "fontWeight": "600" }],
+            "headline-lg-mobile": ["24px", { "lineHeight": "32px", "fontWeight": "600" }],
+            "currency-display-mobile": ["32px", { "lineHeight": "40px", "fontWeight": "700" }],
+            "label-md": ["12px", { "lineHeight": "16px", "fontWeight": "500" }]
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1;
+    }
+    .material-symbols-fill {
+      font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-surface font-body-md antialiased selection:bg-secondary-container selection:text-primary min-h-screen pb-24">
+<!-- Shared Component: TopAppBar -->
+<header class="bg-surface dark:bg-inverse-surface border-b border-outline-variant/30 dark:border-outline-variant/10 shadow-sm dark:shadow-none sticky top-0 z-40">
+<div class="flex justify-between items-center w-full px-space-md py-space-sm max-w-md mx-auto">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary dark:text-inverse-primary" data-icon="bolt">bolt</span>
+<span class="text-headline-sm font-headline-sm text-primary dark:text-inverse-primary tracking-tight">استهلاك الكهرباء</span>
+</div>
+<div class="flex items-center gap-1">
+<button aria-label="الإشعارات" class="w-10 h-10 rounded-full flex items-center justify-center text-on-surface-variant hover:bg-surface-container dark:hover:bg-tertiary-container hover:text-primary transition-colors duration-150 active:scale-95">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</button>
+</div>
+</div>
+</header>
+<!-- Mobile View Container -->
+<main class="max-w-md mx-auto px-4 pt-4 space-y-4">
+<!-- Secondary Title & Month Selector Filter -->
+<div class="flex items-center justify-between">
+<div>
+<h1 class="text-headline-sm font-headline-sm text-primary">تحليلات الاستهلاك والأجهزة</h1>
+<p class="text-body-sm font-body-sm text-on-surface-variant">متابعة دقيقة للأحمال وشرائح الفاتورة المنزلية</p>
+</div>
+<button class="flex items-center gap-1.5 bg-surface-container-lowest border border-outline-variant/30 px-3 py-1.5 rounded-full shadow-sm text-primary active:scale-95 transition-transform duration-150">
+<span class="material-symbols-outlined text-sm" data-icon="calendar_month">calendar_month</span>
+<span class="text-label-md font-label-md font-semibold">أكتوبر 2023</span>
+<span class="material-symbols-outlined text-sm" data-icon="arrow_drop_down">arrow_drop_down</span>
+</button>
+</div>
+<!-- Tier Status Pill / Egyptian Tariff Indicator -->
+<div class="bg-primary text-on-primary rounded-xl p-3.5 flex items-center justify-between shadow-sm relative overflow-hidden">
+<div class="absolute -left-6 -bottom-6 w-24 h-24 bg-surface-tint/20 rounded-full blur-xl pointer-events-none"></div>
+<div class="flex items-center gap-3">
+<div class="w-9 h-9 rounded-full bg-secondary-container/20 flex items-center justify-center border border-secondary-fixed-dim/30">
+<span class="material-symbols-outlined text-secondary-fixed" data-icon="electric_meter">electric_meter</span>
+</div>
+<div>
+<div class="flex items-center gap-2">
+<span class="text-label-md font-label-md text-on-primary-container">الوضع الحالي للشريحة</span>
+<span class="bg-secondary-fixed text-primary font-bold text-[10px] px-2 py-0.5 rounded-full">الشريحة 4</span>
+</div>
+<div class="text-body-sm font-body-sm text-white/90">معدل الاستهلاك مستقر ضمن النطاق المتوقع</div>
+</div>
+</div>
+<div class="text-left">
+<span class="text-label-sm font-label-sm text-on-primary-container block">الرصيد التقديري</span>
+<span class="text-headline-sm font-headline-sm text-white">446.55 <span class="text-label-sm font-label-sm">ج.م</span></span>
+</div>
+</div>
+<!-- 3 Mini Metric Cards (KPI Summary Row) -->
+<div class="grid grid-cols-3 gap-2.5">
+<!-- KPI 1 -->
+<div class="bg-surface-container-lowest rounded-xl p-3 border border-outline-variant/30 shadow-[0px_2px_8px_rgba(20,90,70,0.04)] flex flex-col justify-between">
+<div class="flex items-center justify-between text-on-surface-variant">
+<span class="text-label-sm font-label-sm">متوسط يومي</span>
+<span class="material-symbols-outlined text-base text-secondary" data-icon="bolt">bolt</span>
+</div>
+<div class="mt-2">
+<span class="text-headline-sm font-headline-sm text-primary tracking-tight">11.4</span>
+<span class="text-label-sm font-label-sm text-on-surface-variant block">ك.و.س</span>
+</div>
+</div>
+<!-- KPI 2 -->
+<div class="bg-surface-container-lowest rounded-xl p-3 border border-outline-variant/30 shadow-[0px_2px_8px_rgba(20,90,70,0.04)] flex flex-col justify-between">
+<div class="flex items-center justify-between text-on-surface-variant">
+<span class="text-label-sm font-label-sm">التكلفة اليومية</span>
+<span class="material-symbols-outlined text-base text-secondary" data-icon="payments">payments</span>
+</div>
+<div class="mt-2">
+<span class="text-headline-sm font-headline-sm text-primary tracking-tight">16.2</span>
+<span class="text-label-sm font-label-sm text-on-surface-variant block">ج.م / يوم</span>
+</div>
+</div>
+<!-- KPI 3 -->
+<div class="bg-surface-container-lowest rounded-xl p-3 border border-outline-variant/30 shadow-[0px_2px_8px_rgba(20,90,70,0.04)] flex flex-col justify-between">
+<div class="flex items-center justify-between text-on-surface-variant">
+<span class="text-label-sm font-label-sm">مؤشر الكفاءة</span>
+<span class="material-symbols-outlined text-base text-secondary" data-icon="eco">eco</span>
+</div>
+<div class="mt-2">
+<div class="flex items-baseline gap-1">
+<span class="text-headline-sm font-headline-sm text-primary">84</span>
+<span class="text-body-sm font-body-sm text-on-surface-variant">/100</span>
+</div>
+<span class="text-label-sm font-label-sm text-secondary font-medium block">جيد جداً</span>
+</div>
+</div>
+</div>
+<!-- Interactive Consumption Chart Card -->
+<div class="bg-surface-container-lowest rounded-2xl p-4 border border-outline-variant/30 shadow-[0px_2px_8px_rgba(20,90,70,0.04)] space-y-3.5">
+<div class="flex items-center justify-between">
+<div>
+<h2 class="text-headline-sm font-headline-sm text-primary">توزيع الاستهلاك الزمني</h2>
+<p class="text-body-sm font-body-sm text-on-surface-variant">معدلات الاستهلاك خلال الأسبوع الحالي</p>
+</div>
+</div>
+<!-- Segmented Mode Switch -->
+<div class="bg-surface-container p-1 rounded-xl flex items-center text-center">
+<button class="flex-1 py-1.5 px-3 rounded-lg bg-surface-container-lowest text-primary font-label-md text-label-md shadow-sm font-semibold transition-all">يومي</button>
+<button class="flex-1 py-1.5 px-3 rounded-lg text-on-surface-variant hover:text-primary font-label-md text-label-md transition-all">شهري</button>
+<button class="flex-1 py-1.5 px-3 rounded-lg text-on-surface-variant hover:text-primary font-label-md text-label-md transition-all">مقارنة الفترات</button>
+</div>
+<!-- Peak Consumption Callout -->
+<div class="bg-surface-container-high/60 border border-secondary/20 rounded-xl p-2.5 flex items-center gap-2">
+<span class="material-symbols-outlined text-error text-lg" data-icon="priority_high">priority_high</span>
+<p class="text-label-md font-label-md text-primary font-medium">
+          ذروة الاستهلاك: <strong class="text-error font-bold">16.8 ك.و.س</strong> يوم الاثنين بسبب تشغيل التكييف لفترة مطولة
+        </p>
+</div>
+<!-- Stylized Bar Chart -->
+<div class="pt-3 pb-1">
+<div class="h-40 flex items-end justify-between gap-2 px-1">
+<!-- السبت -->
+<div class="flex-1 flex flex-col items-center gap-1.5 group cursor-pointer">
+<span class="text-[10px] text-on-surface-variant opacity-0 group-hover:opacity-100 transition-opacity">10.2</span>
+<div class="w-full bg-surface-container rounded-t-lg transition-all duration-300 group-hover:bg-secondary-container h-[55%] relative"></div>
+<span class="text-label-sm font-label-sm text-on-surface-variant">السبت</span>
+</div>
+<!-- الأحد -->
+<div class="flex-1 flex flex-col items-center gap-1.5 group cursor-pointer">
+<span class="text-[10px] text-on-surface-variant opacity-0 group-hover:opacity-100 transition-opacity">11.8</span>
+<div class="w-full bg-surface-container rounded-t-lg transition-all duration-300 group-hover:bg-secondary-container h-[64%] relative"></div>
+<span class="text-label-sm font-label-sm text-on-surface-variant">الأحد</span>
+</div>
+<!-- الاثنين (Peak) -->
+<div class="flex-1 flex flex-col items-center gap-1.5 group cursor-pointer">
+<div class="bg-primary text-secondary-fixed text-[10px] font-bold px-1.5 py-0.5 rounded-full shadow-sm">16.8</div>
+<div class="w-full bg-primary-container rounded-t-lg transition-all duration-300 h-[92%] relative overflow-hidden">
+<div class="absolute inset-0 bg-secondary/30"></div>
+</div>
+<span class="text-label-sm font-label-sm text-primary font-bold">الاثنين</span>
+</div>
+<!-- الثلاثاء -->
+<div class="flex-1 flex flex-col items-center gap-1.5 group cursor-pointer">
+<span class="text-[10px] text-on-surface-variant opacity-0 group-hover:opacity-100 transition-opacity">12.5</span>
+<div class="w-full bg-secondary-container/80 rounded-t-lg transition-all duration-300 group-hover:bg-secondary-container h-[68%] relative"></div>
+<span class="text-label-sm font-label-sm text-on-surface-variant">الثلاثاء</span>
+</div>
+<!-- الأربعاء -->
+<div class="flex-1 flex flex-col items-center gap-1.5 group cursor-pointer">
+<span class="text-[10px] text-on-surface-variant opacity-0 group-hover:opacity-100 transition-opacity">9.7</span>
+<div class="w-full bg-surface-container rounded-t-lg transition-all duration-300 group-hover:bg-secondary-container h-[52%] relative"></div>
+<span class="text-label-sm font-label-sm text-on-surface-variant">الأربعاء</span>
+</div>
+<!-- الخميس -->
+<div class="flex-1 flex flex-col items-center gap-1.5 group cursor-pointer">
+<span class="text-[10px] text-on-surface-variant opacity-0 group-hover:opacity-100 transition-opacity">13.1</span>
+<div class="w-full bg-secondary-container/80 rounded-t-lg transition-all duration-300 group-hover:bg-secondary-container h-[72%] relative"></div>
+<span class="text-label-sm font-label-sm text-on-surface-variant">الخميس</span>
+</div>
+<!-- الجمعة -->
+<div class="flex-1 flex flex-col items-center gap-1.5 group cursor-pointer">
+<span class="text-[10px] text-on-surface-variant opacity-0 group-hover:opacity-100 transition-opacity">8.4</span>
+<div class="w-full bg-surface-container rounded-t-lg transition-all duration-300 group-hover:bg-secondary-container h-[45%] relative"></div>
+<span class="text-label-sm font-label-sm text-on-surface-variant">الجمعة</span>
+</div>
+</div>
+<div class="border-t border-outline-variant/30 mt-2 pt-2 flex items-center justify-between text-body-sm font-body-sm text-on-surface-variant">
+<span class="flex items-center gap-1.5">
+<span class="w-2.5 h-2.5 rounded-full bg-primary-container"></span> ذروة الاستهلاك
+          </span>
+<span class="flex items-center gap-1.5">
+<span class="w-2.5 h-2.5 rounded-full bg-secondary-container"></span> استهلاك معتدل
+          </span>
+<span class="flex items-center gap-1.5">
+<span class="w-2.5 h-2.5 rounded-full bg-surface-container"></span> اقتصادي
+          </span>
+</div>
+</div>
+</div>
+<!-- Appliance Energy Distribution Card (Donut Chart & Breakdown) -->
+<div class="bg-surface-container-lowest rounded-2xl p-4 border border-outline-variant/30 shadow-[0px_2px_8px_rgba(20,90,70,0.04)] space-y-4">
+<div class="flex items-center justify-between">
+<div>
+<h2 class="text-headline-sm font-headline-sm text-primary">توزيع استهلاك الأجهزة</h2>
+<p class="text-body-sm font-body-sm text-on-surface-variant">الحصة النسبية لكل جهاز من إجمالي الفاتورة</p>
+</div>
+<span class="bg-secondary-container/60 text-secondary font-label-sm text-label-sm px-2.5 py-1 rounded-full font-semibold">5 أجهزة نشطة</span>
+</div>
+<!-- Donut Visual + Quick Summary Grid -->
+<div class="flex items-center gap-4 bg-surface-container-low p-3.5 rounded-xl border border-outline-variant/20">
+<!-- SVG Donut Chart -->
+<div class="relative w-28 h-28 flex-shrink-0 flex items-center justify-center">
+<svg class="w-28 h-28 transform -rotate-90" viewbox="0 0 36 36">
+<!-- Background circle -->
+<path class="text-surface-container-high" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="currentColor" stroke-width="4.5"></path>
+<!-- Segment 1: AC (42%) #145a46 -->
+<path d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="#145a46" stroke-dasharray="42, 100" stroke-linecap="round" stroke-width="4.8"></path>
+<!-- Segment 2: Fridge (26%) #006c53 -->
+<path d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="#006c53" stroke-dasharray="26, 100" stroke-dashoffset="-42" stroke-linecap="round" stroke-width="4.8"></path>
+<!-- Segment 3: Water Heater (14%) #7ed7b8 -->
+<path d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="#7ed7b8" stroke-dasharray="14, 100" stroke-dashoffset="-68" stroke-linecap="round" stroke-width="4.8"></path>
+<!-- Segment 4: Washing Machine (10%) #9af4d4 -->
+<path d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="#9af4d4" stroke-dasharray="10, 100" stroke-dashoffset="-82" stroke-linecap="round" stroke-width="4.8"></path>
+<!-- Segment 5: Lights & TV (8%) #d2e7de -->
+<path d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="#b6cbc2" stroke-dasharray="8, 100" stroke-dashoffset="-92" stroke-linecap="round" stroke-width="4.8"></path>
+</svg>
+<div class="absolute inset-0 flex flex-col items-center justify-center text-center">
+<span class="text-headline-sm font-headline-sm text-primary leading-none">342</span>
+<span class="text-[10px] text-on-surface-variant font-label-sm">ك.و.س/شهر</span>
+</div>
+</div>
+<div class="flex-1 space-y-1.5">
+<div class="flex items-center justify-between text-body-sm font-body-sm">
+<span class="flex items-center gap-1.5 text-on-surface">
+<span class="w-2.5 h-2.5 rounded-full bg-primary-container"></span> التكييفات
+            </span>
+<span class="font-bold text-primary">42%</span>
+</div>
+<div class="flex items-center justify-between text-body-sm font-body-sm">
+<span class="flex items-center gap-1.5 text-on-surface">
+<span class="w-2.5 h-2.5 rounded-full bg-secondary"></span> الثلاجة
+            </span>
+<span class="font-bold text-primary">26%</span>
+</div>
+<div class="flex items-center justify-between text-body-sm font-body-sm">
+<span class="flex items-center gap-1.5 text-on-surface">
+<span class="w-2.5 h-2.5 rounded-full bg-secondary-fixed-dim"></span> سخان المياه
+            </span>
+<span class="font-bold text-primary">14%</span>
+</div>
+<div class="flex items-center justify-between text-body-sm font-body-sm">
+<span class="flex items-center gap-1.5 text-on-surface">
+<span class="w-2.5 h-2.5 rounded-full bg-secondary-container"></span> الغسالة وغيرها
+            </span>
+<span class="font-bold text-primary">18%</span>
+</div>
+</div>
+</div>
+<!-- Appliance Detailed Breakdown List -->
+<div class="space-y-2.5 pt-1">
+<!-- Item 1: Air Conditioner -->
+<div class="p-3 rounded-xl bg-surface-container-lowest border border-outline-variant/30 flex items-center justify-between hover:border-secondary transition-all">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-xl bg-primary-container text-on-primary flex items-center justify-center shadow-sm">
+<span class="material-symbols-outlined" data-icon="ac_unit">ac_unit</span>
+</div>
+<div>
+<h3 class="text-body-md font-label-lg font-semibold text-primary">تكييف غرفة المعيشة</h3>
+<p class="text-label-sm font-label-sm text-on-surface-variant">1.5 حصان (1500 واط) • تشغيل 8 ساعات</p>
+</div>
+</div>
+<div class="text-left">
+<div class="text-label-lg font-label-lg font-bold text-primary">143.6 <span class="text-label-sm font-label-sm font-normal">ك.و.س</span></div>
+<div class="text-label-sm font-label-sm text-secondary font-semibold">203.90 ج.م <span class="text-on-surface-variant font-normal">(42%)</span></div>
+</div>
+</div>
+<!-- Item 2: Refrigerator -->
+<div class="p-3 rounded-xl bg-surface-container-lowest border border-outline-variant/30 flex items-center justify-between hover:border-secondary transition-all">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-xl bg-surface-container-high text-secondary flex items-center justify-center">
+<span class="material-symbols-outlined" data-icon="kitchen">kitchen</span>
+</div>
+<div>
+<h3 class="text-body-md font-label-lg font-semibold text-primary">الثلاجة المنزلية</h3>
+<p class="text-label-sm font-label-sm text-on-surface-variant">300 واط مستمر • كفاءة طاقة A+</p>
+</div>
+</div>
+<div class="text-left">
+<div class="text-label-lg font-label-lg font-bold text-primary">88.9 <span class="text-label-sm font-label-sm font-normal">ك.و.س</span></div>
+<div class="text-label-sm font-label-sm text-secondary font-semibold">126.20 ج.م <span class="text-on-surface-variant font-normal">(26%)</span></div>
+</div>
+</div>
+<!-- Item 3: Water Heater -->
+<div class="p-3 rounded-xl bg-surface-container-lowest border border-outline-variant/30 flex items-center justify-between hover:border-secondary transition-all">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-xl bg-surface-container-high text-secondary flex items-center justify-center">
+<span class="material-symbols-outlined" data-icon="water_heater">water_heater</span>
+</div>
+<div>
+<h3 class="text-body-md font-label-lg font-semibold text-primary">سخان المياه الكهربائي</h3>
+<p class="text-label-sm font-label-sm text-on-surface-variant">1200 واط • سعة 50 لتر</p>
+</div>
+</div>
+<div class="text-left">
+<div class="text-label-lg font-label-lg font-bold text-primary">47.8 <span class="text-label-sm font-label-sm font-normal">ك.و.س</span></div>
+<div class="text-label-sm font-label-sm text-secondary font-semibold">67.90 ج.م <span class="text-on-surface-variant font-normal">(14%)</span></div>
+</div>
+</div>
+<!-- Item 4: Washing Machine -->
+<div class="p-3 rounded-xl bg-surface-container-lowest border border-outline-variant/30 flex items-center justify-between hover:border-secondary transition-all">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-xl bg-surface-container-high text-secondary flex items-center justify-center">
+<span class="material-symbols-outlined" data-icon="local_laundry_service">local_laundry_service</span>
+</div>
+<div>
+<h3 class="text-body-md font-label-lg font-semibold text-primary">الغسالة الفول أوتوماتيك</h3>
+<p class="text-label-sm font-label-sm text-on-surface-variant">500 واط • 4 دورات أسبوعياً</p>
+</div>
+</div>
+<div class="text-left">
+<div class="text-label-lg font-label-lg font-bold text-primary">34.2 <span class="text-label-sm font-label-sm font-normal">ك.و.س</span></div>
+<div class="text-label-sm font-label-sm text-secondary font-semibold">48.55 ج.م <span class="text-on-surface-variant font-normal">(10%)</span></div>
+</div>
+</div>
+<!-- Item 5: Lighting & TV -->
+<div class="p-3 rounded-xl bg-surface-container-lowest border border-outline-variant/30 flex items-center justify-between hover:border-secondary transition-all">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-xl bg-surface-container-high text-secondary flex items-center justify-center">
+<span class="material-symbols-outlined" data-icon="tv">tv</span>
+</div>
+<div>
+<h3 class="text-body-md font-label-lg font-semibold text-primary">إضاءة وشاشات</h3>
+<p class="text-label-sm font-label-sm text-on-surface-variant">LED موفرة + شاشة سمارت 55 بوصة</p>
+</div>
+</div>
+<div class="text-left">
+<div class="text-label-lg font-label-lg font-bold text-primary">27.5 <span class="text-label-sm font-label-sm font-normal">ك.و.س</span></div>
+<div class="text-label-sm font-label-sm text-secondary font-semibold">38.95 ج.م <span class="text-on-surface-variant font-normal">(8%)</span></div>
+</div>
+</div>
+</div>
+</div>
+<!-- Quick Simulator Action Teaser Card -->
+<div class="bg-gradient-to-l from-primary-container to-secondary text-on-primary rounded-2xl p-4 shadow-sm relative overflow-hidden">
+<div class="relative z-10 space-y-3">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary-fixed" data-icon="tune">tune</span>
+<span class="text-label-lg font-label-lg font-bold text-secondary-fixed">محاكي التوفير (Scenario Simulator)</span>
+</div>
+<p class="text-body-md font-body-md text-white/95 leading-relaxed">
+          قلل تشغيل التكييف ساعتين يومياً لتوفر ما يصل إلى <strong class="text-secondary-fixed font-bold">95 ج.م</strong> شهرياً مع البقاء في حدود الشريحة الحالية.
+        </p>
+<button class="w-full bg-surface-container-lowest text-primary hover:bg-secondary-container transition-colors py-3 px-4 rounded-xl font-label-lg text-label-lg font-bold flex items-center justify-center gap-2 active:scale-95 shadow-sm">
+<span>تجربة المحاكي الآن</span>
+<span class="material-symbols-outlined text-base" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</div>
+<div class="absolute -right-8 -top-8 w-32 h-32 bg-white/10 rounded-full blur-2xl pointer-events-none"></div>
+</div>
+</main>
+<!-- Shared Component: BottomNavBar -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-space-xs py-2 pb-safe bg-surface-container-lowest/95 dark:bg-inverse-surface/95 backdrop-blur-md border-t border-outline-variant/30 dark:border-outline-variant/10 shadow-[0_-4px_20px_rgba(23,43,36,0.06)] dark:shadow-none">
+<!-- Tab 1: الرئيسية -->
+<button class="flex flex-col items-center justify-center text-on-surface-variant dark:text-surface-variant px-3 py-1 hover:text-primary dark:hover:text-inverse-primary transition-colors duration-150 active:scale-95">
+<span class="material-symbols-outlined text-2xl" data-icon="home">home</span>
+<span class="text-label-sm font-label-sm mt-0.5">الرئيسية</span>
+</button>
+<!-- Tab 2: القراءات -->
+<button class="flex flex-col items-center justify-center text-on-surface-variant dark:text-surface-variant px-3 py-1 hover:text-primary dark:hover:text-inverse-primary transition-colors duration-150 active:scale-95">
+<span class="material-symbols-outlined text-2xl" data-icon="speed">speed</span>
+<span class="text-label-sm font-label-sm mt-0.5">القراءات</span>
+</button>
+<!-- Tab 3: التحليلات (Active) -->
+<button class="flex flex-col items-center justify-center bg-secondary-container dark:bg-primary-container text-primary dark:text-on-primary-container rounded-full px-3 py-1 font-semibold hover:text-primary dark:hover:text-inverse-primary transition-colors duration-150 active:scale-95">
+<span class="material-symbols-outlined text-2xl material-symbols-fill" data-icon="analytics">analytics</span>
+<span class="text-label-sm font-label-sm mt-0.5">التحليلات</span>
+</button>
+<!-- Tab 4: الأجهزة -->
+<button class="flex flex-col items-center justify-center text-on-surface-variant dark:text-surface-variant px-3 py-1 hover:text-primary dark:hover:text-inverse-primary transition-colors duration-150 active:scale-95">
+<span class="material-symbols-outlined text-2xl" data-icon="kitchen">kitchen</span>
+<span class="text-label-sm font-label-sm mt-0.5">الأجهزة</span>
+</button>
+<!-- Tab 5: الإعدادات -->
+<button class="flex flex-col items-center justify-center text-on-surface-variant dark:text-surface-variant px-3 py-1 hover:text-primary dark:hover:text-inverse-primary transition-colors duration-150 active:scale-95">
+<span class="material-symbols-outlined text-2xl" data-icon="settings">settings</span>
+<span class="text-label-sm font-label-sm mt-0.5">الإعدادات</span>
+</button>
+</nav>
+</body></html>
