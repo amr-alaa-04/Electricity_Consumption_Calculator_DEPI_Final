@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+
+<html dir="rtl" lang="ar"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>حساب دقيق وفق شرائح الكهرباء المصرية</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&amp;family=IBM+Plex+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "primary": "#004131",
+            "outline-variant": "#bfc9c3",
+            "on-error-container": "#93000a",
+            "surface-container-low": "#e7f7ee",
+            "on-tertiary": "#ffffff",
+            "surface-container-highest": "#d6e6dd",
+            "primary-container": "#145a46",
+            "error-container": "#ffdad6",
+            "on-primary": "#ffffff",
+            "background": "#edfdf3",
+            "primary-fixed": "#aef0d6",
+            "tertiary-fixed": "#d2e7de",
+            "on-secondary": "#ffffff",
+            "surface-dim": "#ceded4",
+            "on-primary-container": "#8ecfb6",
+            "secondary-container": "#9af4d4",
+            "on-error": "#ffffff",
+            "surface-container": "#e2f2e8",
+            "surface-bright": "#edfdf3",
+            "on-secondary-container": "#027259",
+            "surface-container-lowest": "#ffffff",
+            "surface": "#edfdf3",
+            "secondary": "#006c53",
+            "on-tertiary-container": "#b2c7be",
+            "on-tertiary-fixed": "#0c1f19",
+            "inverse-primary": "#92d4ba",
+            "error": "#ba1a1a",
+            "tertiary": "#2a3d36",
+            "tertiary-fixed-dim": "#b6cbc2",
+            "on-background": "#111e19",
+            "on-surface-variant": "#404944",
+            "inverse-on-surface": "#e5f5eb",
+            "on-secondary-fixed-variant": "#00513e",
+            "primary-fixed-dim": "#92d4ba",
+            "on-secondary-fixed": "#002117",
+            "outline": "#707974",
+            "tertiary-container": "#40544d",
+            "on-primary-fixed-variant": "#04513d",
+            "secondary-fixed": "#9af4d4",
+            "secondary-fixed-dim": "#7ed7b8",
+            "surface-container-high": "#dcece2",
+            "on-surface": "#111e19",
+            "inverse-surface": "#26332d",
+            "on-primary-fixed": "#002117",
+            "on-tertiary-fixed-variant": "#384b44",
+            "surface-variant": "#d6e6dd",
+            "surface-tint": "#276954"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "space-sm": "0.5rem",
+            "margin": "1.5rem",
+            "margin-mobile": "1rem",
+            "gutter": "1rem",
+            "space-md": "1rem",
+            "space-xs": "0.25rem",
+            "space-lg": "1.5rem",
+            "space-xl": "2rem",
+            "gutter-mobile": "0.75rem"
+          },
+          "fontFamily": {
+            "headline-lg": ["IBM Plex Sans Arabic", "IBM Plex Sans", "sans-serif"],
+            "label-lg": ["IBM Plex Sans Arabic", "IBM Plex Sans", "sans-serif"],
+            "headline-lg-mobile": ["IBM Plex Sans Arabic", "IBM Plex Sans", "sans-serif"],
+            "body-lg": ["IBM Plex Sans Arabic", "IBM Plex Sans", "sans-serif"],
+            "headline-sm": ["IBM Plex Sans Arabic", "IBM Plex Sans", "sans-serif"],
+            "label-md": ["IBM Plex Sans Arabic", "IBM Plex Sans", "sans-serif"],
+            "label-sm": ["IBM Plex Sans Arabic", "IBM Plex Sans", "sans-serif"],
+            "currency-display-mobile": ["IBM Plex Sans Arabic", "IBM Plex Sans", "sans-serif"],
+            "display-lg-mobile": ["IBM Plex Sans Arabic", "IBM Plex Sans", "sans-serif"],
+            "body-md": ["IBM Plex Sans Arabic", "IBM Plex Sans", "sans-serif"],
+            "body-sm": ["IBM Plex Sans Arabic", "IBM Plex Sans", "sans-serif"],
+            "headline-md": ["IBM Plex Sans Arabic", "IBM Plex Sans", "sans-serif"],
+            "display-lg": ["IBM Plex Sans Arabic", "IBM Plex Sans", "sans-serif"],
+            "currency-display": ["IBM Plex Sans Arabic", "IBM Plex Sans", "sans-serif"]
+          },
+          "fontSize": {
+            "headline-lg": ["28px", { "lineHeight": "36px", "fontWeight": "600" }],
+            "label-lg": ["14px", { "lineHeight": "20px", "fontWeight": "600" }],
+            "headline-lg-mobile": ["24px", { "lineHeight": "32px", "fontWeight": "600" }],
+            "body-lg": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+            "headline-sm": ["18px", { "lineHeight": "24px", "fontWeight": "600" }],
+            "label-md": ["12px", { "lineHeight": "16px", "fontWeight": "500" }],
+            "label-sm": ["11px", { "lineHeight": "14px", "fontWeight": "500" }],
+            "currency-display-mobile": ["32px", { "lineHeight": "40px", "fontWeight": "700" }],
+            "display-lg-mobile": ["30px", { "lineHeight": "38px", "fontWeight": "700" }],
+            "body-md": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+            "body-sm": ["12px", { "lineHeight": "16px", "fontWeight": "400" }],
+            "headline-md": ["20px", { "lineHeight": "28px", "fontWeight": "600" }],
+            "display-lg": ["36px", { "lineHeight": "44px", "fontWeight": "700" }],
+            "currency-display": ["40px", { "lineHeight": "48px", "fontWeight": "700" }]
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    body {
+      font-family: 'IBM Plex Sans Arabic', 'IBM Plex Sans', sans-serif;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1;
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-surface min-h-screen flex flex-col justify-between selection:bg-secondary-container selection:text-primary relative overflow-x-hidden">
+<!-- Background Decorative Tint Aura -->
+<div class="pointer-events-none fixed top-0 right-0 w-80 h-80 bg-primary-fixed/20 rounded-full blur-3xl -z-10 -mr-20 -mt-20"></div>
+<div class="pointer-events-none fixed bottom-20 left-0 w-64 h-64 bg-secondary-fixed/15 rounded-full blur-3xl -z-10 -ml-16"></div>
+<!-- Screen Container (Mobile Layout Viewport) -->
+<div class="w-full max-w-md mx-auto flex-1 flex flex-col justify-between px-space-md pt-space-md pb-6">
+<!-- Top Action Bar (Skip Right, Back Left in RTL) -->
+<header class="flex items-center justify-between w-full h-12">
+<!-- Skip Action (Top Right in RTL) -->
+<button class="text-primary hover:text-secondary active:scale-95 transition-all text-label-lg font-label-lg py-2 px-3 rounded-full hover:bg-surface-container" type="button">
+        تخطي
+      </button>
+<!-- Step Counter Tag -->
+<div class="flex items-center gap-1.5 px-3 py-1 rounded-full bg-surface-container border border-outline-variant/30">
+<span class="text-primary text-label-sm font-label-sm">الخطوة</span>
+<span class="text-primary font-bold text-label-sm font-label-sm">2</span>
+<span class="text-on-surface-variant text-label-sm font-label-sm">من 4</span>
+</div>
+<!-- Back Action (Top Left in RTL) -->
+<button aria-label="السابق" class="w-10 h-10 rounded-full flex items-center justify-center text-on-surface-variant hover:text-primary hover:bg-surface-container active:scale-95 transition-all border border-outline-variant/20" type="button">
+<span class="material-symbols-outlined" style="transform: scaleX(-1);">arrow_back</span>
+</button>
+</header>
+<!-- Main Content Canvas -->
+<main class="flex-1 flex flex-col justify-center my-4 space-y-6">
+<!-- Hero Visual: Stacked Progressive Tariff Cards & Calculation Preview -->
+<div class="relative w-full pt-4 pb-2">
+<!-- Ambient Elevation Glow -->
+<div class="absolute inset-x-8 top-12 bottom-4 bg-primary/10 rounded-3xl blur-xl -z-10"></div>
+<!-- Layer 1: Background Tier 3 Preview Card -->
+<div class="mx-auto w-[88%] bg-surface-container-high/90 border border-outline-variant/40 rounded-2xl p-3 shadow-sm transform -translate-y-3 scale-95 opacity-80 flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="w-2.5 h-2.5 rounded-full bg-outline"></span>
+<span class="text-on-surface-variant text-body-sm font-body-sm">الشريحة 3 (101 - 200 ك.و.س)</span>
+</div>
+<span class="text-on-surface-variant text-body-sm font-body-sm font-semibold">120 قرش/ك.و</span>
+</div>
+<!-- Layer 2: Main Active Tier Card (Egyptian Progressive Brackets Focus) -->
+<div class="relative bg-primary-container text-on-primary rounded-2xl p-5 shadow-[0px_6px_20px_rgba(20,90,70,0.18)] border border-primary-fixed/20 -mt-2 overflow-hidden">
+<!-- Glass Accent Pattern -->
+<div class="absolute -right-8 -bottom-8 w-28 h-28 bg-surface-bright/10 rounded-full blur-xl pointer-events-none"></div>
+<!-- Card Header & Bracket Badge -->
+<div class="flex items-center justify-between mb-4">
+<div class="flex items-center gap-2.5">
+<div class="w-9 h-9 rounded-xl bg-surface-container-lowest/15 flex items-center justify-center backdrop-blur-sm text-secondary-fixed">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">bolt</span>
+</div>
+<div>
+<span class="text-on-primary-container text-label-sm font-label-sm block">الشريحة الحالية المستهدفة</span>
+<h3 class="text-on-primary text-headline-sm font-headline-sm tracking-tight">الشريحة 2 (51 - 100 ك.و.س)</h3>
+</div>
+</div>
+<span class="inline-flex items-center px-2.5 py-1 rounded-full bg-secondary-fixed/20 border border-secondary-fixed/30 text-secondary-fixed text-label-sm font-label-sm">
+              نشطة الآن
+            </span>
+</div>
+<!-- Live Tariff Cost Metric Simulation -->
+<div class="bg-surface-container-lowest/10 backdrop-blur-md rounded-xl p-3.5 border border-surface-container-lowest/10 flex items-baseline justify-between mb-4">
+<div>
+<span class="text-on-primary-container text-label-sm font-label-sm block mb-0.5">القيمة المقدرة للاستهلاك</span>
+<div class="flex items-baseline gap-1.5">
+<span class="text-on-primary text-currency-display-mobile font-currency-display-mobile">148.50</span>
+<span class="text-primary-fixed text-headline-sm font-headline-sm">ج.م</span>
+</div>
+</div>
+<div class="text-left">
+<span class="text-on-primary-container text-label-sm font-label-sm block mb-0.5">الرصيد المكافئ</span>
+<span class="text-on-primary font-bold text-headline-sm font-headline-sm">95 <span class="text-label-sm font-label-sm font-normal text-on-primary-container">ك.و.س</span></span>
+</div>
+</div>
+<!-- Bracket Proximity Meter (Smart Threshold Gauge) -->
+<div class="space-y-1.5">
+<div class="flex justify-between items-center text-label-sm font-label-sm">
+<span class="text-on-primary-container">مؤشر أمان الشريحة</span>
+<span class="text-secondary-fixed font-semibold">باقي 5 ك.و.س قبل القفز للشريحة 3</span>
+</div>
+<div class="w-full h-2.5 bg-surface-container-lowest/20 rounded-full overflow-hidden p-0.5 flex">
+<div class="h-full bg-secondary-fixed rounded-full transition-all duration-500" style="width: 82%;"></div>
+</div>
+<div class="flex justify-between text-on-primary-container/80 text-[10px] pt-0.5">
+<span>50 ك.و</span>
+<span class="text-secondary-fixed">82% من سعة الشريحة</span>
+<span>100 ك.و</span>
+</div>
+</div>
+</div>
+<!-- Tariff Progression Stacked Steps Preview (5 Progressive Tiers) -->
+<div class="mt-3 grid grid-cols-5 gap-1.5 px-1">
+<div class="bg-surface-container-highest/70 border border-outline-variant/30 rounded-lg p-1.5 text-center">
+<span class="block text-[10px] text-on-surface-variant font-medium">شريحة 1</span>
+<span class="block text-label-sm font-label-sm font-bold text-primary">68 ق</span>
+</div>
+<div class="bg-secondary-container/50 border border-secondary/30 rounded-lg p-1.5 text-center shadow-xs">
+<span class="block text-[10px] text-primary font-bold">شريحة 2</span>
+<span class="block text-label-sm font-label-sm font-bold text-secondary">78 ق</span>
+</div>
+<div class="bg-surface-container-highest/70 border border-outline-variant/30 rounded-lg p-1.5 text-center opacity-75">
+<span class="block text-[10px] text-on-surface-variant font-medium">شريحة 3</span>
+<span class="block text-label-sm font-label-sm font-bold text-on-surface-variant">95 ق</span>
+</div>
+<div class="bg-surface-container-highest/70 border border-outline-variant/30 rounded-lg p-1.5 text-center opacity-60">
+<span class="block text-[10px] text-on-surface-variant font-medium">شريحة 4</span>
+<span class="block text-label-sm font-label-sm font-bold text-on-surface-variant">155 ق</span>
+</div>
+<div class="bg-surface-container-highest/70 border border-outline-variant/30 rounded-lg p-1.5 text-center opacity-45">
+<span class="block text-[10px] text-on-surface-variant font-medium">شريحة 5</span>
+<span class="block text-label-sm font-label-sm font-bold text-on-surface-variant">195 ق</span>
+</div>
+</div>
+</div>
+<!-- Typography Section -->
+<div class="text-center space-y-2 px-2">
+<h1 class="text-on-surface text-headline-lg-mobile font-headline-lg-mobile tracking-tight">
+          حساب دقيق وفق شرائح الكهرباء المصرية
+        </h1>
+<p class="text-on-surface-variant text-body-md font-body-md leading-relaxed">
+          احسب تكلفتك المقدرة بنظام حساب الشرائح التصاعدية المعمول به في مصر، وتعرف على الشريحة المستهدفة قبل صدور الفاتورة.
+        </p>
+</div>
+<!-- Key Benefits / Feature Points Card Bento Grid -->
+<div class="space-y-2.5">
+<!-- Feature 1: Complete Fees & Taxes Support -->
+<div class="bg-surface-container-lowest border border-outline-variant/30 rounded-xl p-3 flex items-start gap-3 shadow-[0px_2px_8px_rgba(20,90,70,0.04)]">
+<div class="w-8 h-8 rounded-lg bg-surface-container-low text-secondary flex items-center justify-center shrink-0 mt-0.5">
+<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">receipt_long</span>
+</div>
+<div>
+<h4 class="text-on-surface text-body-md font-body-md font-semibold mb-0.5">احتساب شامل لكل الرسوم الإضافية</h4>
+<p class="text-on-surface-variant text-body-sm font-body-sm leading-normal">دعم كامل لحساب الرسوم وخدمة العملاء والدمغات الحكومية طبقاً لآخر التحديثات الرسمية.</p>
+</div>
+</div>
+<!-- Feature 2: Smart Proximity Indicator -->
+<div class="bg-surface-container-lowest border border-outline-variant/30 rounded-xl p-3 flex items-start gap-3 shadow-[0px_2px_8px_rgba(20,90,70,0.04)]">
+<div class="w-8 h-8 rounded-lg bg-secondary-container/60 text-primary flex items-center justify-center shrink-0 mt-0.5">
+<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">speed</span>
+</div>
+<div>
+<h4 class="text-on-surface text-body-md font-body-md font-semibold mb-0.5">مؤشر استباقي لتغير الشريحة</h4>
+<p class="text-on-surface-variant text-body-sm font-body-sm leading-normal">مؤشر ذكي يوضح قرب انتقالك لشريحة أعلى وأغلى سعراً لتفادي الحساب بأثر رجعي.</p>
+</div>
+</div>
+<!-- Feature 3: Preventive Saving Guidance -->
+<div class="bg-surface-container-lowest border border-outline-variant/30 rounded-xl p-3 flex items-start gap-3 shadow-[0px_2px_8px_rgba(20,90,70,0.04)]">
+<div class="w-8 h-8 rounded-lg bg-surface-container-low text-secondary flex items-center justify-center shrink-0 mt-0.5">
+<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">lightbulb</span>
+</div>
+<div>
+<h4 class="text-on-surface text-body-md font-body-md font-semibold mb-0.5">إرشادات توفير مخصصة</h4>
+<p class="text-on-surface-variant text-body-sm font-body-sm leading-normal">نصائح لتفادي القفز للشريحة التالية بناءً على مواعيد تشغيل الأجهزة الأعلى استهلاكاً.</p>
+</div>
+</div>
+</div>
+</main>
+<!-- Bottom Section: Carousel Indicators & Action Buttons -->
+<footer class="pt-2 space-y-5">
+<!-- Carousel Indicators: 4 Dots with Step 2 Active (Pill Shape) -->
+<div aria-label="مؤشر صفحات التهيئة" class="flex items-center justify-center gap-2" role="tablist">
+<!-- Dot 1 -->
+<span class="w-2 h-2 rounded-full bg-outline-variant/50 transition-all duration-300"></span>
+<!-- Dot 2 (Active Step 2 - Pill Shape) -->
+<span aria-current="step" class="w-7 h-2 rounded-full bg-primary transition-all duration-300"></span>
+<!-- Dot 3 -->
+<span class="w-2 h-2 rounded-full bg-outline-variant/50 transition-all duration-300"></span>
+<!-- Dot 4 -->
+<span class="w-2 h-2 rounded-full bg-outline-variant/50 transition-all duration-300"></span>
+</div>
+<!-- Action Buttons Pair -->
+<div class="flex flex-col gap-2.5">
+<!-- Primary Action: التالي -->
+<button class="w-full h-[52px] bg-primary-container text-on-primary rounded-2xl flex items-center justify-center gap-2 text-headline-sm font-headline-sm font-semibold shadow-md active:scale-[0.98] hover:bg-primary transition-all duration-150" type="button">
+<span>التالي</span>
+<span class="material-symbols-outlined text-xl" style="transform: scaleX(-1);">arrow_forward</span>
+</button>
+<!-- Secondary Action: السابق -->
+<button class="w-full h-11 bg-transparent text-primary hover:bg-surface-container rounded-xl flex items-center justify-center text-body-md font-body-md font-semibold active:scale-[0.98] transition-all duration-150" type="button">
+          السابق
+        </button>
+</div>
+</footer>
+</div>
+</body></html>

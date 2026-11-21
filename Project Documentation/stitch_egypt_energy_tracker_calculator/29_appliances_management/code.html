@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+
+<html dir="rtl" lang="ar"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
+<title>إدارة الأجهزة الكهربائية - حاسبة استهلاك الكهرباء</title>
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Arabic & Global IBM Plex Sans -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&amp;family=IBM+Plex+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS v3 -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "on-tertiary-fixed-variant": "#384b44",
+            "on-surface": "#111e19",
+            "secondary-fixed-dim": "#7ed7b8",
+            "tertiary": "#2a3d36",
+            "on-secondary-fixed": "#002117",
+            "primary-fixed-dim": "#92d4ba",
+            "surface-container": "#e2f2e8",
+            "on-error": "#ffffff",
+            "on-tertiary-fixed": "#0c1f19",
+            "surface-container-high": "#dcece2",
+            "inverse-on-surface": "#e5f5eb",
+            "surface-container-low": "#e7f7ee",
+            "surface-bright": "#edfdf3",
+            "error-container": "#ffdad6",
+            "on-primary-fixed-variant": "#04513d",
+            "surface-dim": "#ceded4",
+            "on-primary-fixed": "#002117",
+            "tertiary-fixed-dim": "#b6cbc2",
+            "on-background": "#111e19",
+            "tertiary-container": "#40544d",
+            "on-secondary": "#ffffff",
+            "on-secondary-container": "#027259",
+            "secondary-fixed": "#9af4d4",
+            "inverse-primary": "#92d4ba",
+            "secondary-container": "#9af4d4",
+            "surface-tint": "#276954",
+            "inverse-surface": "#26332d",
+            "secondary": "#006c53",
+            "on-tertiary": "#ffffff",
+            "on-tertiary-container": "#b2c7be",
+            "surface-container-lowest": "#ffffff",
+            "surface-container-highest": "#d6e6dd",
+            "error": "#ba1a1a",
+            "on-primary-container": "#8ecfb6",
+            "primary-container": "#145a46",
+            "surface": "#edfdf3",
+            "tertiary-fixed": "#d2e7de",
+            "on-secondary-fixed-variant": "#00513e",
+            "background": "#edfdf3",
+            "outline": "#707974",
+            "on-surface-variant": "#404944",
+            "on-error-container": "#93000a",
+            "surface-variant": "#d6e6dd",
+            "primary-fixed": "#aef0d6",
+            "on-primary": "#ffffff",
+            "primary": "#004131",
+            "outline-variant": "#bfc9c3"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "gutter-mobile": "0.75rem",
+            "margin": "1.5rem",
+            "space-md": "1rem",
+            "space-xl": "2rem",
+            "margin-mobile": "1rem",
+            "gutter": "1rem",
+            "space-xs": "0.25rem",
+            "space-sm": "0.5rem",
+            "space-lg": "1.5rem"
+          },
+          "fontFamily": {
+            "body-lg": ["IBM Plex Sans Arabic", "IBM Plex Sans", "sans-serif"],
+            "label-sm": ["IBM Plex Sans Arabic", "IBM Plex Sans", "sans-serif"],
+            "label-lg": ["IBM Plex Sans Arabic", "IBM Plex Sans", "sans-serif"],
+            "label-md": ["IBM Plex Sans Arabic", "IBM Plex Sans", "sans-serif"],
+            "headline-lg-mobile": ["IBM Plex Sans Arabic", "IBM Plex Sans", "sans-serif"],
+            "headline-lg": ["IBM Plex Sans Arabic", "IBM Plex Sans", "sans-serif"],
+            "currency-display": ["IBM Plex Sans Arabic", "IBM Plex Sans", "sans-serif"],
+            "currency-display-mobile": ["IBM Plex Sans Arabic", "IBM Plex Sans", "sans-serif"],
+            "display-lg-mobile": ["IBM Plex Sans Arabic", "IBM Plex Sans", "sans-serif"],
+            "body-sm": ["IBM Plex Sans Arabic", "IBM Plex Sans", "sans-serif"],
+            "display-lg": ["IBM Plex Sans Arabic", "IBM Plex Sans", "sans-serif"],
+            "headline-sm": ["IBM Plex Sans Arabic", "IBM Plex Sans", "sans-serif"],
+            "headline-md": ["IBM Plex Sans Arabic", "IBM Plex Sans", "sans-serif"],
+            "body-md": ["IBM Plex Sans Arabic", "IBM Plex Sans", "sans-serif"]
+          },
+          "fontSize": {
+            "body-lg": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+            "label-sm": ["11px", { "lineHeight": "14px", "fontWeight": "500" }],
+            "label-lg": ["14px", { "lineHeight": "20px", "fontWeight": "600" }],
+            "label-md": ["12px", { "lineHeight": "16px", "fontWeight": "500" }],
+            "headline-lg-mobile": ["24px", { "lineHeight": "32px", "fontWeight": "600" }],
+            "headline-lg": ["28px", { "lineHeight": "36px", "fontWeight": "600" }],
+            "currency-display": ["40px", { "lineHeight": "48px", "fontWeight": "700" }],
+            "currency-display-mobile": ["32px", { "lineHeight": "40px", "fontWeight": "700" }],
+            "display-lg-mobile": ["30px", { "lineHeight": "38px", "fontWeight": "700" }],
+            "body-sm": ["12px", { "lineHeight": "16px", "fontWeight": "400" }],
+            "display-lg": ["36px", { "lineHeight": "44px", "fontWeight": "700" }],
+            "headline-sm": ["18px", { "lineHeight": "24px", "fontWeight": "600" }],
+            "headline-md": ["20px", { "lineHeight": "28px", "fontWeight": "600" }],
+            "body-md": ["14px", { "lineHeight": "20px", "fontWeight": "400" }]
+          }
+        },
+      },
+    }
+  </script>
+<style>
+    body {
+      background-color: #F7F9F7;
+      font-family: 'IBM Plex Sans Arabic', 'IBM Plex Sans', sans-serif;
+      -webkit-font-smoothing: antialiased;
+      -webkit-tap-highlight-color: transparent;
+    }
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      line-height: 1;
+      display: inline-block;
+      vertical-align: middle;
+    }
+    .material-symbols-outlined.fill {
+      font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    }
+    .no-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+    .no-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-surface antialiased min-h-screen flex flex-col justify-between selection:bg-secondary-container selection:text-primary">
+<!-- Main Mobile App Shell Max Container -->
+<div class="w-full max-w-[480px] mx-auto min-h-screen flex flex-col bg-surface shadow-xl relative pb-28">
+<!-- TOP APP BAR (Shared Components Tokenization) -->
+<header class="sticky top-0 z-40 bg-surface-container-lowest/90 backdrop-blur-md px-space-md py-3 flex items-center justify-between shadow-sm">
+<div class="flex items-center gap-2.5">
+<button aria-label="الرجوع" class="w-10 h-10 rounded-full flex items-center justify-center text-primary hover:bg-surface-container transition-colors duration-150 active:scale-95">
+<span class="material-symbols-outlined" data-icon="arrow_forward">arrow_forward</span>
+</button>
+<div>
+<h1 class="text-headline-sm font-headline-sm text-primary tracking-tight font-bold">إدارة الأجهزة الكهربائية</h1>
+<p class="text-label-sm font-label-sm text-on-surface-variant">متابعة كفاءة واستهلاك الأجهزة المنزلية</p>
+</div>
+</div>
+<!-- Quick Action: Open Modal -->
+<button class="flex items-center gap-1.5 bg-primary-container text-on-primary px-3 py-1.5 rounded-full text-label-md font-label-lg shadow-sm hover:opacity-95 active:scale-95 transition-transform duration-150" onclick="toggleModal(true)">
+<span class="material-symbols-outlined text-[18px]" data-icon="add">add</span>
+<span>إضافة</span>
+</button>
+</header>
+<!-- MAIN SCROLLABLE CONTENT CANVAS -->
+<main class="px-space-md pt-3 space-y-4 flex-1">
+<!-- SUMMARY HERO CARD: Deep Forest Green #145A46 (Tier/Appliance Matrix) -->
+<section class="bg-primary-container text-on-primary rounded-2xl p-4 shadow-[0px_4px_16px_rgba(20,90,70,0.12)] relative overflow-hidden">
+<!-- Ambient Decorative Circles -->
+<div class="absolute -left-10 -bottom-10 w-36 h-36 rounded-full bg-secondary-fixed opacity-10 pointer-events-none"></div>
+<div class="absolute right-0 top-0 w-24 h-24 rounded-full bg-on-primary-container opacity-10 pointer-events-none"></div>
+<div class="relative z-10">
+<!-- Top Row: Badge & Active Count -->
+<div class="flex justify-between items-center mb-3">
+<span class="inline-flex items-center gap-1 bg-surface-container-lowest/15 backdrop-blur-sm text-secondary-fixed text-label-sm font-label-md px-2.5 py-1 rounded-full border border-secondary-fixed/20">
+<span class="material-symbols-outlined text-[15px]" data-icon="devices">devices</span>
+              5 أجهزة مسجلة ونشطة
+            </span>
+<span class="inline-flex items-center gap-1 bg-secondary-container text-primary font-bold text-label-sm px-2.5 py-0.5 rounded-full">
+<span class="material-symbols-outlined text-[14px]" data-icon="eco">eco</span>
+              كفاءة الاستهلاك 84%
+            </span>
+</div>
+<!-- Middle Row: Financial Impact Forecast -->
+<div class="grid grid-cols-2 gap-3 py-2 border-y border-white/10">
+<div>
+<p class="text-on-primary-container text-label-sm font-label-sm mb-0.5">إجمالي الاستهلاك الشهري</p>
+<div class="flex items-baseline gap-1">
+<span class="text-headline-lg-mobile font-headline-lg-mobile font-bold tracking-tight text-white">342</span>
+<span class="text-label-md text-on-primary-container">ك.و.س/شهر</span>
+</div>
+</div>
+<div>
+<p class="text-on-primary-container text-label-sm font-label-sm mb-0.5">التكلفة التقديرية (الشريحة 4)</p>
+<div class="flex items-baseline gap-1">
+<span class="text-headline-lg-mobile font-headline-lg-mobile font-bold tracking-tight text-secondary-fixed">485.50</span>
+<span class="text-label-md text-secondary-fixed">ج.م</span>
+</div>
+</div>
+</div>
+<!-- Bottom Micro Tip -->
+<div class="mt-3 flex items-center justify-between text-label-sm text-white/80">
+<span class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px] text-secondary-fixed" data-icon="bolt">bolt</span>
+              أكبر مستهلك: تكييف غرفة المعيشة (42%)
+            </span>
+<button class="underline text-secondary-fixed hover:text-white transition-colors text-label-sm" onclick="toggleModal(true)">
+              تحليل الشرائح
+            </button>
+</div>
+</div>
+</section>
+<!-- FILTER CHIPS SEGMENTS -->
+<section class="overflow-x-auto no-scrollbar py-1">
+<div class="flex items-center gap-2 min-w-max">
+<button class="bg-primary text-on-primary px-3.5 py-1.5 rounded-full text-label-md font-label-lg shadow-sm">
+            الكل (5)
+          </button>
+<button class="bg-surface-container text-on-surface-variant hover:text-primary hover:bg-surface-container-high px-3.5 py-1.5 rounded-full text-label-md font-label-md transition-colors">
+            التبريد والتكييف (2)
+          </button>
+<button class="bg-surface-container text-on-surface-variant hover:text-primary hover:bg-surface-container-high px-3.5 py-1.5 rounded-full text-label-md font-label-md transition-colors">
+            المطبخ والطهي (2)
+          </button>
+<button class="bg-surface-container text-on-surface-variant hover:text-primary hover:bg-surface-container-high px-3.5 py-1.5 rounded-full text-label-md font-label-md transition-colors">
+            المياه والغسيل (1)
+          </button>
+</div>
+</section>
+<!-- APPLIANCE CARDS LIST -->
+<section class="space-y-3">
+<!-- Card 1: تكييف غرفة المعيشة -->
+<article class="bg-surface-container-lowest rounded-2xl p-3.5 border border-outline-variant/30 shadow-[0px_2px_8px_rgba(20,90,70,0.04)] hover:border-secondary-fixed-dim transition-all">
+<div class="flex items-start justify-between gap-3">
+<div class="flex items-start gap-3">
+<div class="w-11 h-11 rounded-xl bg-surface-container flex items-center justify-center text-primary flex-shrink-0">
+<span class="material-symbols-outlined text-[24px]" data-icon="ac_unit">ac_unit</span>
+</div>
+<div>
+<div class="flex items-center gap-2">
+<h2 class="text-headline-sm font-headline-sm text-on-surface font-semibold">تكييف غرفة المعيشة</h2>
+<span class="bg-surface-container-high text-primary font-bold text-label-sm px-1.5 py-0.5 rounded">كفاءة B</span>
+</div>
+<p class="text-label-sm font-label-sm text-on-surface-variant mt-0.5">1.5 حصان • 1500 واط</p>
+<div class="flex items-center gap-1.5 mt-1 text-label-sm text-outline">
+<span class="material-symbols-outlined text-[15px]" data-icon="schedule">schedule</span>
+<span>8 ساعات يومياً (240 س/شهر)</span>
+</div>
+</div>
+</div>
+<!-- Toggle & Menu -->
+<div class="flex flex-col items-end gap-2">
+<span class="inline-flex items-center px-2 py-0.5 rounded-full text-label-sm font-semibold bg-secondary-container text-primary">
+                نشط
+              </span>
+<div class="flex items-center gap-1 text-outline">
+<button class="p-1 hover:text-primary transition-colors" title="تعديل"><span class="material-symbols-outlined text-[18px]" data-icon="edit">edit</span></button>
+<button class="p-1 hover:text-error transition-colors" title="حذف"><span class="material-symbols-outlined text-[18px]" data-icon="delete">delete</span></button>
+</div>
+</div>
+</div>
+<!-- Card Bottom Stats -->
+<div class="mt-3 pt-2.5 border-t border-outline-variant/20 flex items-center justify-between text-body-sm">
+<div class="flex items-baseline gap-1">
+<span class="text-on-surface font-bold text-body-lg">143.6</span>
+<span class="text-outline text-label-sm">ك.و.س/شهر</span>
+</div>
+<div class="flex items-baseline gap-1 text-primary font-bold">
+<span class="text-body-lg">203.90</span>
+<span class="text-label-sm font-medium">ج.م/شهر</span>
+</div>
+</div>
+</article>
+<!-- Card 2: ثلاجة المنزل 18 قدم -->
+<article class="bg-surface-container-lowest rounded-2xl p-3.5 border border-outline-variant/30 shadow-[0px_2px_8px_rgba(20,90,70,0.04)] hover:border-secondary-fixed-dim transition-all">
+<div class="flex items-start justify-between gap-3">
+<div class="flex items-start gap-3">
+<div class="w-11 h-11 rounded-xl bg-surface-container flex items-center justify-center text-primary flex-shrink-0">
+<span class="material-symbols-outlined text-[24px]" data-icon="kitchen">kitchen</span>
+</div>
+<div>
+<div class="flex items-center gap-2">
+<h2 class="text-headline-sm font-headline-sm text-on-surface font-semibold">ثلاجة المنزل 18 قدم</h2>
+<span class="bg-secondary-fixed/40 text-primary font-bold text-label-sm px-1.5 py-0.5 rounded">كفاءة A+</span>
+</div>
+<p class="text-label-sm font-label-sm text-on-surface-variant mt-0.5">نوفروست موفرة • 300 واط</p>
+<div class="flex items-center gap-1.5 mt-1 text-label-sm text-outline">
+<span class="material-symbols-outlined text-[15px]" data-icon="all_inclusive">all_inclusive</span>
+<span>تعمل باستمرار (24 ساعة بنظام التبادل)</span>
+</div>
+</div>
+</div>
+<!-- Status & Action -->
+<div class="flex flex-col items-end gap-2">
+<span class="inline-flex items-center px-2 py-0.5 rounded-full text-label-sm font-semibold bg-secondary-container text-primary">
+                نشط
+              </span>
+<div class="flex items-center gap-1 text-outline">
+<button class="p-1 hover:text-primary transition-colors" title="تعديل"><span class="material-symbols-outlined text-[18px]" data-icon="edit">edit</span></button>
+<button class="p-1 hover:text-error transition-colors" title="حذف"><span class="material-symbols-outlined text-[18px]" data-icon="delete">delete</span></button>
+</div>
+</div>
+</div>
+<!-- Card Bottom Stats -->
+<div class="mt-3 pt-2.5 border-t border-outline-variant/20 flex items-center justify-between text-body-sm">
+<div class="flex items-baseline gap-1">
+<span class="text-on-surface font-bold text-body-lg">88.9</span>
+<span class="text-outline text-label-sm">ك.و.س/شهر</span>
+</div>
+<div class="flex items-baseline gap-1 text-primary font-bold">
+<span class="text-body-lg">126.20</span>
+<span class="text-label-sm font-medium">ج.م/شهر</span>
+</div>
+</div>
+</article>
+<!-- Card 3: سخان المياه الكهربائي (Alert High Consumption) -->
+<article class="bg-surface-container-lowest rounded-2xl p-3.5 border border-error/30 shadow-[0px_2px_8px_rgba(186,26,26,0.05)] transition-all relative overflow-hidden">
+<div class="flex items-start justify-between gap-3">
+<div class="flex items-start gap-3">
+<div class="w-11 h-11 rounded-xl bg-error-container/40 flex items-center justify-center text-error flex-shrink-0">
+<span class="material-symbols-outlined text-[24px]" data-icon="water_heater">water_heater</span>
+</div>
+<div>
+<div class="flex items-center gap-2">
+<h2 class="text-headline-sm font-headline-sm text-on-surface font-semibold">سخان المياه الكهربائي</h2>
+<span class="bg-error-container text-on-error-container font-bold text-label-sm px-1.5 py-0.5 rounded">كفاءة D</span>
+</div>
+<p class="text-label-sm font-label-sm text-on-surface-variant mt-0.5">سعة 50 لتر • 1200 واط</p>
+<div class="flex items-center gap-1.5 mt-1 text-label-sm text-outline">
+<span class="material-symbols-outlined text-[15px]" data-icon="timer">timer</span>
+<span>ساعتان يومياً (مؤقت تشغيل)</span>
+</div>
+</div>
+</div>
+<!-- Alert Badge -->
+<div class="flex flex-col items-end gap-2">
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-label-sm font-semibold bg-error-container text-on-error-container">
+<span class="material-symbols-outlined text-[13px]" data-icon="warning">warning</span>
+                مرتفع شتاءً
+              </span>
+<div class="flex items-center gap-1 text-outline">
+<button class="p-1 hover:text-primary transition-colors" title="تعديل"><span class="material-symbols-outlined text-[18px]" data-icon="edit">edit</span></button>
+<button class="p-1 hover:text-error transition-colors" title="حذف"><span class="material-symbols-outlined text-[18px]" data-icon="delete">delete</span></button>
+</div>
+</div>
+</div>
+<!-- Card Bottom Stats -->
+<div class="mt-3 pt-2.5 border-t border-outline-variant/20 flex items-center justify-between text-body-sm">
+<div class="flex items-baseline gap-1">
+<span class="text-on-surface font-bold text-body-lg">47.8</span>
+<span class="text-outline text-label-sm">ك.و.س/شهر</span>
+</div>
+<div class="flex items-baseline gap-1 text-error font-bold">
+<span class="text-body-lg">67.90</span>
+<span class="text-label-sm font-medium">ج.م/شهر</span>
+</div>
+</div>
+</article>
+<!-- Card 4: الغسالة الفول أوتوماتيك -->
+<article class="bg-surface-container-lowest rounded-2xl p-3.5 border border-outline-variant/30 shadow-[0px_2px_8px_rgba(20,90,70,0.04)] hover:border-secondary-fixed-dim transition-all">
+<div class="flex items-start justify-between gap-3">
+<div class="flex items-start gap-3">
+<div class="w-11 h-11 rounded-xl bg-surface-container flex items-center justify-center text-primary flex-shrink-0">
+<span class="material-symbols-outlined text-[24px]" data-icon="local_laundry_service">local_laundry_service</span>
+</div>
+<div>
+<div class="flex items-center gap-2">
+<h2 class="text-headline-sm font-headline-sm text-on-surface font-semibold">الغسالة الفول أوتوماتيك</h2>
+<span class="bg-surface-container-high text-primary font-bold text-label-sm px-1.5 py-0.5 rounded">كفاءة A</span>
+</div>
+<p class="text-label-sm font-label-sm text-on-surface-variant mt-0.5">حمولة 7 كجم • 500 واط</p>
+<div class="flex items-center gap-1.5 mt-1 text-label-sm text-outline">
+<span class="material-symbols-outlined text-[15px]" data-icon="repeat">repeat</span>
+<span>4 دورات أسبوعياً (ساعتان للدورة)</span>
+</div>
+</div>
+</div>
+<!-- Status & Action -->
+<div class="flex flex-col items-end gap-2">
+<span class="inline-flex items-center px-2 py-0.5 rounded-full text-label-sm font-semibold bg-secondary-container text-primary">
+                نشط
+              </span>
+<div class="flex items-center gap-1 text-outline">
+<button class="p-1 hover:text-primary transition-colors" title="تعديل"><span class="material-symbols-outlined text-[18px]" data-icon="edit">edit</span></button>
+<button class="p-1 hover:text-error transition-colors" title="حذف"><span class="material-symbols-outlined text-[18px]" data-icon="delete">delete</span></button>
+</div>
+</div>
+</div>
+<!-- Card Bottom Stats -->
+<div class="mt-3 pt-2.5 border-t border-outline-variant/20 flex items-center justify-between text-body-sm">
+<div class="flex items-baseline gap-1">
+<span class="text-on-surface font-bold text-body-lg">34.2</span>
+<span class="text-outline text-label-sm">ك.و.س/شهر</span>
+</div>
+<div class="flex items-baseline gap-1 text-primary font-bold">
+<span class="text-body-lg">48.55</span>
+<span class="text-label-sm font-medium">ج.م/شهر</span>
+</div>
+</div>
+</article>
+<!-- Card 5: إضاءة وشاشات ذكية -->
+<article class="bg-surface-container-lowest rounded-2xl p-3.5 border border-outline-variant/30 shadow-[0px_2px_8px_rgba(20,90,70,0.04)] hover:border-secondary-fixed-dim transition-all">
+<div class="flex items-start justify-between gap-3">
+<div class="flex items-start gap-3">
+<div class="w-11 h-11 rounded-xl bg-surface-container flex items-center justify-center text-primary flex-shrink-0">
+<span class="material-symbols-outlined text-[24px]" data-icon="tv">tv</span>
+</div>
+<div>
+<div class="flex items-center gap-2">
+<h2 class="text-headline-sm font-headline-sm text-on-surface font-semibold">إضاءة وشاشات ذكية</h2>
+<span class="bg-secondary-fixed/40 text-primary font-bold text-label-sm px-1.5 py-0.5 rounded">كفاءة A++</span>
+</div>
+<p class="text-label-sm font-label-sm text-on-surface-variant mt-0.5">LED ذكية + شاشة 55 بوصة • 180 واط</p>
+<div class="flex items-center gap-1.5 mt-1 text-label-sm text-outline">
+<span class="material-symbols-outlined text-[15px]" data-icon="schedule">schedule</span>
+<span>6 ساعات يومياً</span>
+</div>
+</div>
+</div>
+<!-- Status & Action -->
+<div class="flex flex-col items-end gap-2">
+<span class="inline-flex items-center px-2 py-0.5 rounded-full text-label-sm font-semibold bg-secondary-container text-primary">
+                نشط
+              </span>
+<div class="flex items-center gap-1 text-outline">
+<button class="p-1 hover:text-primary transition-colors" title="تعديل"><span class="material-symbols-outlined text-[18px]" data-icon="edit">edit</span></button>
+<button class="p-1 hover:text-error transition-colors" title="حذف"><span class="material-symbols-outlined text-[18px]" data-icon="delete">delete</span></button>
+</div>
+</div>
+</div>
+<!-- Card Bottom Stats -->
+<div class="mt-3 pt-2.5 border-t border-outline-variant/20 flex items-center justify-between text-body-sm">
+<div class="flex items-baseline gap-1">
+<span class="text-on-surface font-bold text-body-lg">27.5</span>
+<span class="text-outline text-label-sm">ك.و.س/شهر</span>
+</div>
+<div class="flex items-baseline gap-1 text-primary font-bold">
+<span class="text-body-lg">38.95</span>
+<span class="text-label-sm font-medium">ج.م/شهر</span>
+</div>
+</div>
+</article>
+</section>
+<!-- Add Device Trigger Button (Floating/Bottom Canvas Action) -->
+<section class="pt-2 pb-4">
+<button class="w-full h-13 py-3.5 px-4 bg-surface-container-high border border-primary/20 text-primary rounded-xl font-label-lg flex items-center justify-center gap-2 hover:bg-surface-container transition-all active:scale-[0.98]" onclick="toggleModal(true)">
+<span class="material-symbols-outlined text-[20px]" data-icon="add_circle">add_circle</span>
+<span>إضافة جهاز كهربائي جديد</span>
+</button>
+</section>
+</main>
+<!-- BOTTOM SHEET / MODAL: إضافة جهاز جديد -->
+<div class="fixed inset-0 z-50 bg-black/50 backdrop-blur-sm transition-opacity duration-200 hidden flex items-end justify-center" id="addDeviceModal">
+<div class="bg-surface-container-lowest w-full max-w-[480px] rounded-t-3xl p-5 shadow-2xl max-h-[795px] overflow-y-auto animate-in slide-in-from-bottom duration-300">
+<!-- Handle & Header -->
+<div class="w-12 h-1 bg-outline-variant/50 rounded-full mx-auto mb-4"></div>
+<div class="flex items-center justify-between mb-4">
+<div>
+<h3 class="text-headline-sm font-headline-sm text-primary font-bold">إضافة جهاز كهربائي جديد</h3>
+<p class="text-label-sm font-label-sm text-on-surface-variant">احسب تكلفة واستهلاك أجهزتك بدقة</p>
+</div>
+<button class="w-8 h-8 rounded-full bg-surface-container flex items-center justify-center text-on-surface-variant hover:text-primary" onclick="toggleModal(false)">
+<span class="material-symbols-outlined text-[20px]" data-icon="close">close</span>
+</button>
+</div>
+<!-- Form Fields -->
+<form class="space-y-4" onsubmit="event.preventDefault(); toggleModal(false);">
+<!-- Appliance Name -->
+<div>
+<label class="block text-label-md font-label-md text-on-surface mb-1">اسم الجهاز</label>
+<div class="relative">
+<input class="w-full h-[48px] px-3.5 pr-10 rounded-xl bg-surface border border-outline-variant focus:border-secondary focus:ring-1 focus:ring-secondary text-body-md placeholder:text-outline/70" placeholder="مثال: ميكروويف، مروحة سقف..." required="" type="text"/>
+<span class="material-symbols-outlined absolute right-3 top-3 text-outline text-[20px]" data-icon="electrical_services">electrical_services</span>
+</div>
+</div>
+<!-- Category Picker -->
+<div>
+<label class="block text-label-md font-label-md text-on-surface mb-1">فئة الجهاز</label>
+<div class="grid grid-cols-3 gap-2">
+<label class="cursor-pointer border border-primary bg-secondary-container/30 text-primary rounded-xl p-2.5 flex flex-col items-center text-center">
+<input checked="" class="hidden" name="cat" type="radio"/>
+<span class="material-symbols-outlined text-[20px] mb-1" data-icon="ac_unit">ac_unit</span>
+<span class="text-label-sm font-label-md">تكييف وتبريد</span>
+</label>
+<label class="cursor-pointer border border-outline-variant/40 bg-surface rounded-xl p-2.5 flex flex-col items-center text-center hover:border-primary/50">
+<input class="hidden" name="cat" type="radio"/>
+<span class="material-symbols-outlined text-[20px] mb-1 text-on-surface-variant" data-icon="kitchen">kitchen</span>
+<span class="text-label-sm font-label-md text-on-surface-variant">مطبخ وطهي</span>
+</label>
+<label class="cursor-pointer border border-outline-variant/40 bg-surface rounded-xl p-2.5 flex flex-col items-center text-center hover:border-primary/50">
+<input class="hidden" name="cat" type="radio"/>
+<span class="material-symbols-outlined text-[20px] mb-1 text-on-surface-variant" data-icon="water_heater">water_heater</span>
+<span class="text-label-sm font-label-md text-on-surface-variant">غسيل ومياه</span>
+</label>
+</div>
+</div>
+<!-- Rated Power in Watts -->
+<div>
+<div class="flex justify-between items-center mb-1">
+<label class="text-label-md font-label-md text-on-surface">قدرة الجهاز (واط)</label>
+<span class="text-label-sm text-secondary font-semibold">1000 واط = 1 ك.و.س</span>
+</div>
+<div class="relative">
+<input class="w-full h-[48px] px-3.5 pr-10 rounded-xl bg-surface border border-outline-variant focus:border-secondary focus:ring-1 focus:ring-secondary text-body-md" max="10000" min="1" placeholder="800" type="number"/>
+<span class="material-symbols-outlined absolute right-3 top-3 text-outline text-[20px]" data-icon="bolt">bolt</span>
+</div>
+</div>
+<!-- Daily Hours & Days per Month (2-column stepper / inputs) -->
+<div class="grid grid-cols-2 gap-3">
+<div>
+<label class="block text-label-md font-label-md text-on-surface mb-1">ساعات التشغيل/يوم</label>
+<input class="w-full h-[48px] px-3 rounded-xl bg-surface border border-outline-variant focus:border-secondary text-center text-body-md font-semibold" max="24" min="0.5" placeholder="4" step="0.5" type="number"/>
+</div>
+<div>
+<label class="block text-label-md font-label-md text-on-surface mb-1">أيام التشغيل/شهر</label>
+<input class="w-full h-[48px] px-3 rounded-xl bg-surface border border-outline-variant focus:border-secondary text-center text-body-md font-semibold" max="30" min="1" placeholder="30" type="number"/>
+</div>
+</div>
+<!-- Modal Actions -->
+<div class="pt-2 flex items-center gap-3">
+<button class="flex-1 h-[48px] bg-primary text-on-primary rounded-xl font-label-lg font-semibold hover:opacity-95 active:scale-95 transition-all" type="submit">
+              حفظ الجهاز في القائمة
+            </button>
+<button class="h-[48px] px-5 bg-surface-container text-on-surface-variant rounded-xl font-label-lg hover:bg-surface-container-high transition-colors" onclick="toggleModal(false)" type="button">
+              إلغاء
+            </button>
+</div>
+</form>
+</div>
+</div>
+<!-- BOTTOM NAVIGATION BAR (Shared Components JSON Compliance) -->
+<!-- Destination count: 5 | Labels: الرئيسية, القراءات, التحليلات, الأجهزة (ACTIVE), الإعدادات -->
+<!-- Prohibiting top/bottom line borders; subtle elevation shadow only -->
+<nav class="fixed bottom-0 left-0 right-0 max-w-[480px] mx-auto z-40 bg-surface-container-lowest/95 backdrop-blur-md shadow-[0_-4px_20px_rgba(23,43,36,0.06)] flex justify-around items-center px-space-xs py-2">
+<!-- 1: الرئيسية -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:text-primary transition-colors duration-150 active:scale-95 px-3 py-1" href="#">
+<span class="material-symbols-outlined text-[24px]" data-icon="home">home</span>
+<span class="text-label-sm font-label-sm mt-0.5">الرئيسية</span>
+</a>
+<!-- 2: القراءات -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:text-primary transition-colors duration-150 active:scale-95 px-3 py-1" href="#">
+<span class="material-symbols-outlined text-[24px]" data-icon="speed">speed</span>
+<span class="text-label-sm font-label-sm mt-0.5">القراءات</span>
+</a>
+<!-- 3: التحليلات -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:text-primary transition-colors duration-150 active:scale-95 px-3 py-1" href="#">
+<span class="material-symbols-outlined text-[24px]" data-icon="analytics">analytics</span>
+<span class="text-label-sm font-label-sm mt-0.5">التحليلات</span>
+</a>
+<!-- 4: الأجهزة (ACTIVE SELECTED ITEM) -->
+<a class="flex flex-col items-center justify-center bg-secondary-container text-primary rounded-full px-4 py-1 font-semibold active:scale-95 transition-transform duration-150" href="#">
+<span class="material-symbols-outlined text-[24px]" data-icon="kitchen" data-weight="fill" style="font-variation-settings: 'FILL' 1;">kitchen</span>
+<span class="text-label-sm font-label-sm mt-0.5">الأجهزة</span>
+</a>
+<!-- 5: الإعدادات -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:text-primary transition-colors duration-150 active:scale-95 px-3 py-1" href="#">
+<span class="material-symbols-outlined text-[24px]" data-icon="settings">settings</span>
+<span class="text-label-sm font-label-sm mt-0.5">الإعدادات</span>
+</a>
+</nav>
+</div>
+<script>
+    function toggleModal(show) {
+      const modal = document.getElementById('addDeviceModal');
+      if (show) {
+        modal.classList.remove('hidden');
+      } else {
+        modal.classList.add('hidden');
+      }
+    }
+  </script>
+</body></html>
