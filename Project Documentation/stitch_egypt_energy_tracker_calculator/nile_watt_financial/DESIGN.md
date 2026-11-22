@@ -147,19 +147,20 @@ The aesthetic blends **Modern Minimalism** with **Financial Neoclassicism**:
 - **Spatial & Cultural Harmony:** Native bilingual symmetry balancing Arabic (RTL) and English (LTR) layouts without typographic distortion or layout asymmetry.
 
 ## Colors
-The palette evokes fiscal stability, ecological awareness, and domestic composure. The tonal foundation departs from clinical blues, grounding the dashboard in verdant architectural greens and warm Egyptian marble tones.
+The palette evokes fiscal stability, ecological awareness, and domestic composure. Its deep green brand color is balanced with a light mint canvas and layered green-tinted surfaces.
 
-- **Primary (`#145A46` - Deep Forest Green):** Anchors core actions, structural headers, high-tier consumption metrics, and primary navigational states. Reflects financial institutional trust.
-- **Secondary (`#2E8B70` - Soft Emerald):** Applied to progress bars, secondary metrics, interactive toggles, and active tab indicators.
-- **Accent / Surface Tint (`#DDF3E9` - Light Mint):** Houses badge backdrops, subtle hover rings, selected states, and progressive tiered tier-fill tracks.
-- **Neutral Primary (`#172B24` - Pine Charcoal):** Deep, warm off-black for high-legibility body, titles, and numerical currency counters.
-- **Neutral Secondary (`#718078` - Slate Moss):** For subordinate labels, units (kWh, EGP / ج.م), and deactivated affordances.
-- **Canvas (`#F7F9F7` - Pearl Wash):** Ultra-soft, low-glare canvas preventing eye fatigue during analytical reviews.
+- **Primary (`#004131` - Deep Green):** Anchors brand identity and primary emphasis.
+- **Primary Container (`#145A46` - Forest Green):** Supports prominent filled actions, hero surfaces, and other high-emphasis containers.
+- **Secondary (`#006C53` - Deep Emerald):** Applied to secondary emphasis, progress indicators, and interactive states.
+- **Secondary Container (`#9AF4D4` - Light Mint):** Used for selected states, soft action surfaces, and tinted accents.
+- **Neutral Primary (`#111E19` - Pine Charcoal):** Deep, warm off-black for high-legibility body text, titles, and numerical currency counters.
+- **Neutral Secondary (`#404944` - Muted Charcoal):** For subordinate labels and units (kWh, EGP / ج.م); `#707974` is available for quieter outlines and affordances.
+- **Canvas (`#EDFDF3` - Pale Mint):** Low-glare background for analytical and utility screens.
 - **Card Background (`#FFFFFF` - Pure White):** Crisp elevation for actionable and analytical surfaces.
 - **System States:**
   - **Success (`#2E9D69`):** Safe tier consumption limits and optimized off-peak usage.
   - **Warning (`#E6A23C`):** Tier bracket boundary approach (Threshold alerts).
-  - **Error / High Tier (`#D9534F`):** Critical tier jumps (e.g., crossing into bracket 6/7 penalty pricing).
+  - **Error / High Tier (`#BA1A1A`):** Critical tier jumps (e.g., crossing into bracket 6/7 penalty pricing).
 
 ## Typography
 The system uses **IBM Plex Sans** (paired natively with **IBM Plex Sans Arabic** in multilingual production). This typeface offers clean technical neutrality, high vertical x-height, and precise numeric shaping for both Western Arabic numerals (0-9) and Eastern Arabic numerals (٠-٩).
@@ -183,15 +184,15 @@ The layout adheres to a strict 8pt spatial baseline grid with an integrated 4pt 
 ## Elevation & Depth
 Depth conveys physical hierarchy without visual clutter, employing ambient, tinted illumination rather than heavy dropshadows:
 
-- **Base Layer:** The `#F7F9F7` matte canvas creates contrast beneath pure white cards.
+- **Base Layer:** The `#EDFDF3` matte canvas creates contrast beneath pure white cards.
 - **Level 1 (Default Cards & Containers):**
-  - Drop shadow: `0px 2px 8px rgba(20, 90, 70, 0.04), 0px 1px 2px rgba(23, 43, 36, 0.02)`.
+  - Drop shadow: `0px 2px 8px rgba(20, 90, 70, 0.04), 0px 1px 2px rgba(17, 30, 25, 0.02)`.
   - Border: 1px hairline border in `rgba(20, 90, 70, 0.08)`.
 - **Level 2 (Active Appliance Tiles & Segmented Tabs):**
   - Drop shadow: `0px 6px 16px rgba(20, 90, 70, 0.08), 0px 2px 4px rgba(20, 90, 70, 0.03)`.
-  - Border: 1px solid `rgba(46, 139, 112, 0.20)`.
+  - Border: 1px solid `rgba(0, 108, 83, 0.20)`.
 - **Level 3 (Sticky Bottom Navigation & Modals):**
-  - Drop shadow: `0px -4px 20px rgba(23, 43, 36, 0.06)`.
+  - Drop shadow: `0px -4px 20px rgba(17, 30, 25, 0.06)`.
   - Surface: `#FFFFFF` with 98% opacity and 12px blur (frosted fallback where supported).
 
 ## Shapes
@@ -205,22 +206,22 @@ The shape language uses balanced curvature (`roundedness: 2`), projecting modern
 ## Components
 
 ### Buttons
-- **Primary:** Filled `#145A46`, text `#FFFFFF`, height 52px, radius 16px. Subtle scale tap interaction (`0.98`).
-- **Secondary:** Surface tint `#DDF3E9`, text `#145A46`, weight 600.
-- **Outlined / Ghost:** 1px border `#2E8B70`, background transparent, text `#145A46`.
+- **Primary:** Filled `#145A46` primary-container, text `#FFFFFF`, height 52px, radius 16px. Subtle scale tap interaction (`0.98`).
+- **Secondary:** `#9AF4D4` secondary-container surface, text `#004131`, weight 600.
+- **Outlined / Ghost:** 1px border `#006C53`, background transparent, text `#004131`.
 
 ### Cards & Metric Modules
 - **Calculation Card:** White surface, Level 1 shadow, 16px padding. Houses appliance icons, hours slider, and calculated monthly cost.
 - **Tier Bracket (Sheriha) Hero Card:** `#145A46` background with high-contrast text (`#FFFFFF`), displaying current active tier bracket (e.g., "الشريحة الرابعة"), consumption target gauge, and forecast total.
 
 ### Input Fields & Steppers
-- **Text / Number Field:** Height 52px, background `#FFFFFF`, border 1px solid `rgba(113, 128, 120, 0.24)`, radius 12px. Focus state triggers a 2px `#2E8B70` ring.
+- **Text / Number Field:** Height 52px, background `#FFFFFF`, border 1px solid `rgba(191, 201, 195, 0.30)` (outline-variant), radius 12px. Focus state triggers a 2px `#006C53` secondary ring.
 - **Counter Stepper:** Pill-shaped increment/decrement container with dual high-contrast action hit areas (44x44dp).
 
 ### Chips & Segmented Controls
-- **Segmented Mode Switch (e.g., Monthly vs. Daily / Appliance vs. Meter):** Inset background `rgba(20, 90, 70, 0.06)`, pill wrapper. Active segment is pure white with Level 1 shadow and `#145A46` text.
+- **Segmented Mode Switch (e.g., Monthly vs. Daily / Appliance vs. Meter):** Inset background `rgba(20, 90, 70, 0.06)`, pill wrapper. Active segment is pure white with Level 1 shadow and `#004131` text.
 - **Status Badges:** Compact pill chips (`py: 4px, px: 10px`), pairing localized status labels with status token backgrounds (e.g., Warning: `#E6A23C` at 12% opacity with solid text).
 
 ### Navigation & Lists
-- **Bottom Navigation Bar (Flutter-Ready):** 64px height + safe-area padding. Translucent white surface, subtle top border `rgba(20, 90, 70, 0.08)`. Selected item uses a soft pill background `#DDF3E9` with an active `#145A46` icon and bold typography.
-- **Appliance List Item:** Compact horizontal flex row: leading 40px icon box (tinted `#DDF3E9`), centered title and usage frequency, trailing kilowatt count and cost estimate.
+- **Bottom Navigation Bar (Flutter-Ready):** 64px height + safe-area padding. Translucent white surface, subtle top border `rgba(20, 90, 70, 0.08)`. Selected item uses a soft pill background `#9AF4D4` with an active `#004131` icon and bold typography.
+- **Appliance List Item:** Compact horizontal flex row: leading 40px icon box (tinted `#9AF4D4`), centered title and usage frequency, trailing kilowatt count and cost estimate.

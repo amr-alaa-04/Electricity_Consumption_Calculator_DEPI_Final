@@ -3,9 +3,13 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 
+import 'package:electricity_consumption_calculator/core/theme/app_colors.dart';
 import 'package:electricity_consumption_calculator/core/theme/app_theme.dart';
 import 'package:electricity_consumption_calculator/core/widgets/buttons/app_button.dart';
 import 'package:electricity_consumption_calculator/core/widgets/buttons/app_icon_button.dart';
+import 'package:electricity_consumption_calculator/core/widgets/navigation/app_bottom_navigation_bar.dart';
+import 'package:electricity_consumption_calculator/core/widgets/surfaces/app_icon_tile.dart';
+import 'package:electricity_consumption_calculator/core/widgets/surfaces/app_surface_card.dart';
 import 'package:electricity_consumption_calculator/core/widgets/inputs/app_dropdown_field.dart';
 import 'package:electricity_consumption_calculator/core/widgets/inputs/app_email_field.dart';
 import 'package:electricity_consumption_calculator/core/widgets/inputs/app_number_field.dart';
@@ -25,6 +29,169 @@ Widget _testApp(Widget child, {Locale locale = const Locale('en', 'US')}) {
 }
 
 void main() {
+  group('AppBottomNavigationBar', () {
+    const destinations = [
+      NavigationDestination(icon: Icon(Icons.home_outlined), label: 'Home'),
+      NavigationDestination(icon: Icon(Icons.bolt_outlined), label: 'Readings'),
+      NavigationDestination(icon: Icon(Icons.analytics_outlined), label: 'Analytics'),
+      NavigationDestination(icon: Icon(Icons.kitchen_outlined), label: 'Appliances'),
+      NavigationDestination(icon: Icon(Icons.settings_outlined), label: 'Settings'),
+    ];
+
+    testWidgets('renders configurable destinations and reports selection', (
+      tester,
+    ) async {
+      int? selectedIndex;
+      await tester.pumpWidget(
+        _testApp(
+          AppBottomNavigationBar(
+            destinations: destinations,
+            currentIndex: 0,
+            onDestinationSelected: (index) => selectedIndex = index,
+          ),
+        ),
+      );
+
+      for (final destination in destinations) {
+        expect(find.text(destination.label), findsOneWidget);
+      }
+
+      await tester.tap(find.text('Analytics'));
+      expect(selectedIndex, 2);
+    });
+
+    testWidgets('follows Arabic RTL direction', (tester) async {
+      await tester.pumpWidget(
+        _testApp(
+          AppBottomNavigationBar(
+            destinations: destinations,
+            currentIndex: 0,
+            onDestinationSelected: (_) {},
+          ),
+          locale: const Locale('ar', 'EG'),
+        ),
+      );
+
+      expect(
+        Directionality.of(tester.element(find.text('Home'))),
+        TextDirection.rtl,
+      );
+      expect(tester.takeException(), isNull);
+    });
+  });
+
+  group('AppSurfaceCard', () {
+    testWidgets('uses token defaults and accepts visual overrides', (
+      tester,
+    ) async {
+      const key = ValueKey('surface-card');
+      const customBackground = Color(0xFF123456);
+      const customBorder = Color(0xFF654321);
+      const customRadius = BorderRadius.all(Radius.circular(24));
+      await tester.pumpWidget(
+        _testApp(
+          AppSurfaceCard(
+            key: key,
+            width: 200,
+            padding: const EdgeInsets.all(24),
+            backgroundColor: customBackground,
+            borderRadius: customRadius,
+            borderColor: customBorder,
+            elevation: 0,
+            child: const Text('Card content'),
+          ),
+        ),
+      );
+
+      final cardFinder = find.descendant(
+        of: find.byKey(key),
+        matching: find.byType(Container),
+      );
+      final card = tester.widget<Container>(cardFinder);
+      final decoration = card.decoration! as BoxDecoration;
+      expect(tester.getSize(cardFinder).width, 200);
+      expect(card.padding, const EdgeInsets.all(24));
+      expect(decoration.color, customBackground);
+      expect(decoration.border!.top.color, customBorder);
+      expect(decoration.borderRadius, customRadius);
+      expect(decoration.boxShadow, isEmpty);
+      expect(find.text('Card content'), findsOneWidget);
+    });
+
+    testWidgets('default surface uses the shared white surface and shadow', (
+      tester,
+    ) async {
+      const key = ValueKey('default-surface-card');
+      await tester.pumpWidget(
+        _testApp(
+          const AppSurfaceCard(key: key, child: Text('Default card')),
+        ),
+      );
+
+      final cardFinder = find.descendant(
+        of: find.byKey(key),
+        matching: find.byType(Container),
+      );
+      final card = tester.widget<Container>(cardFinder);
+      final decoration = card.decoration! as BoxDecoration;
+      expect(decoration.color, AppColors.surfaceContainerLowest);
+      expect(decoration.boxShadow, isNotEmpty);
+    });
+  });
+
+  group('AppIconTile', () {
+    testWidgets('uses shared defaults and allows tap and visual overrides', (
+      tester,
+    ) async {
+      const key = ValueKey('icon-tile');
+      const customBackground = Color(0xFF123456);
+      const customIconColor = Color(0xFF654321);
+      var tapCount = 0;
+      await tester.pumpWidget(
+        _testApp(
+          AppIconTile(
+            key: key,
+            icon: Icons.bolt,
+            size: 56,
+            iconSize: 28,
+            backgroundColor: customBackground,
+            iconColor: customIconColor,
+            borderRadius: const BorderRadius.all(Radius.circular(8)),
+            semanticLabel: 'Energy icon',
+            onTap: () => tapCount++,
+          ),
+        ),
+      );
+
+      final tileMaterial = find.descendant(
+        of: find.byKey(key),
+        matching: find.byType(Material),
+      );
+      expect(tester.getSize(tileMaterial), const Size.square(56));
+      final icon = tester.widget<Icon>(find.byIcon(Icons.bolt));
+      expect(icon.size, 28);
+      expect(icon.color, customIconColor);
+      await tester.tap(find.bySemanticsLabel('Energy icon'));
+      expect(tapCount, 1);
+    });
+
+    testWidgets('uses token-based default dimensions and colors', (tester) async {
+      const key = ValueKey('default-icon-tile');
+      await tester.pumpWidget(
+        _testApp(const AppIconTile(key: key, icon: Icons.bolt)),
+      );
+
+      final tileMaterial = find.descendant(
+        of: find.byKey(key),
+        matching: find.byType(Material),
+      );
+      expect(tester.getSize(tileMaterial), const Size.square(40));
+      final icon = tester.widget<Icon>(find.byIcon(Icons.bolt));
+      expect(icon.size, 20);
+      expect(icon.color, AppColors.secondary);
+    });
+  });
+
   group('AppButton', () {
     testWidgets('renders primary, secondary, outlined, and text variants', (
       tester,

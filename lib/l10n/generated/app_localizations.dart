@@ -127,6 +127,342 @@ abstract class AppLocalizations {
   /// In en_US, this message translates to:
   /// **'Enter a valid number'**
   String get invalidNumber;
+
+  /// No description provided for @onboardingSkip.
+  ///
+  /// In en_US, this message translates to:
+  /// **'Skip'**
+  String get onboardingSkip;
+
+  /// No description provided for @onboardingOcrStatus.
+  ///
+  /// In en_US, this message translates to:
+  /// **'Smart scanner (OCR)'**
+  String get onboardingOcrStatus;
+
+  /// No description provided for @onboardingAccuracy.
+  ///
+  /// In en_US, this message translates to:
+  /// **'99.8% accurate'**
+  String get onboardingAccuracy;
+
+  /// No description provided for @onboardingCurrentMeter.
+  ///
+  /// In en_US, this message translates to:
+  /// **'Current digital meter'**
+  String get onboardingCurrentMeter;
+
+  /// No description provided for @onboardingAutoRecognition.
+  ///
+  /// In en_US, this message translates to:
+  /// **'Automatic number recognition'**
+  String get onboardingAutoRecognition;
+
+  /// No description provided for @onboardingCaptured.
+  ///
+  /// In en_US, this message translates to:
+  /// **'Captured'**
+  String get onboardingCaptured;
+
+  /// No description provided for @onboardingTierInstant.
+  ///
+  /// In en_US, this message translates to:
+  /// **'Instant tier calculation'**
+  String get onboardingTierInstant;
+
+  /// No description provided for @onboardingTierExample.
+  ///
+  /// In en_US, this message translates to:
+  /// **'Illustrative tier 4 (up to 350 kWh)'**
+  String get onboardingTierExample;
+
+  /// No description provided for @onboardingSampleTariffDisclaimer.
+  ///
+  /// In en_US, this message translates to:
+  /// **'Sample Illustrative Tariff — Requires Verification against Official EgyptERA Schedules'**
+  String get onboardingSampleTariffDisclaimer;
+
+  /// No description provided for @onboardingTrackTitle.
+  ///
+  /// In en_US, this message translates to:
+  /// **'Record your meter readings easily and accurately'**
+  String get onboardingTrackTitle;
+
+  /// No description provided for @onboardingTrackDescription.
+  ///
+  /// In en_US, this message translates to:
+  /// **'Capture a photo with OCR, enter a reading by voice, or record it manually. Avoid accumulated bills and rough estimates.'**
+  String get onboardingTrackDescription;
+
+  /// No description provided for @onboardingCameraFeatureTitle.
+  ///
+  /// In en_US, this message translates to:
+  /// **'Smart AI camera scanning'**
+  String get onboardingCameraFeatureTitle;
+
+  /// No description provided for @onboardingCameraFeatureDescription.
+  ///
+  /// In en_US, this message translates to:
+  /// **'Quick capture for mechanical dial or digital display meters'**
+  String get onboardingCameraFeatureDescription;
+
+  /// No description provided for @onboardingVoiceFeatureTitle.
+  ///
+  /// In en_US, this message translates to:
+  /// **'Quick voice entry for numbers'**
+  String get onboardingVoiceFeatureTitle;
+
+  /// No description provided for @onboardingVoiceFeatureDescription.
+  ///
+  /// In en_US, this message translates to:
+  /// **'Speak the numbers directly without typing them by hand'**
+  String get onboardingVoiceFeatureDescription;
+
+  /// No description provided for @onboardingAlertFeatureTitle.
+  ///
+  /// In en_US, this message translates to:
+  /// **'Alert for unusual readings'**
+  String get onboardingAlertFeatureTitle;
+
+  /// No description provided for @onboardingAlertFeatureDescription.
+  ///
+  /// In en_US, this message translates to:
+  /// **'Compare usage patterns and avoid unexplained tier jumps'**
+  String get onboardingAlertFeatureDescription;
+
+  /// No description provided for @onboardingAccuracyLabel.
+  ///
+  /// In en_US, this message translates to:
+  /// **'Accurate billing'**
+  String get onboardingAccuracyLabel;
+
+  /// No description provided for @onboardingNext.
+  ///
+  /// In en_US, this message translates to:
+  /// **'Next'**
+  String get onboardingNext;
+
+  /// No description provided for @onboardingStepCount.
+  ///
+  /// In en_US, this message translates to:
+  /// **'Step {current} of {total}'**
+  String onboardingStepCount(int current, int total);
+
+  /// No description provided for @onboardingPrevious.
+  ///
+  /// In en_US, this message translates to:
+  /// **'Previous'**
+  String get onboardingPrevious;
+
+  /// No description provided for @onboardingBillTitle.
+  ///
+  /// In en_US, this message translates to:
+  /// **'Accurate calculations with Egyptian electricity tiers'**
+  String get onboardingBillTitle;
+
+  /// No description provided for @onboardingBillDescription.
+  ///
+  /// In en_US, this message translates to:
+  /// **'Estimate your cost using Egypt’s progressive electricity tiers and see your target tier before the bill arrives.'**
+  String get onboardingBillDescription;
+
+  /// No description provided for @onboardingBillIllustrativeDisclaimer.
+  ///
+  /// In en_US, this message translates to:
+  /// **'Illustrative sample values only — not an official tariff or bill calculation.'**
+  String get onboardingBillIllustrativeDisclaimer;
+
+  /// No description provided for @onboardingBillTierThree.
+  ///
+  /// In en_US, this message translates to:
+  /// **'Tier 3 (101–200 kWh)'**
+  String get onboardingBillTierThree;
+
+  /// No description provided for @onboardingBillTierThreeRate.
+  ///
+  /// In en_US, this message translates to:
+  /// **'120 piastres/kWh'**
+  String get onboardingBillTierThreeRate;
+
+  /// No description provided for @onboardingBillTierTwo.
+  ///
+  /// In en_US, this message translates to:
+  /// **'Tier 2 (51–100 kWh)'**
+  String get onboardingBillTierTwo;
+
+  /// No description provided for @onboardingBillTargetTier.
+  ///
+  /// In en_US, this message translates to:
+  /// **'Current target tier'**
+  String get onboardingBillTargetTier;
+
+  /// No description provided for @onboardingBillActive.
+  ///
+  /// In en_US, this message translates to:
+  /// **'Active now'**
+  String get onboardingBillActive;
+
+  /// No description provided for @onboardingBillEstimatedValue.
+  ///
+  /// In en_US, this message translates to:
+  /// **'Estimated usage value'**
+  String get onboardingBillEstimatedValue;
+
+  /// No description provided for @onboardingBillExampleAmount.
+  ///
+  /// In en_US, this message translates to:
+  /// **'148.50'**
+  String get onboardingBillExampleAmount;
+
+  /// No description provided for @onboardingBillCurrency.
+  ///
+  /// In en_US, this message translates to:
+  /// **'EGP'**
+  String get onboardingBillCurrency;
+
+  /// No description provided for @onboardingBillEquivalentBalance.
+  ///
+  /// In en_US, this message translates to:
+  /// **'Equivalent consumption'**
+  String get onboardingBillEquivalentBalance;
+
+  /// No description provided for @onboardingBillExampleUsage.
+  ///
+  /// In en_US, this message translates to:
+  /// **'95'**
+  String get onboardingBillExampleUsage;
+
+  /// No description provided for @onboardingBillUsageUnit.
+  ///
+  /// In en_US, this message translates to:
+  /// **'kWh'**
+  String get onboardingBillUsageUnit;
+
+  /// No description provided for @onboardingBillSafetyIndicator.
+  ///
+  /// In en_US, this message translates to:
+  /// **'Tier safety indicator'**
+  String get onboardingBillSafetyIndicator;
+
+  /// No description provided for @onboardingBillRemainingUsage.
+  ///
+  /// In en_US, this message translates to:
+  /// **'5 kWh left before tier 3'**
+  String get onboardingBillRemainingUsage;
+
+  /// No description provided for @onboardingBillThresholdStart.
+  ///
+  /// In en_US, this message translates to:
+  /// **'50 kWh'**
+  String get onboardingBillThresholdStart;
+
+  /// No description provided for @onboardingBillThresholdEnd.
+  ///
+  /// In en_US, this message translates to:
+  /// **'100 kWh'**
+  String get onboardingBillThresholdEnd;
+
+  /// No description provided for @onboardingBillCapacityPercent.
+  ///
+  /// In en_US, this message translates to:
+  /// **'82% of tier capacity'**
+  String get onboardingBillCapacityPercent;
+
+  /// No description provided for @onboardingBillTierOneLabel.
+  ///
+  /// In en_US, this message translates to:
+  /// **'Tier 1'**
+  String get onboardingBillTierOneLabel;
+
+  /// No description provided for @onboardingBillTierOneRate.
+  ///
+  /// In en_US, this message translates to:
+  /// **'68 p'**
+  String get onboardingBillTierOneRate;
+
+  /// No description provided for @onboardingBillTierTwoLabel.
+  ///
+  /// In en_US, this message translates to:
+  /// **'Tier 2'**
+  String get onboardingBillTierTwoLabel;
+
+  /// No description provided for @onboardingBillTierTwoRate.
+  ///
+  /// In en_US, this message translates to:
+  /// **'78 p'**
+  String get onboardingBillTierTwoRate;
+
+  /// No description provided for @onboardingBillTierThreeLabel.
+  ///
+  /// In en_US, this message translates to:
+  /// **'Tier 3'**
+  String get onboardingBillTierThreeLabel;
+
+  /// No description provided for @onboardingBillTierThreeShortRate.
+  ///
+  /// In en_US, this message translates to:
+  /// **'95 p'**
+  String get onboardingBillTierThreeShortRate;
+
+  /// No description provided for @onboardingBillTierFourLabel.
+  ///
+  /// In en_US, this message translates to:
+  /// **'Tier 4'**
+  String get onboardingBillTierFourLabel;
+
+  /// No description provided for @onboardingBillTierFourRate.
+  ///
+  /// In en_US, this message translates to:
+  /// **'155 p'**
+  String get onboardingBillTierFourRate;
+
+  /// No description provided for @onboardingBillTierFiveLabel.
+  ///
+  /// In en_US, this message translates to:
+  /// **'Tier 5'**
+  String get onboardingBillTierFiveLabel;
+
+  /// No description provided for @onboardingBillTierFiveRate.
+  ///
+  /// In en_US, this message translates to:
+  /// **'195 p'**
+  String get onboardingBillTierFiveRate;
+
+  /// No description provided for @onboardingBillFeesTitle.
+  ///
+  /// In en_US, this message translates to:
+  /// **'Additional fees included'**
+  String get onboardingBillFeesTitle;
+
+  /// No description provided for @onboardingBillFeesDescription.
+  ///
+  /// In en_US, this message translates to:
+  /// **'Support for service fees and government duties according to official updates.'**
+  String get onboardingBillFeesDescription;
+
+  /// No description provided for @onboardingBillProximityTitle.
+  ///
+  /// In en_US, this message translates to:
+  /// **'Know when a tier may change'**
+  String get onboardingBillProximityTitle;
+
+  /// No description provided for @onboardingBillProximityDescription.
+  ///
+  /// In en_US, this message translates to:
+  /// **'See how close you are to a higher priced tier and avoid unexpected charges.'**
+  String get onboardingBillProximityDescription;
+
+  /// No description provided for @onboardingBillSavingsTitle.
+  ///
+  /// In en_US, this message translates to:
+  /// **'Personalized saving guidance'**
+  String get onboardingBillSavingsTitle;
+
+  /// No description provided for @onboardingBillSavingsDescription.
+  ///
+  /// In en_US, this message translates to:
+  /// **'Tips to help avoid the next tier based on when high consumption appliances are used.'**
+  String get onboardingBillSavingsDescription;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {
