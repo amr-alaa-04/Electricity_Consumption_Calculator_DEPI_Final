@@ -7,6 +7,7 @@ import 'package:electricity_consumption_calculator/core/theme/app_colors.dart';
 import 'package:electricity_consumption_calculator/core/theme/app_shape_tokens.dart';
 import 'package:electricity_consumption_calculator/core/theme/app_theme.dart';
 import 'package:electricity_consumption_calculator/core/theme/app_typography.dart';
+import 'package:electricity_consumption_calculator/features/onboarding/presentation/onboarding_track_electricity_screen.dart';
 import 'package:electricity_consumption_calculator/main.dart';
 
 void main() {
@@ -155,9 +156,9 @@ void main() {
       await tester.pumpWidget(const ProviderScope(child: MyApp()));
       await tester.pumpAndSettle();
 
-      final root = find.byKey(const ValueKey('blank-root-route'));
-      expect(root, findsOneWidget);
-      expect(Directionality.of(tester.element(root)), testCase.$2);
+      final screen = find.byType(OnboardingTrackElectricityScreen);
+      expect(screen, findsOneWidget);
+      expect(Directionality.of(tester.element(screen)), testCase.$2);
       expect(tester.takeException(), isNull);
     }
   });

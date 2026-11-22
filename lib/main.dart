@@ -10,8 +10,6 @@ import 'core/logging/app_logger.dart';
 export 'app/app.dart' show MyApp;
 
 void main() {
-  WidgetsFlutterBinding.ensureInitialized();
-
   FlutterError.onError = (details) {
     FlutterError.presentError(details);
     appLogger.error(
@@ -27,7 +25,10 @@ void main() {
   };
 
   runZonedGuarded(
-    () => runApp(const ProviderScope(child: MyApp())),
+    () {
+      WidgetsFlutterBinding.ensureInitialized();
+      runApp(const ProviderScope(child: MyApp()));
+    },
     (error, stackTrace) {
       appLogger.error('Uncaught asynchronous error', error: error, stackTrace: stackTrace);
     },
