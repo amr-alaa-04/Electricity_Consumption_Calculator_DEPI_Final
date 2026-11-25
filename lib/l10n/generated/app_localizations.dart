@@ -170,11 +170,11 @@ abstract class AppLocalizations {
   /// **'Instant tier calculation'**
   String get onboardingTierInstant;
 
-  /// No description provided for @onboardingTierExample.
+  /// No description provided for @onboardingTierExampleTemplate.
   ///
   /// In en_US, this message translates to:
-  /// **'Illustrative tier 4 (up to 350 kWh)'**
-  String get onboardingTierExample;
+  /// **'Illustrative tier 4 (up to {limit} kWh)'**
+  String onboardingTierExampleTemplate(Object limit);
 
   /// No description provided for @onboardingSampleTariffDisclaimer.
   ///
@@ -272,24 +272,6 @@ abstract class AppLocalizations {
   /// **'Illustrative sample values only — not an official tariff or bill calculation.'**
   String get onboardingBillIllustrativeDisclaimer;
 
-  /// No description provided for @onboardingBillTierThree.
-  ///
-  /// In en_US, this message translates to:
-  /// **'Tier 3 (101–200 kWh)'**
-  String get onboardingBillTierThree;
-
-  /// No description provided for @onboardingBillTierThreeRate.
-  ///
-  /// In en_US, this message translates to:
-  /// **'120 piastres/kWh'**
-  String get onboardingBillTierThreeRate;
-
-  /// No description provided for @onboardingBillTierTwo.
-  ///
-  /// In en_US, this message translates to:
-  /// **'Tier 2 (51–100 kWh)'**
-  String get onboardingBillTierTwo;
-
   /// No description provided for @onboardingBillTargetTier.
   ///
   /// In en_US, this message translates to:
@@ -308,12 +290,6 @@ abstract class AppLocalizations {
   /// **'Estimated usage value'**
   String get onboardingBillEstimatedValue;
 
-  /// No description provided for @onboardingBillExampleAmount.
-  ///
-  /// In en_US, this message translates to:
-  /// **'148.50'**
-  String get onboardingBillExampleAmount;
-
   /// No description provided for @onboardingBillCurrency.
   ///
   /// In en_US, this message translates to:
@@ -326,12 +302,6 @@ abstract class AppLocalizations {
   /// **'Equivalent consumption'**
   String get onboardingBillEquivalentBalance;
 
-  /// No description provided for @onboardingBillExampleUsage.
-  ///
-  /// In en_US, this message translates to:
-  /// **'95'**
-  String get onboardingBillExampleUsage;
-
   /// No description provided for @onboardingBillUsageUnit.
   ///
   /// In en_US, this message translates to:
@@ -343,90 +313,6 @@ abstract class AppLocalizations {
   /// In en_US, this message translates to:
   /// **'Tier safety indicator'**
   String get onboardingBillSafetyIndicator;
-
-  /// No description provided for @onboardingBillRemainingUsage.
-  ///
-  /// In en_US, this message translates to:
-  /// **'5 kWh left before tier 3'**
-  String get onboardingBillRemainingUsage;
-
-  /// No description provided for @onboardingBillThresholdStart.
-  ///
-  /// In en_US, this message translates to:
-  /// **'50 kWh'**
-  String get onboardingBillThresholdStart;
-
-  /// No description provided for @onboardingBillThresholdEnd.
-  ///
-  /// In en_US, this message translates to:
-  /// **'100 kWh'**
-  String get onboardingBillThresholdEnd;
-
-  /// No description provided for @onboardingBillCapacityPercent.
-  ///
-  /// In en_US, this message translates to:
-  /// **'82% of tier capacity'**
-  String get onboardingBillCapacityPercent;
-
-  /// No description provided for @onboardingBillTierOneLabel.
-  ///
-  /// In en_US, this message translates to:
-  /// **'Tier 1'**
-  String get onboardingBillTierOneLabel;
-
-  /// No description provided for @onboardingBillTierOneRate.
-  ///
-  /// In en_US, this message translates to:
-  /// **'68 p'**
-  String get onboardingBillTierOneRate;
-
-  /// No description provided for @onboardingBillTierTwoLabel.
-  ///
-  /// In en_US, this message translates to:
-  /// **'Tier 2'**
-  String get onboardingBillTierTwoLabel;
-
-  /// No description provided for @onboardingBillTierTwoRate.
-  ///
-  /// In en_US, this message translates to:
-  /// **'78 p'**
-  String get onboardingBillTierTwoRate;
-
-  /// No description provided for @onboardingBillTierThreeLabel.
-  ///
-  /// In en_US, this message translates to:
-  /// **'Tier 3'**
-  String get onboardingBillTierThreeLabel;
-
-  /// No description provided for @onboardingBillTierThreeShortRate.
-  ///
-  /// In en_US, this message translates to:
-  /// **'95 p'**
-  String get onboardingBillTierThreeShortRate;
-
-  /// No description provided for @onboardingBillTierFourLabel.
-  ///
-  /// In en_US, this message translates to:
-  /// **'Tier 4'**
-  String get onboardingBillTierFourLabel;
-
-  /// No description provided for @onboardingBillTierFourRate.
-  ///
-  /// In en_US, this message translates to:
-  /// **'155 p'**
-  String get onboardingBillTierFourRate;
-
-  /// No description provided for @onboardingBillTierFiveLabel.
-  ///
-  /// In en_US, this message translates to:
-  /// **'Tier 5'**
-  String get onboardingBillTierFiveLabel;
-
-  /// No description provided for @onboardingBillTierFiveRate.
-  ///
-  /// In en_US, this message translates to:
-  /// **'195 p'**
-  String get onboardingBillTierFiveRate;
 
   /// No description provided for @onboardingBillFeesTitle.
   ///
@@ -463,6 +349,636 @@ abstract class AppLocalizations {
   /// In en_US, this message translates to:
   /// **'Tips to help avoid the next tier based on when high consumption appliances are used.'**
   String get onboardingBillSavingsDescription;
+
+  /// No description provided for @onboardingBrandShort.
+  ///
+  /// In en_US, this message translates to:
+  /// **'Electricity Tracker'**
+  String get onboardingBrandShort;
+
+  /// No description provided for @onboardingBudgetMonthly.
+  ///
+  /// In en_US, this message translates to:
+  /// **'Estimated monthly budget'**
+  String get onboardingBudgetMonthly;
+
+  /// No description provided for @onboardingBudgetRemaining.
+  ///
+  /// In en_US, this message translates to:
+  /// **'Remaining budget'**
+  String get onboardingBudgetRemaining;
+
+  /// No description provided for @onboardingBudgetCurrency.
+  ///
+  /// In en_US, this message translates to:
+  /// **'EGP'**
+  String get onboardingBudgetCurrency;
+
+  /// No description provided for @onboardingApplianceAirConditioner.
+  ///
+  /// In en_US, this message translates to:
+  /// **'AC'**
+  String get onboardingApplianceAirConditioner;
+
+  /// No description provided for @onboardingApplianceWaterHeater.
+  ///
+  /// In en_US, this message translates to:
+  /// **'Heater'**
+  String get onboardingApplianceWaterHeater;
+
+  /// No description provided for @onboardingApplianceRefrigerator.
+  ///
+  /// In en_US, this message translates to:
+  /// **'Fridge'**
+  String get onboardingApplianceRefrigerator;
+
+  /// No description provided for @onboardingApplianceAmount.
+  ///
+  /// In en_US, this message translates to:
+  /// **'{amount} {currency}'**
+  String onboardingApplianceAmount(Object amount, Object currency);
+
+  /// No description provided for @onboardingBudgetTitle.
+  ///
+  /// In en_US, this message translates to:
+  /// **'Track your budget and control appliance use'**
+  String get onboardingBudgetTitle;
+
+  /// No description provided for @onboardingBudgetDescription.
+  ///
+  /// In en_US, this message translates to:
+  /// **'Set a monthly electricity budget, get an early alert when you reach 80%, and discover which appliances use the most energy.'**
+  String get onboardingBudgetDescription;
+
+  /// No description provided for @onboardingBudgetAlerts.
+  ///
+  /// In en_US, this message translates to:
+  /// **'Get early alerts before your budget runs out or usage moves into a higher tier.'**
+  String get onboardingBudgetAlerts;
+
+  /// No description provided for @onboardingBudgetSimulator.
+  ///
+  /// In en_US, this message translates to:
+  /// **'Explore usage scenarios to reduce your air conditioner hours each month.'**
+  String get onboardingBudgetSimulator;
+
+  /// No description provided for @onboardingBudgetStartNow.
+  ///
+  /// In en_US, this message translates to:
+  /// **'Start now for free'**
+  String get onboardingBudgetStartNow;
+
+  /// No description provided for @onboardingBudgetDisclaimer.
+  ///
+  /// In en_US, this message translates to:
+  /// **'Illustrative estimates to help you save based on Egypt’s official electricity tariffs.'**
+  String get onboardingBudgetDisclaimer;
+
+  /// No description provided for @welcomeSubtitle.
+  ///
+  /// In en_US, this message translates to:
+  /// **'Your smart assistant for managing and tracking home bills'**
+  String get welcomeSubtitle;
+
+  /// No description provided for @welcomeLoginTitle.
+  ///
+  /// In en_US, this message translates to:
+  /// **'Log in'**
+  String get welcomeLoginTitle;
+
+  /// No description provided for @welcomeLoginGreeting.
+  ///
+  /// In en_US, this message translates to:
+  /// **'Welcome back. Enter your details to continue.'**
+  String get welcomeLoginGreeting;
+
+  /// No description provided for @welcomeIdentifierLabel.
+  ///
+  /// In en_US, this message translates to:
+  /// **'Email or phone number'**
+  String get welcomeIdentifierLabel;
+
+  /// No description provided for @welcomeIdentifierHint.
+  ///
+  /// In en_US, this message translates to:
+  /// **'name@example.com'**
+  String get welcomeIdentifierHint;
+
+  /// No description provided for @welcomePasswordLabel.
+  ///
+  /// In en_US, this message translates to:
+  /// **'Password'**
+  String get welcomePasswordLabel;
+
+  /// No description provided for @welcomePasswordHint.
+  ///
+  /// In en_US, this message translates to:
+  /// **'••••••••'**
+  String get welcomePasswordHint;
+
+  /// No description provided for @welcomeRememberMe.
+  ///
+  /// In en_US, this message translates to:
+  /// **'Remember me'**
+  String get welcomeRememberMe;
+
+  /// No description provided for @welcomeForgotPassword.
+  ///
+  /// In en_US, this message translates to:
+  /// **'Forgot password?'**
+  String get welcomeForgotPassword;
+
+  /// No description provided for @welcomeContinueDivider.
+  ///
+  /// In en_US, this message translates to:
+  /// **'Or continue as a guest'**
+  String get welcomeContinueDivider;
+
+  /// No description provided for @welcomeGuest.
+  ///
+  /// In en_US, this message translates to:
+  /// **'Continue as guest and try the calculator'**
+  String get welcomeGuest;
+
+  /// No description provided for @welcomeNoAccount.
+  ///
+  /// In en_US, this message translates to:
+  /// **'Don’t have an account?'**
+  String get welcomeNoAccount;
+
+  /// No description provided for @welcomeCreateAccount.
+  ///
+  /// In en_US, this message translates to:
+  /// **'Create a new account'**
+  String get welcomeCreateAccount;
+
+  /// No description provided for @welcomePrivacy.
+  ///
+  /// In en_US, this message translates to:
+  /// **'Your meter data is stored locally and handled under Egyptian privacy policy.'**
+  String get welcomePrivacy;
+
+  /// No description provided for @createAccountTitle.
+  ///
+  /// In en_US, this message translates to:
+  /// **'Create your account'**
+  String get createAccountTitle;
+
+  /// No description provided for @createAccountFullNameLabel.
+  ///
+  /// In en_US, this message translates to:
+  /// **'Full Name'**
+  String get createAccountFullNameLabel;
+
+  /// No description provided for @createAccountFullNameHint.
+  ///
+  /// In en_US, this message translates to:
+  /// **'Enter your full name'**
+  String get createAccountFullNameHint;
+
+  /// No description provided for @createAccountEmailLabel.
+  ///
+  /// In en_US, this message translates to:
+  /// **'Email Address'**
+  String get createAccountEmailLabel;
+
+  /// No description provided for @createAccountEmailHint.
+  ///
+  /// In en_US, this message translates to:
+  /// **'name@example.com'**
+  String get createAccountEmailHint;
+
+  /// No description provided for @createAccountPhoneLabel.
+  ///
+  /// In en_US, this message translates to:
+  /// **'Phone Number'**
+  String get createAccountPhoneLabel;
+
+  /// No description provided for @createAccountPhoneHint.
+  ///
+  /// In en_US, this message translates to:
+  /// **'+20 10 1234 5678'**
+  String get createAccountPhoneHint;
+
+  /// No description provided for @createAccountPasswordHint.
+  ///
+  /// In en_US, this message translates to:
+  /// **'Create a password'**
+  String get createAccountPasswordHint;
+
+  /// No description provided for @createAccountConfirmPasswordLabel.
+  ///
+  /// In en_US, this message translates to:
+  /// **'Confirm Password'**
+  String get createAccountConfirmPasswordLabel;
+
+  /// No description provided for @createAccountConfirmPasswordHint.
+  ///
+  /// In en_US, this message translates to:
+  /// **'Re-enter your password'**
+  String get createAccountConfirmPasswordHint;
+
+  /// No description provided for @createAccountButton.
+  ///
+  /// In en_US, this message translates to:
+  /// **'Create Account'**
+  String get createAccountButton;
+
+  /// No description provided for @createAccountBackToLogin.
+  ///
+  /// In en_US, this message translates to:
+  /// **'Back to Login'**
+  String get createAccountBackToLogin;
+
+  /// No description provided for @homeBrand.
+  ///
+  /// In en_US, this message translates to:
+  /// **'Electricity Tracker'**
+  String get homeBrand;
+
+  /// No description provided for @homeGovernment.
+  ///
+  /// In en_US, this message translates to:
+  /// **'Arab Republic of Egypt'**
+  String get homeGovernment;
+
+  /// No description provided for @homeNotifications.
+  ///
+  /// In en_US, this message translates to:
+  /// **'Notifications'**
+  String get homeNotifications;
+
+  /// No description provided for @homeDisclaimerTitle.
+  ///
+  /// In en_US, this message translates to:
+  /// **'Notice:'**
+  String get homeDisclaimerTitle;
+
+  /// No description provided for @homeDisclaimer.
+  ///
+  /// In en_US, this message translates to:
+  /// **'Illustrative estimates for personal tracking and tariff tiers, not an official electricity bill.'**
+  String get homeDisclaimer;
+
+  /// No description provided for @homeGreeting.
+  ///
+  /// In en_US, this message translates to:
+  /// **'Hello, Ahmed Mostafa'**
+  String get homeGreeting;
+
+  /// No description provided for @homeGreetingDate.
+  ///
+  /// In en_US, this message translates to:
+  /// **'Sunday, 15 October 2023'**
+  String get homeGreetingDate;
+
+  /// No description provided for @homeAvatarInitials.
+  ///
+  /// In en_US, this message translates to:
+  /// **'AM'**
+  String get homeAvatarInitials;
+
+  /// No description provided for @homeSmartMeter.
+  ///
+  /// In en_US, this message translates to:
+  /// **'Smart meter'**
+  String get homeSmartMeter;
+
+  /// No description provided for @homeCurrentConsumption.
+  ///
+  /// In en_US, this message translates to:
+  /// **'Current month consumption'**
+  String get homeCurrentConsumption;
+
+  /// No description provided for @homeCurrentTierTemplate.
+  ///
+  /// In en_US, this message translates to:
+  /// **'Tier four ({start}–{end} kWh)'**
+  String homeCurrentTierTemplate(Object start, Object end);
+
+  /// No description provided for @homeTotalEnergy.
+  ///
+  /// In en_US, this message translates to:
+  /// **'Total energy consumed'**
+  String get homeTotalEnergy;
+
+  /// No description provided for @homeEstimatedBill.
+  ///
+  /// In en_US, this message translates to:
+  /// **'Estimated bill'**
+  String get homeEstimatedBill;
+
+  /// No description provided for @homeEnergyUnit.
+  ///
+  /// In en_US, this message translates to:
+  /// **'kWh'**
+  String get homeEnergyUnit;
+
+  /// No description provided for @homeCurrency.
+  ///
+  /// In en_US, this message translates to:
+  /// **'EGP'**
+  String get homeCurrency;
+
+  /// No description provided for @homeMonthlyBudget.
+  ///
+  /// In en_US, this message translates to:
+  /// **'Monthly budget'**
+  String get homeMonthlyBudget;
+
+  /// No description provided for @homeBudgetWarning.
+  ///
+  /// In en_US, this message translates to:
+  /// **'Warning: over 80%'**
+  String get homeBudgetWarning;
+
+  /// No description provided for @homeBudgetSpent.
+  ///
+  /// In en_US, this message translates to:
+  /// **'Spent'**
+  String get homeBudgetSpent;
+
+  /// No description provided for @homeBudgetLimit.
+  ///
+  /// In en_US, this message translates to:
+  /// **'Maximum limit'**
+  String get homeBudgetLimit;
+
+  /// No description provided for @homeBudgetRemaining.
+  ///
+  /// In en_US, this message translates to:
+  /// **'Remaining in this month’s budget:'**
+  String get homeBudgetRemaining;
+
+  /// No description provided for @homeQuickActions.
+  ///
+  /// In en_US, this message translates to:
+  /// **'Quick actions'**
+  String get homeQuickActions;
+
+  /// No description provided for @homeMore.
+  ///
+  /// In en_US, this message translates to:
+  /// **'More'**
+  String get homeMore;
+
+  /// No description provided for @homeActionRecordReading.
+  ///
+  /// In en_US, this message translates to:
+  /// **'Record reading'**
+  String get homeActionRecordReading;
+
+  /// No description provided for @homeActionScanMeter.
+  ///
+  /// In en_US, this message translates to:
+  /// **'Scan meter'**
+  String get homeActionScanMeter;
+
+  /// No description provided for @homeActionVoiceEntry.
+  ///
+  /// In en_US, this message translates to:
+  /// **'Voice entry'**
+  String get homeActionVoiceEntry;
+
+  /// No description provided for @homeActionCalculateBill.
+  ///
+  /// In en_US, this message translates to:
+  /// **'Calculate bill'**
+  String get homeActionCalculateBill;
+
+  /// No description provided for @homeConsumptionRate.
+  ///
+  /// In en_US, this message translates to:
+  /// **'Consumption trend'**
+  String get homeConsumptionRate;
+
+  /// No description provided for @homeLastSevenDays.
+  ///
+  /// In en_US, this message translates to:
+  /// **'Last 7 days (kWh)'**
+  String get homeLastSevenDays;
+
+  /// No description provided for @homeDaily.
+  ///
+  /// In en_US, this message translates to:
+  /// **'Daily'**
+  String get homeDaily;
+
+  /// No description provided for @homeWeekly.
+  ///
+  /// In en_US, this message translates to:
+  /// **'Weekly'**
+  String get homeWeekly;
+
+  /// No description provided for @homeMonthly.
+  ///
+  /// In en_US, this message translates to:
+  /// **'Monthly'**
+  String get homeMonthly;
+
+  /// No description provided for @homeSaturday.
+  ///
+  /// In en_US, this message translates to:
+  /// **'Sat'**
+  String get homeSaturday;
+
+  /// No description provided for @homeSunday.
+  ///
+  /// In en_US, this message translates to:
+  /// **'Sun'**
+  String get homeSunday;
+
+  /// No description provided for @homeMonday.
+  ///
+  /// In en_US, this message translates to:
+  /// **'Mon'**
+  String get homeMonday;
+
+  /// No description provided for @homeTuesday.
+  ///
+  /// In en_US, this message translates to:
+  /// **'Tue'**
+  String get homeTuesday;
+
+  /// No description provided for @homeWednesday.
+  ///
+  /// In en_US, this message translates to:
+  /// **'Wed'**
+  String get homeWednesday;
+
+  /// No description provided for @homeThursday.
+  ///
+  /// In en_US, this message translates to:
+  /// **'Thu'**
+  String get homeThursday;
+
+  /// No description provided for @homeToday.
+  ///
+  /// In en_US, this message translates to:
+  /// **'Today'**
+  String get homeToday;
+
+  /// No description provided for @homeTopAppliances.
+  ///
+  /// In en_US, this message translates to:
+  /// **'Top consuming appliances'**
+  String get homeTopAppliances;
+
+  /// No description provided for @homeDetails.
+  ///
+  /// In en_US, this message translates to:
+  /// **'Details'**
+  String get homeDetails;
+
+  /// No description provided for @homeAirConditioner.
+  ///
+  /// In en_US, this message translates to:
+  /// **'Living room air conditioner'**
+  String get homeAirConditioner;
+
+  /// No description provided for @homeAirConditionerUsage.
+  ///
+  /// In en_US, this message translates to:
+  /// **'Average 7 hours daily'**
+  String get homeAirConditionerUsage;
+
+  /// No description provided for @homeRefrigerator.
+  ///
+  /// In en_US, this message translates to:
+  /// **'18 cubic foot refrigerator'**
+  String get homeRefrigerator;
+
+  /// No description provided for @homeRefrigeratorUsage.
+  ///
+  /// In en_US, this message translates to:
+  /// **'Runs continuously'**
+  String get homeRefrigeratorUsage;
+
+  /// No description provided for @homeWaterHeater.
+  ///
+  /// In en_US, this message translates to:
+  /// **'Electric water heater'**
+  String get homeWaterHeater;
+
+  /// No description provided for @homeWaterHeaterUsage.
+  ///
+  /// In en_US, this message translates to:
+  /// **'2.5 hours daily'**
+  String get homeWaterHeaterUsage;
+
+  /// No description provided for @homeLastReading.
+  ///
+  /// In en_US, this message translates to:
+  /// **'Last meter reading'**
+  String get homeLastReading;
+
+  /// No description provided for @homeReadingDate.
+  ///
+  /// In en_US, this message translates to:
+  /// **'12 October'**
+  String get homeReadingDate;
+
+  /// No description provided for @homeNavHome.
+  ///
+  /// In en_US, this message translates to:
+  /// **'Home'**
+  String get homeNavHome;
+
+  /// No description provided for @homeNavReadings.
+  ///
+  /// In en_US, this message translates to:
+  /// **'Readings'**
+  String get homeNavReadings;
+
+  /// No description provided for @homeNavAnalytics.
+  ///
+  /// In en_US, this message translates to:
+  /// **'Analytics'**
+  String get homeNavAnalytics;
+
+  /// No description provided for @homeNavAppliances.
+  ///
+  /// In en_US, this message translates to:
+  /// **'Appliances'**
+  String get homeNavAppliances;
+
+  /// No description provided for @homeNavSettings.
+  ///
+  /// In en_US, this message translates to:
+  /// **'Settings'**
+  String get homeNavSettings;
+
+  /// No description provided for @onboardingBillTierRangeTemplate.
+  ///
+  /// In en_US, this message translates to:
+  /// **'Tier {tier} ({start}–{end} kWh)'**
+  String onboardingBillTierRangeTemplate(Object tier, Object start, Object end);
+
+  /// No description provided for @onboardingBillTierLabelTemplate.
+  ///
+  /// In en_US, this message translates to:
+  /// **'Tier {tier}'**
+  String onboardingBillTierLabelTemplate(Object tier);
+
+  /// No description provided for @onboardingBillTierRateTemplate.
+  ///
+  /// In en_US, this message translates to:
+  /// **'{rate} p'**
+  String onboardingBillTierRateTemplate(Object rate);
+
+  /// No description provided for @onboardingBillPaisaRateTemplate.
+  ///
+  /// In en_US, this message translates to:
+  /// **'{rate} piastres/kWh'**
+  String onboardingBillPaisaRateTemplate(Object rate);
+
+  /// No description provided for @onboardingBillRemainingTemplate.
+  ///
+  /// In en_US, this message translates to:
+  /// **'{amount} kWh left before tier {tier}'**
+  String onboardingBillRemainingTemplate(Object amount, Object tier);
+
+  /// No description provided for @onboardingBillThresholdTemplate.
+  ///
+  /// In en_US, this message translates to:
+  /// **'{amount} kWh'**
+  String onboardingBillThresholdTemplate(Object amount);
+
+  /// No description provided for @onboardingBillCapacityTemplate.
+  ///
+  /// In en_US, this message translates to:
+  /// **'{percent} of tier capacity'**
+  String onboardingBillCapacityTemplate(Object percent);
+
+  /// No description provided for @onboardingBudgetConsumedTemplate.
+  ///
+  /// In en_US, this message translates to:
+  /// **'{percent} consumed'**
+  String onboardingBudgetConsumedTemplate(Object percent);
+
+  /// No description provided for @onboardingBudgetCapTemplate.
+  ///
+  /// In en_US, this message translates to:
+  /// **'Budget cap: {amount} {currency}'**
+  String onboardingBudgetCapTemplate(Object amount, Object currency);
+
+  /// No description provided for @onboardingBudgetSavingsTemplate.
+  ///
+  /// In en_US, this message translates to:
+  /// **'Save up to {amount} {currency} this month'**
+  String onboardingBudgetSavingsTemplate(Object amount, Object currency);
+
+  /// No description provided for @homeComparedPreviousTemplate.
+  ///
+  /// In en_US, this message translates to:
+  /// **'{change} compared with last month'**
+  String homeComparedPreviousTemplate(Object change);
+
+  /// No description provided for @homeDaysRemainingTemplate.
+  ///
+  /// In en_US, this message translates to:
+  /// **'{days} days remaining in the billing cycle'**
+  String homeDaysRemainingTemplate(Object days);
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

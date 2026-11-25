@@ -6,6 +6,7 @@ import '../../../core/theme/app_shape_tokens.dart';
 import '../../../core/theme/app_typography.dart';
 import '../../../core/widgets/buttons/app_button.dart';
 import '../../../l10n/generated/app_localizations.dart';
+import '../data/onboarding_demo_data.dart';
 import 'inline_icon_label.dart';
 import 'onboarding_scanner_corners.dart';
 import 'onboarding_status_dot.dart';
@@ -168,7 +169,7 @@ class OnboardingTrackElectricityScreen extends StatelessWidget {
           textBaseline: TextBaseline.alphabetic,
           children: [
             Text(
-              '14,892',
+              OnboardingDemoData.meterReading,
               style: AppTypography.currencyDisplayMobile.copyWith(
                 color: AppColors.primary,
               ),
@@ -418,7 +419,9 @@ class OnboardingTrackElectricityScreen extends StatelessWidget {
                         ),
                       ),
                       Text(
-                        l10n.onboardingTierExample,
+                      l10n.onboardingTierExampleTemplate(
+                        OnboardingDemoData.exampleTierLimitKwh,
+                      ),
                         maxLines: 2,
                         overflow: TextOverflow.ellipsis,
                         style: AppTypography.textTheme.labelMedium?.copyWith(

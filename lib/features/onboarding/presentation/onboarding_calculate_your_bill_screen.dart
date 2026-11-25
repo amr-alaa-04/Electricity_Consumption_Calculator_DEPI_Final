@@ -11,6 +11,7 @@ import '../../../core/widgets/buttons/app_icon_button.dart';
 import '../../../core/widgets/surfaces/app_icon_tile.dart';
 import '../../../core/widgets/surfaces/app_surface_card.dart';
 import '../../../l10n/generated/app_localizations.dart';
+import '../data/onboarding_demo_data.dart';
 import 'onboarding_step_indicator.dart';
 
 class OnboardingCalculateYourBillScreen extends StatelessWidget {
@@ -180,7 +181,11 @@ class OnboardingCalculateYourBillScreen extends StatelessWidget {
                     const SizedBox(width: AppSpacing.small),
                     Expanded(
                       child: Text(
-                        l10n.onboardingBillTierThree,
+                        l10n.onboardingBillTierRangeTemplate(
+                          OnboardingDemoData.billTierThreeNumber,
+                          OnboardingDemoData.billTierThreeRangeStartKwh,
+                          OnboardingDemoData.billTierThreeRangeEndKwh,
+                        ),
                         maxLines: 1,
                         overflow: TextOverflow.ellipsis,
                         style: AppTypography.textTheme.bodySmall?.copyWith(
@@ -190,7 +195,9 @@ class OnboardingCalculateYourBillScreen extends StatelessWidget {
                     ),
                     const SizedBox(width: AppSpacing.small),
                     Text(
-                      l10n.onboardingBillTierThreeRate,
+                      l10n.onboardingBillPaisaRateTemplate(
+                        OnboardingDemoData.billTierThreeRatePiastresPerKwh,
+                      ),
                       style: AppTypography.textTheme.bodySmall?.copyWith(
                         color: AppColors.onSurfaceVariant,
                         fontWeight: FontWeight.w600,
@@ -270,7 +277,11 @@ class OnboardingCalculateYourBillScreen extends StatelessWidget {
                 ),
               ),
               Text(
-                l10n.onboardingBillTierTwo,
+                l10n.onboardingBillTierRangeTemplate(
+                  OnboardingDemoData.billTierTwoNumber,
+                  OnboardingDemoData.billTierTwoRangeStartKwh,
+                  OnboardingDemoData.billTierTwoRangeEndKwh,
+                ),
                 style: AppTypography.textTheme.headlineSmall?.copyWith(
                   color: AppColors.onPrimary,
                 ),
@@ -317,14 +328,14 @@ class OnboardingCalculateYourBillScreen extends StatelessWidget {
           final amount = _metric(
             context,
             l10n.onboardingBillEstimatedValue,
-            l10n.onboardingBillExampleAmount,
+            OnboardingDemoData.exampleBillEgp,
             l10n.onboardingBillCurrency,
             prominent: true,
           );
           final usage = _metric(
             context,
             l10n.onboardingBillEquivalentBalance,
-            l10n.onboardingBillExampleUsage,
+            OnboardingDemoData.exampleUsageKwh,
             l10n.onboardingBillUsageUnit,
           );
 
@@ -420,7 +431,10 @@ class OnboardingCalculateYourBillScreen extends StatelessWidget {
             const SizedBox(width: AppSpacing.small),
             Flexible(
               child: Text(
-                l10n.onboardingBillRemainingUsage,
+                l10n.onboardingBillRemainingTemplate(
+                  OnboardingDemoData.billUsageRemainingKwh,
+                  OnboardingDemoData.billTierThreeNumber,
+                ),
                 textAlign: TextAlign.end,
                 style: AppTypography.textTheme.labelSmall?.copyWith(
                   color: AppColors.secondaryFixed,
@@ -434,7 +448,7 @@ class OnboardingCalculateYourBillScreen extends StatelessWidget {
         ClipRRect(
           borderRadius: const BorderRadius.all(AppShapeTokens.pill),
           child: LinearProgressIndicator(
-            value: 0.82,
+            value: OnboardingDemoData.billTierCapacityProgress,
             minHeight: 10,
             backgroundColor: AppColors.surfaceContainerLowest.withValues(
               alpha: 0.2,
@@ -447,16 +461,26 @@ class OnboardingCalculateYourBillScreen extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Expanded(
-              child: _thresholdLabel(l10n.onboardingBillThresholdStart),
+              child: _thresholdLabel(
+                l10n.onboardingBillThresholdTemplate(
+                  OnboardingDemoData.billThresholdStartKwh,
+                ),
+              ),
             ),
             Expanded(
               child: _thresholdLabel(
-                l10n.onboardingBillCapacityPercent,
+                l10n.onboardingBillCapacityTemplate(
+                  OnboardingDemoData.billTierCapacityPercent,
+                ),
                 color: AppColors.secondaryFixed,
               ),
             ),
             Expanded(
-              child: _thresholdLabel(l10n.onboardingBillThresholdEnd),
+              child: _thresholdLabel(
+                l10n.onboardingBillThresholdTemplate(
+                  OnboardingDemoData.billThresholdEndKwh,
+                ),
+              ),
             ),
           ],
         ),
@@ -474,17 +498,14 @@ class OnboardingCalculateYourBillScreen extends StatelessWidget {
   );
 
   Widget _buildTierChips(AppLocalizations l10n) {
-    final tiers = [
-      (l10n.onboardingBillTierOneLabel, l10n.onboardingBillTierOneRate),
-      (l10n.onboardingBillTierTwoLabel, l10n.onboardingBillTierTwoRate),
-      (l10n.onboardingBillTierThreeLabel, l10n.onboardingBillTierThreeShortRate),
-      (l10n.onboardingBillTierFourLabel, l10n.onboardingBillTierFourRate),
-      (l10n.onboardingBillTierFiveLabel, l10n.onboardingBillTierFiveRate),
+    final tierLabels = [
+      for (final tier in OnboardingDemoData.tariffTiers)
+        l10n.onboardingBillTierLabelTemplate(tier.labelNumber),
     ];
 
     return Row(
       children: [
-        for (var index = 0; index < tiers.length; index++) ...[
+          for (var index = 0; index < OnboardingDemoData.tariffTiers.length; index++) ...[
           if (index > 0) const SizedBox(width: AppSpacing.micro),
           Expanded(
             child: Container(
@@ -506,7 +527,7 @@ class OnboardingCalculateYourBillScreen extends StatelessWidget {
               child: Column(
                 children: [
                   Text(
-                    tiers[index].$1,
+                    tierLabels[index],
                     maxLines: 1,
                     overflow: TextOverflow.ellipsis,
                     style: AppTypography.textTheme.labelSmall?.copyWith(
@@ -515,7 +536,9 @@ class OnboardingCalculateYourBillScreen extends StatelessWidget {
                     ),
                   ),
                   Text(
-                    tiers[index].$2,
+                    l10n.onboardingBillTierRateTemplate(
+                      OnboardingDemoData.tariffTiers[index].ratePiastres,
+                    ),
                     maxLines: 1,
                     overflow: TextOverflow.ellipsis,
                     style: AppTypography.textTheme.labelSmall?.copyWith(

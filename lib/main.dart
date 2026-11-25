@@ -6,8 +6,8 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import 'app/app.dart';
 import 'core/logging/app_logger.dart';
-
 export 'app/app.dart' show MyApp;
+
 
 void main() {
   FlutterError.onError = (details) {

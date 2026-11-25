@@ -45,7 +45,9 @@ class AppLocalizationsEn extends AppLocalizations {
   String get onboardingTierInstant => 'Instant tier calculation';
 
   @override
-  String get onboardingTierExample => 'Illustrative tier 4 (up to 350 kWh)';
+  String onboardingTierExampleTemplate(Object limit) {
+    return 'Illustrative tier 4 (up to $limit kWh)';
+  }
 
   @override
   String get onboardingSampleTariffDisclaimer =>
@@ -105,15 +107,6 @@ class AppLocalizationsEn extends AppLocalizations {
       'Illustrative sample values only — not an official tariff or bill calculation.';
 
   @override
-  String get onboardingBillTierThree => 'Tier 3 (101–200 kWh)';
-
-  @override
-  String get onboardingBillTierThreeRate => '120 piastres/kWh';
-
-  @override
-  String get onboardingBillTierTwo => 'Tier 2 (51–100 kWh)';
-
-  @override
   String get onboardingBillTargetTier => 'Current target tier';
 
   @override
@@ -123,64 +116,16 @@ class AppLocalizationsEn extends AppLocalizations {
   String get onboardingBillEstimatedValue => 'Estimated usage value';
 
   @override
-  String get onboardingBillExampleAmount => '148.50';
-
-  @override
   String get onboardingBillCurrency => 'EGP';
 
   @override
   String get onboardingBillEquivalentBalance => 'Equivalent consumption';
 
   @override
-  String get onboardingBillExampleUsage => '95';
-
-  @override
   String get onboardingBillUsageUnit => 'kWh';
 
   @override
   String get onboardingBillSafetyIndicator => 'Tier safety indicator';
-
-  @override
-  String get onboardingBillRemainingUsage => '5 kWh left before tier 3';
-
-  @override
-  String get onboardingBillThresholdStart => '50 kWh';
-
-  @override
-  String get onboardingBillThresholdEnd => '100 kWh';
-
-  @override
-  String get onboardingBillCapacityPercent => '82% of tier capacity';
-
-  @override
-  String get onboardingBillTierOneLabel => 'Tier 1';
-
-  @override
-  String get onboardingBillTierOneRate => '68 p';
-
-  @override
-  String get onboardingBillTierTwoLabel => 'Tier 2';
-
-  @override
-  String get onboardingBillTierTwoRate => '78 p';
-
-  @override
-  String get onboardingBillTierThreeLabel => 'Tier 3';
-
-  @override
-  String get onboardingBillTierThreeShortRate => '95 p';
-
-  @override
-  String get onboardingBillTierFourLabel => 'Tier 4';
-
-  @override
-  String get onboardingBillTierFourRate => '155 p';
-
-  @override
-  String get onboardingBillTierFiveLabel => 'Tier 5';
-
-  @override
-  String get onboardingBillTierFiveRate => '195 p';
 
   @override
   String get onboardingBillFeesTitle => 'Additional fees included';
@@ -202,6 +147,355 @@ class AppLocalizationsEn extends AppLocalizations {
   @override
   String get onboardingBillSavingsDescription =>
       'Tips to help avoid the next tier based on when high consumption appliances are used.';
+
+  @override
+  String get onboardingBrandShort => 'Electricity Tracker';
+
+  @override
+  String get onboardingBudgetMonthly => 'Estimated monthly budget';
+
+  @override
+  String get onboardingBudgetRemaining => 'Remaining budget';
+
+  @override
+  String get onboardingBudgetCurrency => 'EGP';
+
+  @override
+  String get onboardingApplianceAirConditioner => 'AC';
+
+  @override
+  String get onboardingApplianceWaterHeater => 'Heater';
+
+  @override
+  String get onboardingApplianceRefrigerator => 'Fridge';
+
+  @override
+  String onboardingApplianceAmount(Object amount, Object currency) {
+    return '$amount $currency';
+  }
+
+  @override
+  String get onboardingBudgetTitle => 'Track your budget and control appliance use';
+
+  @override
+  String get onboardingBudgetDescription =>
+      'Set a monthly electricity budget, get an early alert when you reach 80%, and discover which appliances use the most energy.';
+
+  @override
+  String get onboardingBudgetAlerts =>
+      'Get early alerts before your budget runs out or usage moves into a higher tier.';
+
+  @override
+  String get onboardingBudgetSimulator =>
+      'Explore usage scenarios to reduce your air conditioner hours each month.';
+
+  @override
+  String get onboardingBudgetStartNow => 'Start now for free';
+
+  @override
+  String get onboardingBudgetDisclaimer =>
+      'Illustrative estimates to help you save based on Egypt’s official electricity tariffs.';
+
+  @override
+  String get welcomeSubtitle => 'Your smart assistant for managing and tracking home bills';
+
+  @override
+  String get welcomeLoginTitle => 'Log in';
+
+  @override
+  String get welcomeLoginGreeting => 'Welcome back. Enter your details to continue.';
+
+  @override
+  String get welcomeIdentifierLabel => 'Email or phone number';
+
+  @override
+  String get welcomeIdentifierHint => 'name@example.com';
+
+  @override
+  String get welcomePasswordLabel => 'Password';
+
+  @override
+  String get welcomePasswordHint => '••••••••';
+
+  @override
+  String get welcomeRememberMe => 'Remember me';
+
+  @override
+  String get welcomeForgotPassword => 'Forgot password?';
+
+  @override
+  String get welcomeContinueDivider => 'Or continue as a guest';
+
+  @override
+  String get welcomeGuest => 'Continue as guest and try the calculator';
+
+  @override
+  String get welcomeNoAccount => 'Don’t have an account?';
+
+  @override
+  String get welcomeCreateAccount => 'Create a new account';
+
+  @override
+  String get welcomePrivacy =>
+      'Your meter data is stored locally and handled under Egyptian privacy policy.';
+
+  @override
+  String get createAccountTitle => 'Create your account';
+
+  @override
+  String get createAccountFullNameLabel => 'Full Name';
+
+  @override
+  String get createAccountFullNameHint => 'Enter your full name';
+
+  @override
+  String get createAccountEmailLabel => 'Email Address';
+
+  @override
+  String get createAccountEmailHint => 'name@example.com';
+
+  @override
+  String get createAccountPhoneLabel => 'Phone Number';
+
+  @override
+  String get createAccountPhoneHint => '+20 10 1234 5678';
+
+  @override
+  String get createAccountPasswordHint => 'Create a password';
+
+  @override
+  String get createAccountConfirmPasswordLabel => 'Confirm Password';
+
+  @override
+  String get createAccountConfirmPasswordHint => 'Re-enter your password';
+
+  @override
+  String get createAccountButton => 'Create Account';
+
+  @override
+  String get createAccountBackToLogin => 'Back to Login';
+
+  @override
+  String get homeBrand => 'Electricity Tracker';
+
+  @override
+  String get homeGovernment => 'Arab Republic of Egypt';
+
+  @override
+  String get homeNotifications => 'Notifications';
+
+  @override
+  String get homeDisclaimerTitle => 'Notice:';
+
+  @override
+  String get homeDisclaimer =>
+      'Illustrative estimates for personal tracking and tariff tiers, not an official electricity bill.';
+
+  @override
+  String get homeGreeting => 'Hello, Ahmed Mostafa';
+
+  @override
+  String get homeGreetingDate => 'Sunday, 15 October 2023';
+
+  @override
+  String get homeAvatarInitials => 'AM';
+
+  @override
+  String get homeSmartMeter => 'Smart meter';
+
+  @override
+  String get homeCurrentConsumption => 'Current month consumption';
+
+  @override
+  String homeCurrentTierTemplate(Object start, Object end) {
+    return 'Tier four ($start–$end kWh)';
+  }
+
+  @override
+  String get homeTotalEnergy => 'Total energy consumed';
+
+  @override
+  String get homeEstimatedBill => 'Estimated bill';
+
+  @override
+  String get homeEnergyUnit => 'kWh';
+
+  @override
+  String get homeCurrency => 'EGP';
+
+  @override
+  String get homeMonthlyBudget => 'Monthly budget';
+
+  @override
+  String get homeBudgetWarning => 'Warning: over 80%';
+
+  @override
+  String get homeBudgetSpent => 'Spent';
+
+  @override
+  String get homeBudgetLimit => 'Maximum limit';
+
+  @override
+  String get homeBudgetRemaining => 'Remaining in this month’s budget:';
+
+  @override
+  String get homeQuickActions => 'Quick actions';
+
+  @override
+  String get homeMore => 'More';
+
+  @override
+  String get homeActionRecordReading => 'Record reading';
+
+  @override
+  String get homeActionScanMeter => 'Scan meter';
+
+  @override
+  String get homeActionVoiceEntry => 'Voice entry';
+
+  @override
+  String get homeActionCalculateBill => 'Calculate bill';
+
+  @override
+  String get homeConsumptionRate => 'Consumption trend';
+
+  @override
+  String get homeLastSevenDays => 'Last 7 days (kWh)';
+
+  @override
+  String get homeDaily => 'Daily';
+
+  @override
+  String get homeWeekly => 'Weekly';
+
+  @override
+  String get homeMonthly => 'Monthly';
+
+  @override
+  String get homeSaturday => 'Sat';
+
+  @override
+  String get homeSunday => 'Sun';
+
+  @override
+  String get homeMonday => 'Mon';
+
+  @override
+  String get homeTuesday => 'Tue';
+
+  @override
+  String get homeWednesday => 'Wed';
+
+  @override
+  String get homeThursday => 'Thu';
+
+  @override
+  String get homeToday => 'Today';
+
+  @override
+  String get homeTopAppliances => 'Top consuming appliances';
+
+  @override
+  String get homeDetails => 'Details';
+
+  @override
+  String get homeAirConditioner => 'Living room air conditioner';
+
+  @override
+  String get homeAirConditionerUsage => 'Average 7 hours daily';
+
+  @override
+  String get homeRefrigerator => '18 cubic foot refrigerator';
+
+  @override
+  String get homeRefrigeratorUsage => 'Runs continuously';
+
+  @override
+  String get homeWaterHeater => 'Electric water heater';
+
+  @override
+  String get homeWaterHeaterUsage => '2.5 hours daily';
+
+  @override
+  String get homeLastReading => 'Last meter reading';
+
+  @override
+  String get homeReadingDate => '12 October';
+
+  @override
+  String get homeNavHome => 'Home';
+
+  @override
+  String get homeNavReadings => 'Readings';
+
+  @override
+  String get homeNavAnalytics => 'Analytics';
+
+  @override
+  String get homeNavAppliances => 'Appliances';
+
+  @override
+  String get homeNavSettings => 'Settings';
+
+  @override
+  String onboardingBillTierRangeTemplate(Object tier, Object start, Object end) {
+    return 'Tier $tier ($start–$end kWh)';
+  }
+
+  @override
+  String onboardingBillTierLabelTemplate(Object tier) {
+    return 'Tier $tier';
+  }
+
+  @override
+  String onboardingBillTierRateTemplate(Object rate) {
+    return '$rate p';
+  }
+
+  @override
+  String onboardingBillPaisaRateTemplate(Object rate) {
+    return '$rate piastres/kWh';
+  }
+
+  @override
+  String onboardingBillRemainingTemplate(Object amount, Object tier) {
+    return '$amount kWh left before tier $tier';
+  }
+
+  @override
+  String onboardingBillThresholdTemplate(Object amount) {
+    return '$amount kWh';
+  }
+
+  @override
+  String onboardingBillCapacityTemplate(Object percent) {
+    return '$percent of tier capacity';
+  }
+
+  @override
+  String onboardingBudgetConsumedTemplate(Object percent) {
+    return '$percent consumed';
+  }
+
+  @override
+  String onboardingBudgetCapTemplate(Object amount, Object currency) {
+    return 'Budget cap: $amount $currency';
+  }
+
+  @override
+  String onboardingBudgetSavingsTemplate(Object amount, Object currency) {
+    return 'Save up to $amount $currency this month';
+  }
+
+  @override
+  String homeComparedPreviousTemplate(Object change) {
+    return '$change compared with last month';
+  }
+
+  @override
+  String homeDaysRemainingTemplate(Object days) {
+    return '$days days remaining in the billing cycle';
+  }
 }
 
 /// The translations for English, as used in the United States (`en_US`).
@@ -245,7 +539,9 @@ class AppLocalizationsEnUs extends AppLocalizationsEn {
   String get onboardingTierInstant => 'Instant tier calculation';
 
   @override
-  String get onboardingTierExample => 'Illustrative tier 4 (up to 350 kWh)';
+  String onboardingTierExampleTemplate(Object limit) {
+    return 'Illustrative tier 4 (up to $limit kWh)';
+  }
 
   @override
   String get onboardingSampleTariffDisclaimer =>
@@ -305,15 +601,6 @@ class AppLocalizationsEnUs extends AppLocalizationsEn {
       'Illustrative sample values only — not an official tariff or bill calculation.';
 
   @override
-  String get onboardingBillTierThree => 'Tier 3 (101–200 kWh)';
-
-  @override
-  String get onboardingBillTierThreeRate => '120 piastres/kWh';
-
-  @override
-  String get onboardingBillTierTwo => 'Tier 2 (51–100 kWh)';
-
-  @override
   String get onboardingBillTargetTier => 'Current target tier';
 
   @override
@@ -323,64 +610,16 @@ class AppLocalizationsEnUs extends AppLocalizationsEn {
   String get onboardingBillEstimatedValue => 'Estimated usage value';
 
   @override
-  String get onboardingBillExampleAmount => '148.50';
-
-  @override
   String get onboardingBillCurrency => 'EGP';
 
   @override
   String get onboardingBillEquivalentBalance => 'Equivalent consumption';
 
   @override
-  String get onboardingBillExampleUsage => '95';
-
-  @override
   String get onboardingBillUsageUnit => 'kWh';
 
   @override
   String get onboardingBillSafetyIndicator => 'Tier safety indicator';
-
-  @override
-  String get onboardingBillRemainingUsage => '5 kWh left before tier 3';
-
-  @override
-  String get onboardingBillThresholdStart => '50 kWh';
-
-  @override
-  String get onboardingBillThresholdEnd => '100 kWh';
-
-  @override
-  String get onboardingBillCapacityPercent => '82% of tier capacity';
-
-  @override
-  String get onboardingBillTierOneLabel => 'Tier 1';
-
-  @override
-  String get onboardingBillTierOneRate => '68 p';
-
-  @override
-  String get onboardingBillTierTwoLabel => 'Tier 2';
-
-  @override
-  String get onboardingBillTierTwoRate => '78 p';
-
-  @override
-  String get onboardingBillTierThreeLabel => 'Tier 3';
-
-  @override
-  String get onboardingBillTierThreeShortRate => '95 p';
-
-  @override
-  String get onboardingBillTierFourLabel => 'Tier 4';
-
-  @override
-  String get onboardingBillTierFourRate => '155 p';
-
-  @override
-  String get onboardingBillTierFiveLabel => 'Tier 5';
-
-  @override
-  String get onboardingBillTierFiveRate => '195 p';
 
   @override
   String get onboardingBillFeesTitle => 'Additional fees included';
@@ -402,4 +641,353 @@ class AppLocalizationsEnUs extends AppLocalizationsEn {
   @override
   String get onboardingBillSavingsDescription =>
       'Tips to help avoid the next tier based on when high consumption appliances are used.';
+
+  @override
+  String get onboardingBrandShort => 'Electricity Tracker';
+
+  @override
+  String get onboardingBudgetMonthly => 'Estimated monthly budget';
+
+  @override
+  String get onboardingBudgetRemaining => 'Remaining budget';
+
+  @override
+  String get onboardingBudgetCurrency => 'EGP';
+
+  @override
+  String get onboardingApplianceAirConditioner => 'AC';
+
+  @override
+  String get onboardingApplianceWaterHeater => 'Heater';
+
+  @override
+  String get onboardingApplianceRefrigerator => 'Fridge';
+
+  @override
+  String onboardingApplianceAmount(Object amount, Object currency) {
+    return '$amount $currency';
+  }
+
+  @override
+  String get onboardingBudgetTitle => 'Track your budget and control appliance use';
+
+  @override
+  String get onboardingBudgetDescription =>
+      'Set a monthly electricity budget, get an early alert when you reach 80%, and discover which appliances use the most energy.';
+
+  @override
+  String get onboardingBudgetAlerts =>
+      'Get early alerts before your budget runs out or usage moves into a higher tier.';
+
+  @override
+  String get onboardingBudgetSimulator =>
+      'Explore usage scenarios to reduce your air conditioner hours each month.';
+
+  @override
+  String get onboardingBudgetStartNow => 'Start now for free';
+
+  @override
+  String get onboardingBudgetDisclaimer =>
+      'Illustrative estimates to help you save based on Egypt’s official electricity tariffs.';
+
+  @override
+  String get welcomeSubtitle => 'Your smart assistant for managing and tracking home bills';
+
+  @override
+  String get welcomeLoginTitle => 'Log in';
+
+  @override
+  String get welcomeLoginGreeting => 'Welcome back. Enter your details to continue.';
+
+  @override
+  String get welcomeIdentifierLabel => 'Email or phone number';
+
+  @override
+  String get welcomeIdentifierHint => 'name@example.com';
+
+  @override
+  String get welcomePasswordLabel => 'Password';
+
+  @override
+  String get welcomePasswordHint => '••••••••';
+
+  @override
+  String get welcomeRememberMe => 'Remember me';
+
+  @override
+  String get welcomeForgotPassword => 'Forgot password?';
+
+  @override
+  String get welcomeContinueDivider => 'Or continue as a guest';
+
+  @override
+  String get welcomeGuest => 'Continue as guest and try the calculator';
+
+  @override
+  String get welcomeNoAccount => 'Don’t have an account?';
+
+  @override
+  String get welcomeCreateAccount => 'Create a new account';
+
+  @override
+  String get welcomePrivacy =>
+      'Your meter data is stored locally and handled under Egyptian privacy policy.';
+
+  @override
+  String get createAccountTitle => 'Create your account';
+
+  @override
+  String get createAccountFullNameLabel => 'Full Name';
+
+  @override
+  String get createAccountFullNameHint => 'Enter your full name';
+
+  @override
+  String get createAccountEmailLabel => 'Email Address';
+
+  @override
+  String get createAccountEmailHint => 'name@example.com';
+
+  @override
+  String get createAccountPhoneLabel => 'Phone Number';
+
+  @override
+  String get createAccountPhoneHint => '+20 10 1234 5678';
+
+  @override
+  String get createAccountPasswordHint => 'Create a password';
+
+  @override
+  String get createAccountConfirmPasswordLabel => 'Confirm Password';
+
+  @override
+  String get createAccountConfirmPasswordHint => 'Re-enter your password';
+
+  @override
+  String get createAccountButton => 'Create Account';
+
+  @override
+  String get createAccountBackToLogin => 'Back to Login';
+
+  @override
+  String get homeBrand => 'Electricity Tracker';
+
+  @override
+  String get homeGovernment => 'Arab Republic of Egypt';
+
+  @override
+  String get homeNotifications => 'Notifications';
+
+  @override
+  String get homeDisclaimerTitle => 'Notice:';
+
+  @override
+  String get homeDisclaimer =>
+      'Illustrative estimates for personal tracking and tariff tiers, not an official electricity bill.';
+
+  @override
+  String get homeGreeting => 'Hello, Ahmed Mostafa';
+
+  @override
+  String get homeGreetingDate => 'Sunday, 15 October 2023';
+
+  @override
+  String get homeAvatarInitials => 'AM';
+
+  @override
+  String get homeSmartMeter => 'Smart meter';
+
+  @override
+  String get homeCurrentConsumption => 'Current month consumption';
+
+  @override
+  String homeCurrentTierTemplate(Object start, Object end) {
+    return 'Tier four ($start–$end kWh)';
+  }
+
+  @override
+  String get homeTotalEnergy => 'Total energy consumed';
+
+  @override
+  String get homeEstimatedBill => 'Estimated bill';
+
+  @override
+  String get homeEnergyUnit => 'kWh';
+
+  @override
+  String get homeCurrency => 'EGP';
+
+  @override
+  String get homeMonthlyBudget => 'Monthly budget';
+
+  @override
+  String get homeBudgetWarning => 'Warning: over 80%';
+
+  @override
+  String get homeBudgetSpent => 'Spent';
+
+  @override
+  String get homeBudgetLimit => 'Maximum limit';
+
+  @override
+  String get homeBudgetRemaining => 'Remaining in this month’s budget:';
+
+  @override
+  String get homeQuickActions => 'Quick actions';
+
+  @override
+  String get homeMore => 'More';
+
+  @override
+  String get homeActionRecordReading => 'Record reading';
+
+  @override
+  String get homeActionScanMeter => 'Scan meter';
+
+  @override
+  String get homeActionVoiceEntry => 'Voice entry';
+
+  @override
+  String get homeActionCalculateBill => 'Calculate bill';
+
+  @override
+  String get homeConsumptionRate => 'Consumption trend';
+
+  @override
+  String get homeLastSevenDays => 'Last 7 days (kWh)';
+
+  @override
+  String get homeDaily => 'Daily';
+
+  @override
+  String get homeWeekly => 'Weekly';
+
+  @override
+  String get homeMonthly => 'Monthly';
+
+  @override
+  String get homeSaturday => 'Sat';
+
+  @override
+  String get homeSunday => 'Sun';
+
+  @override
+  String get homeMonday => 'Mon';
+
+  @override
+  String get homeTuesday => 'Tue';
+
+  @override
+  String get homeWednesday => 'Wed';
+
+  @override
+  String get homeThursday => 'Thu';
+
+  @override
+  String get homeToday => 'Today';
+
+  @override
+  String get homeTopAppliances => 'Top consuming appliances';
+
+  @override
+  String get homeDetails => 'Details';
+
+  @override
+  String get homeAirConditioner => 'Living room air conditioner';
+
+  @override
+  String get homeAirConditionerUsage => 'Average 7 hours daily';
+
+  @override
+  String get homeRefrigerator => '18 cubic foot refrigerator';
+
+  @override
+  String get homeRefrigeratorUsage => 'Runs continuously';
+
+  @override
+  String get homeWaterHeater => 'Electric water heater';
+
+  @override
+  String get homeWaterHeaterUsage => '2.5 hours daily';
+
+  @override
+  String get homeLastReading => 'Last meter reading';
+
+  @override
+  String get homeReadingDate => '12 October';
+
+  @override
+  String get homeNavHome => 'Home';
+
+  @override
+  String get homeNavReadings => 'Readings';
+
+  @override
+  String get homeNavAnalytics => 'Analytics';
+
+  @override
+  String get homeNavAppliances => 'Appliances';
+
+  @override
+  String get homeNavSettings => 'Settings';
+
+  @override
+  String onboardingBillTierRangeTemplate(Object tier, Object start, Object end) {
+    return 'Tier $tier ($start–$end kWh)';
+  }
+
+  @override
+  String onboardingBillTierLabelTemplate(Object tier) {
+    return 'Tier $tier';
+  }
+
+  @override
+  String onboardingBillTierRateTemplate(Object rate) {
+    return '$rate p';
+  }
+
+  @override
+  String onboardingBillPaisaRateTemplate(Object rate) {
+    return '$rate piastres/kWh';
+  }
+
+  @override
+  String onboardingBillRemainingTemplate(Object amount, Object tier) {
+    return '$amount kWh left before tier $tier';
+  }
+
+  @override
+  String onboardingBillThresholdTemplate(Object amount) {
+    return '$amount kWh';
+  }
+
+  @override
+  String onboardingBillCapacityTemplate(Object percent) {
+    return '$percent of tier capacity';
+  }
+
+  @override
+  String onboardingBudgetConsumedTemplate(Object percent) {
+    return '$percent consumed';
+  }
+
+  @override
+  String onboardingBudgetCapTemplate(Object amount, Object currency) {
+    return 'Budget cap: $amount $currency';
+  }
+
+  @override
+  String onboardingBudgetSavingsTemplate(Object amount, Object currency) {
+    return 'Save up to $amount $currency this month';
+  }
+
+  @override
+  String homeComparedPreviousTemplate(Object change) {
+    return '$change compared with last month';
+  }
+
+  @override
+  String homeDaysRemainingTemplate(Object days) {
+    return '$days days remaining in the billing cycle';
+  }
 }
