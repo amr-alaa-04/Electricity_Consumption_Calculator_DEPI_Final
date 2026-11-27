@@ -496,6 +496,110 @@ class AppLocalizationsEn extends AppLocalizations {
   String homeDaysRemainingTemplate(Object days) {
     return '$days days remaining in the billing cycle';
   }
+
+  @override
+  String get readingsBack => 'Back';
+
+  @override
+  String get readingsTitle => 'Record a new reading';
+
+  @override
+  String get readingsActiveMeterLabel => 'Active meter:';
+
+  @override
+  String get readingsActiveMeterName => 'Main apartment meter';
+
+  @override
+  String get readingsNotificationsHelp => 'Notifications and help';
+
+  @override
+  String get readingsMethodManual => 'Manual';
+
+  @override
+  String get readingsMethodCamera => 'Scan with camera';
+
+  @override
+  String get readingsMethodVoice => 'Voice input';
+
+  @override
+  String get readingsDetectedMeterScreen => 'Detected meter display';
+
+  @override
+  String get readingsFlash => 'Flash';
+
+  @override
+  String get readingsRetake => 'Retake';
+
+  @override
+  String readingsOcrSuccess(int accuracy) {
+    return 'Reading detected successfully ($accuracy% accuracy)';
+  }
+
+  @override
+  String readingsOcrVersion(String version) {
+    return 'OCR v$version';
+  }
+
+  @override
+  String get readingsCurrentReading => 'Current confirmed reading';
+
+  @override
+  String get readingsEditableManually => 'Can be edited manually';
+
+  @override
+  String get readingsEnergyUnitParenthetical => '(kWh)';
+
+  @override
+  String readingsPreviousReadingTemplate(String date) {
+    return 'Previous reading ($date):';
+  }
+
+  @override
+  String get readingsConsumptionDifference => 'Net consumption difference:';
+
+  @override
+  String readingsTierTemplate(String tier) {
+    return '(Tier $tier)';
+  }
+
+  @override
+  String get readingsVerificationStatus =>
+      'Reading is correct and consistent with your usual consumption rate';
+
+  @override
+  String get readingsDateTimeLabel => 'Reading date and time';
+
+  @override
+  String get readingsSelectDate => 'Select reading date';
+
+  @override
+  String get readingsSelectTime => 'Select reading time';
+
+  @override
+  String get readingsNotesLabel => 'Additional notes (optional)';
+
+  @override
+  String get readingsNotesHint => 'Add a note about this reading...';
+
+  @override
+  String get readingsSampleNotes => 'Regular mid-month reading';
+
+  @override
+  String get readingsVoiceInvitation => 'Or tap and speak to record the reading:';
+
+  @override
+  String get readingsVoiceSamplePhrase => '\"Fourteen thousand eight hundred and ninety-two\"';
+
+  @override
+  String get readingsSafetyWarning =>
+      'Automatically extracted readings are not accepted without your review and manual confirmation to preserve the accuracy of tariff tier and monthly cost calculations.';
+
+  @override
+  String get readingsReviewConfirm => 'Review and confirm reading';
+
+  @override
+  String get readingsConfirmationPreviewMessage =>
+      'This is a preview only; the reading was not saved.';
 }
 
 /// The translations for English, as used in the United States (`en_US`).
@@ -990,4 +1094,108 @@ class AppLocalizationsEnUs extends AppLocalizationsEn {
   String homeDaysRemainingTemplate(Object days) {
     return '$days days remaining in the billing cycle';
   }
+
+  @override
+  String get readingsBack => 'Back';
+
+  @override
+  String get readingsTitle => 'Record a new reading';
+
+  @override
+  String get readingsActiveMeterLabel => 'Active meter:';
+
+  @override
+  String get readingsActiveMeterName => 'Main apartment meter';
+
+  @override
+  String get readingsNotificationsHelp => 'Notifications and help';
+
+  @override
+  String get readingsMethodManual => 'Manual';
+
+  @override
+  String get readingsMethodCamera => 'Scan with camera';
+
+  @override
+  String get readingsMethodVoice => 'Voice input';
+
+  @override
+  String get readingsDetectedMeterScreen => 'Detected meter display';
+
+  @override
+  String get readingsFlash => 'Flash';
+
+  @override
+  String get readingsRetake => 'Retake';
+
+  @override
+  String readingsOcrSuccess(int accuracy) {
+    return 'Reading detected successfully ($accuracy% accuracy)';
+  }
+
+  @override
+  String readingsOcrVersion(String version) {
+    return 'OCR v$version';
+  }
+
+  @override
+  String get readingsCurrentReading => 'Current confirmed reading';
+
+  @override
+  String get readingsEditableManually => 'Can be edited manually';
+
+  @override
+  String get readingsEnergyUnitParenthetical => '(kWh)';
+
+  @override
+  String readingsPreviousReadingTemplate(String date) {
+    return 'Previous reading ($date):';
+  }
+
+  @override
+  String get readingsConsumptionDifference => 'Net consumption difference:';
+
+  @override
+  String readingsTierTemplate(String tier) {
+    return '(Tier $tier)';
+  }
+
+  @override
+  String get readingsVerificationStatus =>
+      'Reading is correct and consistent with your usual consumption rate';
+
+  @override
+  String get readingsDateTimeLabel => 'Reading date and time';
+
+  @override
+  String get readingsSelectDate => 'Select reading date';
+
+  @override
+  String get readingsSelectTime => 'Select reading time';
+
+  @override
+  String get readingsNotesLabel => 'Additional notes (optional)';
+
+  @override
+  String get readingsNotesHint => 'Add a note about this reading...';
+
+  @override
+  String get readingsSampleNotes => 'Regular mid-month reading';
+
+  @override
+  String get readingsVoiceInvitation => 'Or tap and speak to record the reading:';
+
+  @override
+  String get readingsVoiceSamplePhrase => '\"Fourteen thousand eight hundred and ninety-two\"';
+
+  @override
+  String get readingsSafetyWarning =>
+      'Automatically extracted readings are not accepted without your review and manual confirmation to preserve the accuracy of tariff tier and monthly cost calculations.';
+
+  @override
+  String get readingsReviewConfirm => 'Review and confirm reading';
+
+  @override
+  String get readingsConfirmationPreviewMessage =>
+      'This is a preview only; the reading was not saved.';
 }

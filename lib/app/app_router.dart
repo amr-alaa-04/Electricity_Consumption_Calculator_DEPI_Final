@@ -8,6 +8,7 @@ import '../features/home/presentation/main_home_screen.dart';
 import '../features/onboarding/presentation/onboarding_budget_energy_saving_screen.dart';
 import '../features/onboarding/presentation/onboarding_calculate_your_bill_screen.dart';
 import '../features/onboarding/presentation/onboarding_track_electricity_screen.dart';
+import '../features/readings/presentation/readings_screen.dart';
 
 final appRouterProvider = Provider<GoRouter>((ref) {
   final router = GoRouter(
@@ -36,6 +37,10 @@ final appRouterProvider = Provider<GoRouter>((ref) {
       GoRoute(
         path: '/main-home',
         builder: (_, _) => const MainHomeScreen(),
+      ),
+      GoRoute(
+        path: '/readings',
+        builder: (_, _) => const ReadingsScreen(),
       ),
       GoRoute(
         path: '/create-account',

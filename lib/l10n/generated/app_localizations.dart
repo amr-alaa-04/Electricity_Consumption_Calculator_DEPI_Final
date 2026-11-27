@@ -979,6 +979,192 @@ abstract class AppLocalizations {
   /// In en_US, this message translates to:
   /// **'{days} days remaining in the billing cycle'**
   String homeDaysRemainingTemplate(Object days);
+
+  /// No description provided for @readingsBack.
+  ///
+  /// In en_US, this message translates to:
+  /// **'Back'**
+  String get readingsBack;
+
+  /// No description provided for @readingsTitle.
+  ///
+  /// In en_US, this message translates to:
+  /// **'Record a new reading'**
+  String get readingsTitle;
+
+  /// No description provided for @readingsActiveMeterLabel.
+  ///
+  /// In en_US, this message translates to:
+  /// **'Active meter:'**
+  String get readingsActiveMeterLabel;
+
+  /// No description provided for @readingsActiveMeterName.
+  ///
+  /// In en_US, this message translates to:
+  /// **'Main apartment meter'**
+  String get readingsActiveMeterName;
+
+  /// No description provided for @readingsNotificationsHelp.
+  ///
+  /// In en_US, this message translates to:
+  /// **'Notifications and help'**
+  String get readingsNotificationsHelp;
+
+  /// No description provided for @readingsMethodManual.
+  ///
+  /// In en_US, this message translates to:
+  /// **'Manual'**
+  String get readingsMethodManual;
+
+  /// No description provided for @readingsMethodCamera.
+  ///
+  /// In en_US, this message translates to:
+  /// **'Scan with camera'**
+  String get readingsMethodCamera;
+
+  /// No description provided for @readingsMethodVoice.
+  ///
+  /// In en_US, this message translates to:
+  /// **'Voice input'**
+  String get readingsMethodVoice;
+
+  /// No description provided for @readingsDetectedMeterScreen.
+  ///
+  /// In en_US, this message translates to:
+  /// **'Detected meter display'**
+  String get readingsDetectedMeterScreen;
+
+  /// No description provided for @readingsFlash.
+  ///
+  /// In en_US, this message translates to:
+  /// **'Flash'**
+  String get readingsFlash;
+
+  /// No description provided for @readingsRetake.
+  ///
+  /// In en_US, this message translates to:
+  /// **'Retake'**
+  String get readingsRetake;
+
+  /// No description provided for @readingsOcrSuccess.
+  ///
+  /// In en_US, this message translates to:
+  /// **'Reading detected successfully ({accuracy}% accuracy)'**
+  String readingsOcrSuccess(int accuracy);
+
+  /// No description provided for @readingsOcrVersion.
+  ///
+  /// In en_US, this message translates to:
+  /// **'OCR v{version}'**
+  String readingsOcrVersion(String version);
+
+  /// No description provided for @readingsCurrentReading.
+  ///
+  /// In en_US, this message translates to:
+  /// **'Current confirmed reading'**
+  String get readingsCurrentReading;
+
+  /// No description provided for @readingsEditableManually.
+  ///
+  /// In en_US, this message translates to:
+  /// **'Can be edited manually'**
+  String get readingsEditableManually;
+
+  /// No description provided for @readingsEnergyUnitParenthetical.
+  ///
+  /// In en_US, this message translates to:
+  /// **'(kWh)'**
+  String get readingsEnergyUnitParenthetical;
+
+  /// No description provided for @readingsPreviousReadingTemplate.
+  ///
+  /// In en_US, this message translates to:
+  /// **'Previous reading ({date}):'**
+  String readingsPreviousReadingTemplate(String date);
+
+  /// No description provided for @readingsConsumptionDifference.
+  ///
+  /// In en_US, this message translates to:
+  /// **'Net consumption difference:'**
+  String get readingsConsumptionDifference;
+
+  /// No description provided for @readingsTierTemplate.
+  ///
+  /// In en_US, this message translates to:
+  /// **'(Tier {tier})'**
+  String readingsTierTemplate(String tier);
+
+  /// No description provided for @readingsVerificationStatus.
+  ///
+  /// In en_US, this message translates to:
+  /// **'Reading is correct and consistent with your usual consumption rate'**
+  String get readingsVerificationStatus;
+
+  /// No description provided for @readingsDateTimeLabel.
+  ///
+  /// In en_US, this message translates to:
+  /// **'Reading date and time'**
+  String get readingsDateTimeLabel;
+
+  /// No description provided for @readingsSelectDate.
+  ///
+  /// In en_US, this message translates to:
+  /// **'Select reading date'**
+  String get readingsSelectDate;
+
+  /// No description provided for @readingsSelectTime.
+  ///
+  /// In en_US, this message translates to:
+  /// **'Select reading time'**
+  String get readingsSelectTime;
+
+  /// No description provided for @readingsNotesLabel.
+  ///
+  /// In en_US, this message translates to:
+  /// **'Additional notes (optional)'**
+  String get readingsNotesLabel;
+
+  /// No description provided for @readingsNotesHint.
+  ///
+  /// In en_US, this message translates to:
+  /// **'Add a note about this reading...'**
+  String get readingsNotesHint;
+
+  /// No description provided for @readingsSampleNotes.
+  ///
+  /// In en_US, this message translates to:
+  /// **'Regular mid-month reading'**
+  String get readingsSampleNotes;
+
+  /// No description provided for @readingsVoiceInvitation.
+  ///
+  /// In en_US, this message translates to:
+  /// **'Or tap and speak to record the reading:'**
+  String get readingsVoiceInvitation;
+
+  /// No description provided for @readingsVoiceSamplePhrase.
+  ///
+  /// In en_US, this message translates to:
+  /// **'\"Fourteen thousand eight hundred and ninety-two\"'**
+  String get readingsVoiceSamplePhrase;
+
+  /// No description provided for @readingsSafetyWarning.
+  ///
+  /// In en_US, this message translates to:
+  /// **'Automatically extracted readings are not accepted without your review and manual confirmation to preserve the accuracy of tariff tier and monthly cost calculations.'**
+  String get readingsSafetyWarning;
+
+  /// No description provided for @readingsReviewConfirm.
+  ///
+  /// In en_US, this message translates to:
+  /// **'Review and confirm reading'**
+  String get readingsReviewConfirm;
+
+  /// No description provided for @readingsConfirmationPreviewMessage.
+  ///
+  /// In en_US, this message translates to:
+  /// **'This is a preview only; the reading was not saved.'**
+  String get readingsConfirmationPreviewMessage;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

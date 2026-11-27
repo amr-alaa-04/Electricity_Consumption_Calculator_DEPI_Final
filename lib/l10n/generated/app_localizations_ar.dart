@@ -494,6 +494,108 @@ class AppLocalizationsAr extends AppLocalizations {
   String homeDaysRemainingTemplate(Object days) {
     return 'متبقي $days يوم على الإغلاق';
   }
+
+  @override
+  String get readingsBack => 'الرجوع';
+
+  @override
+  String get readingsTitle => 'تسجيل قراءة جديدة';
+
+  @override
+  String get readingsActiveMeterLabel => 'العداد النشط:';
+
+  @override
+  String get readingsActiveMeterName => 'عداد الشقة الرئيسي';
+
+  @override
+  String get readingsNotificationsHelp => 'الإشعارات والمساعدة';
+
+  @override
+  String get readingsMethodManual => 'يدوي';
+
+  @override
+  String get readingsMethodCamera => 'مسح بالكاميرا';
+
+  @override
+  String get readingsMethodVoice => 'إدخال صوتي';
+
+  @override
+  String get readingsDetectedMeterScreen => 'شاشة العداد المكتشفة';
+
+  @override
+  String get readingsFlash => 'الفلاش';
+
+  @override
+  String get readingsRetake => 'إعادة التقاط';
+
+  @override
+  String readingsOcrSuccess(int accuracy) {
+    return 'تم اكتشاف القراءة بنجاح (دقة $accuracy%)';
+  }
+
+  @override
+  String readingsOcrVersion(String version) {
+    return 'OCR v$version';
+  }
+
+  @override
+  String get readingsCurrentReading => 'القراءة الحالية المعتمدة';
+
+  @override
+  String get readingsEditableManually => 'قابلة للتعديل اليدوي';
+
+  @override
+  String get readingsEnergyUnitParenthetical => '(kWh)';
+
+  @override
+  String readingsPreviousReadingTemplate(String date) {
+    return 'القراءة السابقة ($date):';
+  }
+
+  @override
+  String get readingsConsumptionDifference => 'فارق الاستهلاك الصافي:';
+
+  @override
+  String readingsTierTemplate(String tier) {
+    return '(الشريحة $tier)';
+  }
+
+  @override
+  String get readingsVerificationStatus => 'القراءة صحيحة ومتسقة مع معدل استهلاكك الطبيعي';
+
+  @override
+  String get readingsDateTimeLabel => 'تاريخ وتوقيت التسجيل';
+
+  @override
+  String get readingsSelectDate => 'اختيار تاريخ القراءة';
+
+  @override
+  String get readingsSelectTime => 'اختيار وقت القراءة';
+
+  @override
+  String get readingsNotesLabel => 'ملاحظات إضافية (اختياري)';
+
+  @override
+  String get readingsNotesHint => 'أضف ملاحظة حول القراءة...';
+
+  @override
+  String get readingsSampleNotes => 'قراءة دورية لمنتصف الشهر';
+
+  @override
+  String get readingsVoiceInvitation => 'أو اضغط وتحدث لتسجيل القراءة:';
+
+  @override
+  String get readingsVoiceSamplePhrase => '\"أربعة عشر ألف وثمانمائة واثنان وتسعون\"';
+
+  @override
+  String get readingsSafetyWarning =>
+      'لا يتم اعتماد القراءة المستخرجة آلياً دون مراجعتك وتأكيدك اليدوي للحفاظ على دقة حسابات الشرائح والتكلفة الشهرية.';
+
+  @override
+  String get readingsReviewConfirm => 'مراجعة وتأكيد القراءة';
+
+  @override
+  String get readingsConfirmationPreviewMessage => 'هذه معاينة فقط؛ لم يتم حفظ القراءة.';
 }
 
 /// The translations for Arabic, as used in Egypt (`ar_EG`).
@@ -986,4 +1088,106 @@ class AppLocalizationsArEg extends AppLocalizationsAr {
   String homeDaysRemainingTemplate(Object days) {
     return 'متبقي $days يوم على الإغلاق';
   }
+
+  @override
+  String get readingsBack => 'الرجوع';
+
+  @override
+  String get readingsTitle => 'تسجيل قراءة جديدة';
+
+  @override
+  String get readingsActiveMeterLabel => 'العداد النشط:';
+
+  @override
+  String get readingsActiveMeterName => 'عداد الشقة الرئيسي';
+
+  @override
+  String get readingsNotificationsHelp => 'الإشعارات والمساعدة';
+
+  @override
+  String get readingsMethodManual => 'يدوي';
+
+  @override
+  String get readingsMethodCamera => 'مسح بالكاميرا';
+
+  @override
+  String get readingsMethodVoice => 'إدخال صوتي';
+
+  @override
+  String get readingsDetectedMeterScreen => 'شاشة العداد المكتشفة';
+
+  @override
+  String get readingsFlash => 'الفلاش';
+
+  @override
+  String get readingsRetake => 'إعادة التقاط';
+
+  @override
+  String readingsOcrSuccess(int accuracy) {
+    return 'تم اكتشاف القراءة بنجاح (دقة $accuracy%)';
+  }
+
+  @override
+  String readingsOcrVersion(String version) {
+    return 'OCR v$version';
+  }
+
+  @override
+  String get readingsCurrentReading => 'القراءة الحالية المعتمدة';
+
+  @override
+  String get readingsEditableManually => 'قابلة للتعديل اليدوي';
+
+  @override
+  String get readingsEnergyUnitParenthetical => '(kWh)';
+
+  @override
+  String readingsPreviousReadingTemplate(String date) {
+    return 'القراءة السابقة ($date):';
+  }
+
+  @override
+  String get readingsConsumptionDifference => 'فارق الاستهلاك الصافي:';
+
+  @override
+  String readingsTierTemplate(String tier) {
+    return '(الشريحة $tier)';
+  }
+
+  @override
+  String get readingsVerificationStatus => 'القراءة صحيحة ومتسقة مع معدل استهلاكك الطبيعي';
+
+  @override
+  String get readingsDateTimeLabel => 'تاريخ وتوقيت التسجيل';
+
+  @override
+  String get readingsSelectDate => 'اختيار تاريخ القراءة';
+
+  @override
+  String get readingsSelectTime => 'اختيار وقت القراءة';
+
+  @override
+  String get readingsNotesLabel => 'ملاحظات إضافية (اختياري)';
+
+  @override
+  String get readingsNotesHint => 'أضف ملاحظة حول القراءة...';
+
+  @override
+  String get readingsSampleNotes => 'قراءة دورية لمنتصف الشهر';
+
+  @override
+  String get readingsVoiceInvitation => 'أو اضغط وتحدث لتسجيل القراءة:';
+
+  @override
+  String get readingsVoiceSamplePhrase => '\"أربعة عشر ألف وثمانمائة واثنان وتسعون\"';
+
+  @override
+  String get readingsSafetyWarning =>
+      'لا يتم اعتماد القراءة المستخرجة آلياً دون مراجعتك وتأكيدك اليدوي للحفاظ على دقة حسابات الشرائح والتكلفة الشهرية.';
+
+  @override
+  String get readingsReviewConfirm => 'مراجعة وتأكيد القراءة';
+
+  @override
+  String get readingsConfirmationPreviewMessage => 'هذه معاينة فقط؛ لم يتم حفظ القراءة.';
 }

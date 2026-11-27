@@ -55,6 +55,41 @@ void main() {
     expect(tester.takeException(), isNull);
   });
 
+  testWidgets('Home and Readings navigation works from tabs and quick action', (
+    tester,
+  ) async {
+    tester.view.physicalSize = const Size(800, 1200);
+    tester.view.devicePixelRatio = 1;
+    addTearDown(tester.view.resetPhysicalSize);
+    addTearDown(tester.view.resetDevicePixelRatio);
+
+    await tester.pumpWidget(const ProviderScope(child: MyApp()));
+    await tester.pumpAndSettle();
+    GoRouter.of(
+      tester.element(find.byKey(const ValueKey('onboarding-next'))),
+    ).go('/main-home');
+    await tester.pumpAndSettle();
+
+    await tester.tap(find.text('Readings').last);
+    await tester.pump();
+    await tester.pump(const Duration(milliseconds: 500));
+    expect(find.byKey(const ValueKey('readings-screen')), findsOneWidget);
+    expect(tester.takeException(), isNull);
+
+    await tester.tap(find.text('Home').last);
+    await tester.pump();
+    await tester.pump(const Duration(milliseconds: 500));
+    expect(find.byKey(const ValueKey('main-home-screen')), findsOneWidget);
+
+    final recordReadingAction = find.text('Record reading');
+    await tester.ensureVisible(recordReadingAction);
+    await tester.tap(recordReadingAction);
+    await tester.pump();
+    await tester.pump(const Duration(milliseconds: 500));
+    expect(find.byKey(const ValueKey('readings-screen')), findsOneWidget);
+    expect(tester.takeException(), isNull);
+  });
+
   testWidgets('Main Home adapts to a narrow Arabic viewport', (tester) async {
     tester.view.physicalSize = const Size(320, 720);
     tester.view.devicePixelRatio = 1;
