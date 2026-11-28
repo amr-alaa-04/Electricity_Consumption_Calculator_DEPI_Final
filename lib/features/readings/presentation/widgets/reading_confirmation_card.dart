@@ -51,6 +51,12 @@ class _ReadingConfirmationCardState extends State<ReadingConfirmationCard> {
   @override
   void didUpdateWidget(covariant ReadingConfirmationCard oldWidget) {
     super.didUpdateWidget(oldWidget);
+    if (oldWidget.initialReading != widget.initialReading) {
+      _readingController.value = TextEditingValue(
+        text: widget.initialReading,
+        selection: TextSelection.collapsed(offset: widget.initialReading.length),
+      );
+    }
     if (oldWidget.initialNotes != widget.initialNotes &&
         _notesController.text == oldWidget.initialNotes) {
       _notesController.text = widget.initialNotes;

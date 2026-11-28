@@ -7,12 +7,18 @@ import '../../../../core/widgets/buttons/app_icon_button.dart';
 import '../../../../l10n/generated/app_localizations.dart';
 
 class ReadingVoiceInputInvitation extends StatelessWidget {
-  const ReadingVoiceInputInvitation({required this.l10n, super.key});
+  const ReadingVoiceInputInvitation({
+    required this.l10n,
+    required this.onPressed,
+    super.key,
+  });
 
   final AppLocalizations l10n;
+  final VoidCallback onPressed;
 
   @override
   Widget build(BuildContext context) => Container(
+    key: const ValueKey('reading-voice-input-invitation'),
     padding: const EdgeInsets.all(AppSpacing.small),
     decoration: BoxDecoration(
       color: AppColors.surfaceContainerLow,
@@ -24,7 +30,7 @@ class ReadingVoiceInputInvitation extends StatelessWidget {
         AppIconButton(
           icon: const Icon(Icons.mic),
           tooltip: l10n.readingsMethodVoice,
-          onPressed: () {},
+          onPressed: onPressed,
           backgroundColor: AppColors.secondaryFixed,
           foregroundColor: AppColors.primary,
           iconSize: 20,

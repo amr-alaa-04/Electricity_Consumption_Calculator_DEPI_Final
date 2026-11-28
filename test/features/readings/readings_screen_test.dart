@@ -8,9 +8,11 @@ import 'package:electricity_consumption_calculator/features/readings/presentatio
 import 'package:electricity_consumption_calculator/features/readings/presentation/widgets/reading_confirmation_card.dart';
 import 'package:electricity_consumption_calculator/features/readings/presentation/widgets/reading_date_time_field.dart';
 import 'package:electricity_consumption_calculator/features/readings/presentation/widgets/reading_input_methods.dart';
+import 'package:electricity_consumption_calculator/features/readings/presentation/widgets/manual_reading_input.dart';
 import 'package:electricity_consumption_calculator/features/readings/presentation/widgets/reading_safety_notice.dart';
 import 'package:electricity_consumption_calculator/features/readings/presentation/widgets/reading_scanner_viewfinder.dart';
 import 'package:electricity_consumption_calculator/features/readings/presentation/widgets/reading_voice_input_invitation.dart';
+import 'package:electricity_consumption_calculator/features/readings/presentation/widgets/reading_voice_input.dart';
 import 'package:electricity_consumption_calculator/features/readings/presentation/widgets/readings_header.dart';
 import 'package:electricity_consumption_calculator/main.dart';
 
@@ -58,6 +60,49 @@ void main() {
       tester.getTopLeft(find.byType(AppBottomNavigationBar).last).dy,
       greaterThan(600),
     );
+    expect(tester.takeException(), isNull);
+  });
+
+  testWidgets('Manual input confirms a reading into the confirmation card', (
+    tester,
+  ) async {
+    tester.view.physicalSize = const Size(800, 1200);
+    tester.view.devicePixelRatio = 1;
+    addTearDown(tester.view.resetPhysicalSize);
+    addTearDown(tester.view.resetDevicePixelRatio);
+
+    await tester.pumpWidget(const ProviderScope(child: MyApp()));
+    await tester.pumpAndSettle();
+    GoRouter.of(
+      tester.element(find.byKey(const ValueKey('onboarding-next'))),
+    ).go('/readings');
+    await tester.pump();
+    await tester.pump(const Duration(milliseconds: 500));
+
+    await tester.tap(find.text('Voice input'));
+    await tester.pump(const Duration(milliseconds: 200));
+    expect(find.byType(ReadingVoiceInput), findsOneWidget);
+    expect(find.byType(ReadingScannerViewfinder), findsNothing);
+    expect(find.byType(ReadingVoiceInputInvitation), findsNothing);
+
+    await tester.tap(find.text('Manual'));
+    await tester.pump();
+    expect(find.byType(ManualReadingInput), findsOneWidget);
+    expect(find.byType(ReadingScannerViewfinder), findsNothing);
+    expect(find.byType(ReadingVoiceInput), findsNothing);
+
+    final manualEditor = find.descendant(
+      of: find.byKey(const ValueKey('manual-reading-value')),
+      matching: find.byType(EditableText),
+    );
+    await tester.enterText(manualEditor, '321.75');
+    await tester.tap(find.byKey(const ValueKey('manual-reading-confirm')));
+    await tester.pump();
+
+    final confirmationEditor = find.byKey(const ValueKey('reading-current-value'));
+    await tester.ensureVisible(confirmationEditor);
+    final confirmationField = tester.widget<TextField>(confirmationEditor);
+    expect(confirmationField.controller?.text, '321.75');
     expect(tester.takeException(), isNull);
   });
 }

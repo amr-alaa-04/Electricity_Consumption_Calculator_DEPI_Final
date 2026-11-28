@@ -1028,6 +1028,30 @@ abstract class AppLocalizations {
   /// **'Voice input'**
   String get readingsMethodVoice;
 
+  /// No description provided for @readingsManualInputLabel.
+  ///
+  /// In en_US, this message translates to:
+  /// **'Enter meter reading'**
+  String get readingsManualInputLabel;
+
+  /// No description provided for @readingsManualInputHint.
+  ///
+  /// In en_US, this message translates to:
+  /// **'Enter the reading in kWh; decimals are supported'**
+  String get readingsManualInputHint;
+
+  /// No description provided for @readingsManualInputRequired.
+  ///
+  /// In en_US, this message translates to:
+  /// **'Enter a meter reading.'**
+  String get readingsManualInputRequired;
+
+  /// No description provided for @readingsManualInputConfirm.
+  ///
+  /// In en_US, this message translates to:
+  /// **'Use this reading'**
+  String get readingsManualInputConfirm;
+
   /// No description provided for @readingsDetectedMeterScreen.
   ///
   /// In en_US, this message translates to:
@@ -1165,6 +1189,138 @@ abstract class AppLocalizations {
   /// In en_US, this message translates to:
   /// **'This is a preview only; the reading was not saved.'**
   String get readingsConfirmationPreviewMessage;
+
+  /// No description provided for @readingsVoiceTitle.
+  ///
+  /// In en_US, this message translates to:
+  /// **'Voice reading input'**
+  String get readingsVoiceTitle;
+
+  /// No description provided for @readingsVoicePrompt.
+  ///
+  /// In en_US, this message translates to:
+  /// **'Speak your meter reading after tapping the microphone.'**
+  String get readingsVoicePrompt;
+
+  /// No description provided for @readingsVoiceInitializing.
+  ///
+  /// In en_US, this message translates to:
+  /// **'Preparing speech recognition…'**
+  String get readingsVoiceInitializing;
+
+  /// No description provided for @readingsVoiceUnavailable.
+  ///
+  /// In en_US, this message translates to:
+  /// **'Speech recognition is unavailable on this device.'**
+  String get readingsVoiceUnavailable;
+
+  /// No description provided for @readingsVoicePermissionDenied.
+  ///
+  /// In en_US, this message translates to:
+  /// **'Microphone or speech recognition permission was denied. Allow access in Settings, then try again.'**
+  String get readingsVoicePermissionDenied;
+
+  /// No description provided for @readingsVoiceError.
+  ///
+  /// In en_US, this message translates to:
+  /// **'Speech recognition encountered an error. Please try again.'**
+  String get readingsVoiceError;
+
+  /// No description provided for @readingsVoiceNoNumberDetected.
+  ///
+  /// In en_US, this message translates to:
+  /// **'No meter reading was found. Try speaking the reading again.'**
+  String get readingsVoiceNoNumberDetected;
+
+  /// No description provided for @readingsVoiceMultipleNumbersDetected.
+  ///
+  /// In en_US, this message translates to:
+  /// **'More than one number was detected. Please say a single meter reading.'**
+  String get readingsVoiceMultipleNumbersDetected;
+
+  /// No description provided for @readingsVoiceInvalidDecimal.
+  ///
+  /// In en_US, this message translates to:
+  /// **'The decimal reading was unclear. Please try again.'**
+  String get readingsVoiceInvalidDecimal;
+
+  /// No description provided for @readingsVoiceInvalidNumber.
+  ///
+  /// In en_US, this message translates to:
+  /// **'The recognized reading is not a valid number. Please try again.'**
+  String get readingsVoiceInvalidNumber;
+
+  /// No description provided for @readingsVoiceStart.
+  ///
+  /// In en_US, this message translates to:
+  /// **'Start listening'**
+  String get readingsVoiceStart;
+
+  /// No description provided for @readingsVoiceStop.
+  ///
+  /// In en_US, this message translates to:
+  /// **'Stop listening'**
+  String get readingsVoiceStop;
+
+  /// No description provided for @readingsVoiceListening.
+  ///
+  /// In en_US, this message translates to:
+  /// **'Listening… Speak now.'**
+  String get readingsVoiceListening;
+
+  /// No description provided for @readingsVoiceRecognizedText.
+  ///
+  /// In en_US, this message translates to:
+  /// **'Recognized text'**
+  String get readingsVoiceRecognizedText;
+
+  /// No description provided for @readingsVoiceWaitingForText.
+  ///
+  /// In en_US, this message translates to:
+  /// **'Your spoken words will appear here.'**
+  String get readingsVoiceWaitingForText;
+
+  /// No description provided for @readingsVoiceActiveLanguage.
+  ///
+  /// In en_US, this message translates to:
+  /// **'Recognition language: {language} ({locale})'**
+  String readingsVoiceActiveLanguage(String language, String locale);
+
+  /// No description provided for @readingsVoiceLanguageArabic.
+  ///
+  /// In en_US, this message translates to:
+  /// **'Arabic'**
+  String get readingsVoiceLanguageArabic;
+
+  /// No description provided for @readingsVoiceLanguageEnglish.
+  ///
+  /// In en_US, this message translates to:
+  /// **'English'**
+  String get readingsVoiceLanguageEnglish;
+
+  /// No description provided for @readingsVoiceLanguageSelector.
+  ///
+  /// In en_US, this message translates to:
+  /// **'Recognition language'**
+  String get readingsVoiceLanguageSelector;
+
+  /// No description provided for @readingsVoiceLanguageFallback.
+  ///
+  /// In en_US, this message translates to:
+  /// **'{requestedLanguage} speech recognition is unavailable. Using {activeLanguage} instead.'**
+  String readingsVoiceLanguageFallback(String requestedLanguage, String activeLanguage);
+
+  /// No description provided for @readingsVoiceLanguagesUnsupported.
+  ///
+  /// In en_US, this message translates to:
+  /// **'This device has no Arabic or English speech recognition language installed.'**
+  String get readingsVoiceLanguagesUnsupported;
+
+  /// No description provided for @readingsVoiceRetry.
+  ///
+  /// In en_US, this message translates to:
+  /// **'Try again'**
+  String get readingsVoiceRetry;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

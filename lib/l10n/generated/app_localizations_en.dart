@@ -522,6 +522,18 @@ class AppLocalizationsEn extends AppLocalizations {
   String get readingsMethodVoice => 'Voice input';
 
   @override
+  String get readingsManualInputLabel => 'Enter meter reading';
+
+  @override
+  String get readingsManualInputHint => 'Enter the reading in kWh; decimals are supported';
+
+  @override
+  String get readingsManualInputRequired => 'Enter a meter reading.';
+
+  @override
+  String get readingsManualInputConfirm => 'Use this reading';
+
+  @override
   String get readingsDetectedMeterScreen => 'Detected meter display';
 
   @override
@@ -600,6 +612,81 @@ class AppLocalizationsEn extends AppLocalizations {
   @override
   String get readingsConfirmationPreviewMessage =>
       'This is a preview only; the reading was not saved.';
+
+  @override
+  String get readingsVoiceTitle => 'Voice reading input';
+
+  @override
+  String get readingsVoicePrompt => 'Speak your meter reading after tapping the microphone.';
+
+  @override
+  String get readingsVoiceInitializing => 'Preparing speech recognition…';
+
+  @override
+  String get readingsVoiceUnavailable => 'Speech recognition is unavailable on this device.';
+
+  @override
+  String get readingsVoicePermissionDenied =>
+      'Microphone or speech recognition permission was denied. Allow access in Settings, then try again.';
+
+  @override
+  String get readingsVoiceError => 'Speech recognition encountered an error. Please try again.';
+
+  @override
+  String get readingsVoiceNoNumberDetected =>
+      'No meter reading was found. Try speaking the reading again.';
+
+  @override
+  String get readingsVoiceMultipleNumbersDetected =>
+      'More than one number was detected. Please say a single meter reading.';
+
+  @override
+  String get readingsVoiceInvalidDecimal => 'The decimal reading was unclear. Please try again.';
+
+  @override
+  String get readingsVoiceInvalidNumber =>
+      'The recognized reading is not a valid number. Please try again.';
+
+  @override
+  String get readingsVoiceStart => 'Start listening';
+
+  @override
+  String get readingsVoiceStop => 'Stop listening';
+
+  @override
+  String get readingsVoiceListening => 'Listening… Speak now.';
+
+  @override
+  String get readingsVoiceRecognizedText => 'Recognized text';
+
+  @override
+  String get readingsVoiceWaitingForText => 'Your spoken words will appear here.';
+
+  @override
+  String readingsVoiceActiveLanguage(String language, String locale) {
+    return 'Recognition language: $language ($locale)';
+  }
+
+  @override
+  String get readingsVoiceLanguageArabic => 'Arabic';
+
+  @override
+  String get readingsVoiceLanguageEnglish => 'English';
+
+  @override
+  String get readingsVoiceLanguageSelector => 'Recognition language';
+
+  @override
+  String readingsVoiceLanguageFallback(String requestedLanguage, String activeLanguage) {
+    return '$requestedLanguage speech recognition is unavailable. Using $activeLanguage instead.';
+  }
+
+  @override
+  String get readingsVoiceLanguagesUnsupported =>
+      'This device has no Arabic or English speech recognition language installed.';
+
+  @override
+  String get readingsVoiceRetry => 'Try again';
 }
 
 /// The translations for English, as used in the United States (`en_US`).
@@ -1120,6 +1207,18 @@ class AppLocalizationsEnUs extends AppLocalizationsEn {
   String get readingsMethodVoice => 'Voice input';
 
   @override
+  String get readingsManualInputLabel => 'Enter meter reading';
+
+  @override
+  String get readingsManualInputHint => 'Enter the reading in kWh; decimals are supported';
+
+  @override
+  String get readingsManualInputRequired => 'Enter a meter reading.';
+
+  @override
+  String get readingsManualInputConfirm => 'Use this reading';
+
+  @override
   String get readingsDetectedMeterScreen => 'Detected meter display';
 
   @override
@@ -1198,4 +1297,79 @@ class AppLocalizationsEnUs extends AppLocalizationsEn {
   @override
   String get readingsConfirmationPreviewMessage =>
       'This is a preview only; the reading was not saved.';
+
+  @override
+  String get readingsVoiceTitle => 'Voice reading input';
+
+  @override
+  String get readingsVoicePrompt => 'Speak your meter reading after tapping the microphone.';
+
+  @override
+  String get readingsVoiceInitializing => 'Preparing speech recognition…';
+
+  @override
+  String get readingsVoiceUnavailable => 'Speech recognition is unavailable on this device.';
+
+  @override
+  String get readingsVoicePermissionDenied =>
+      'Microphone or speech recognition permission was denied. Allow access in Settings, then try again.';
+
+  @override
+  String get readingsVoiceError => 'Speech recognition encountered an error. Please try again.';
+
+  @override
+  String get readingsVoiceNoNumberDetected =>
+      'No meter reading was found. Try speaking the reading again.';
+
+  @override
+  String get readingsVoiceMultipleNumbersDetected =>
+      'More than one number was detected. Please say a single meter reading.';
+
+  @override
+  String get readingsVoiceInvalidDecimal => 'The decimal reading was unclear. Please try again.';
+
+  @override
+  String get readingsVoiceInvalidNumber =>
+      'The recognized reading is not a valid number. Please try again.';
+
+  @override
+  String get readingsVoiceStart => 'Start listening';
+
+  @override
+  String get readingsVoiceStop => 'Stop listening';
+
+  @override
+  String get readingsVoiceListening => 'Listening… Speak now.';
+
+  @override
+  String get readingsVoiceRecognizedText => 'Recognized text';
+
+  @override
+  String get readingsVoiceWaitingForText => 'Your spoken words will appear here.';
+
+  @override
+  String readingsVoiceActiveLanguage(String language, String locale) {
+    return 'Recognition language: $language ($locale)';
+  }
+
+  @override
+  String get readingsVoiceLanguageArabic => 'Arabic';
+
+  @override
+  String get readingsVoiceLanguageEnglish => 'English';
+
+  @override
+  String get readingsVoiceLanguageSelector => 'Recognition language';
+
+  @override
+  String readingsVoiceLanguageFallback(String requestedLanguage, String activeLanguage) {
+    return '$requestedLanguage speech recognition is unavailable. Using $activeLanguage instead.';
+  }
+
+  @override
+  String get readingsVoiceLanguagesUnsupported =>
+      'This device has no Arabic or English speech recognition language installed.';
+
+  @override
+  String get readingsVoiceRetry => 'Try again';
 }

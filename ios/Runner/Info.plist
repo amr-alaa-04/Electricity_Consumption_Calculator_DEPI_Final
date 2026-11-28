@@ -16,6 +16,10 @@
 	<string>6.0</string>
 	<key>CFBundleName</key>
 	<string>electricity_consumption_calculator</string>
+	<key>NSMicrophoneUsageDescription</key>
+	<string>Microphone access is used to transcribe electricity meter readings.</string>
+	<key>NSSpeechRecognitionUsageDescription</key>
+	<string>Speech recognition is used to transcribe electricity meter readings.</string>
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>

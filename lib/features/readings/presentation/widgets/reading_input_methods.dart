@@ -5,19 +5,19 @@ import '../../../../core/theme/app_shape_tokens.dart';
 import '../../../../core/theme/app_typography.dart';
 import '../../../../l10n/generated/app_localizations.dart';
 
-enum _ReadingInputMethod { manual, camera, voice }
+enum ReadingInputMethod { manual, camera, voice }
 
-class ReadingInputMethods extends StatefulWidget {
-  const ReadingInputMethods({required this.l10n, super.key});
+class ReadingInputMethods extends StatelessWidget {
+  const ReadingInputMethods({
+    required this.l10n,
+    required this.selectedMethod,
+    required this.onMethodSelected,
+    super.key,
+  });
 
   final AppLocalizations l10n;
-
-  @override
-  State<ReadingInputMethods> createState() => _ReadingInputMethodsState();
-}
-
-class _ReadingInputMethodsState extends State<ReadingInputMethods> {
-  _ReadingInputMethod _selectedMethod = _ReadingInputMethod.camera;
+  final ReadingInputMethod selectedMethod;
+  final ValueChanged<ReadingInputMethod> onMethodSelected;
 
   @override
   Widget build(BuildContext context) => Container(
@@ -29,22 +29,22 @@ class _ReadingInputMethodsState extends State<ReadingInputMethods> {
     ),
     child: Row(
       children: [
-        for (final method in _ReadingInputMethod.values) Expanded(child: _methodButton(method)),
+        for (final method in ReadingInputMethod.values) Expanded(child: _methodButton(method)),
       ],
     ),
   );
 
-  Widget _methodButton(_ReadingInputMethod method) {
-    final selected = method == _selectedMethod;
+  Widget _methodButton(ReadingInputMethod method) {
+    final selected = method == selectedMethod;
     final label = switch (method) {
-      _ReadingInputMethod.manual => widget.l10n.readingsMethodManual,
-      _ReadingInputMethod.camera => widget.l10n.readingsMethodCamera,
-      _ReadingInputMethod.voice => widget.l10n.readingsMethodVoice,
+      ReadingInputMethod.manual => l10n.readingsMethodManual,
+      ReadingInputMethod.camera => l10n.readingsMethodCamera,
+      ReadingInputMethod.voice => l10n.readingsMethodVoice,
     };
     final icon = switch (method) {
-      _ReadingInputMethod.manual => Icons.edit_outlined,
-      _ReadingInputMethod.camera => Icons.photo_camera_outlined,
-      _ReadingInputMethod.voice => Icons.mic_none,
+      ReadingInputMethod.manual => Icons.edit_outlined,
+      ReadingInputMethod.camera => Icons.photo_camera_outlined,
+      ReadingInputMethod.voice => Icons.mic_none,
     };
 
     return Semantics(
@@ -52,7 +52,7 @@ class _ReadingInputMethodsState extends State<ReadingInputMethods> {
       selected: selected,
       label: label,
       child: InkWell(
-        onTap: () => setState(() => _selectedMethod = method),
+        onTap: () => onMethodSelected(method),
         borderRadius: const BorderRadius.all(AppShapeTokens.medium),
         child: AnimatedContainer(
           duration: const Duration(milliseconds: 150),

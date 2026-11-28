@@ -520,6 +520,18 @@ class AppLocalizationsAr extends AppLocalizations {
   String get readingsMethodVoice => 'إدخال صوتي';
 
   @override
+  String get readingsManualInputLabel => 'أدخل قراءة العداد';
+
+  @override
+  String get readingsManualInputHint => 'أدخل القراءة بالكيلوواط ساعة؛ تُقبل الكسور العشرية';
+
+  @override
+  String get readingsManualInputRequired => 'يرجى إدخال قراءة العداد.';
+
+  @override
+  String get readingsManualInputConfirm => 'اعتماد القراءة';
+
+  @override
   String get readingsDetectedMeterScreen => 'شاشة العداد المكتشفة';
 
   @override
@@ -596,6 +608,81 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get readingsConfirmationPreviewMessage => 'هذه معاينة فقط؛ لم يتم حفظ القراءة.';
+
+  @override
+  String get readingsVoiceTitle => 'إدخال القراءة صوتياً';
+
+  @override
+  String get readingsVoicePrompt => 'تحدث بقراءة العداد بعد الضغط على الميكروفون.';
+
+  @override
+  String get readingsVoiceInitializing => 'جارٍ تجهيز التعرف على الكلام…';
+
+  @override
+  String get readingsVoiceUnavailable => 'التعرف على الكلام غير متاح على هذا الجهاز.';
+
+  @override
+  String get readingsVoicePermissionDenied =>
+      'تم رفض إذن الميكروفون أو التعرف على الكلام. اسمح بالوصول من الإعدادات ثم حاول مرة أخرى.';
+
+  @override
+  String get readingsVoiceError => 'حدث خطأ أثناء التعرف على الكلام. حاول مرة أخرى.';
+
+  @override
+  String get readingsVoiceNoNumberDetected =>
+      'لم يتم العثور على قراءة للعداد. حاول نطق القراءة مرة أخرى.';
+
+  @override
+  String get readingsVoiceMultipleNumbersDetected =>
+      'تم التعرف على أكثر من رقم. يُرجى نطق قراءة واحدة للعداد.';
+
+  @override
+  String get readingsVoiceInvalidDecimal => 'القراءة العشرية غير واضحة. حاول مرة أخرى.';
+
+  @override
+  String get readingsVoiceInvalidNumber =>
+      'القراءة التي تم التعرف عليها ليست رقمًا صالحًا. حاول مرة أخرى.';
+
+  @override
+  String get readingsVoiceStart => 'ابدأ الاستماع';
+
+  @override
+  String get readingsVoiceStop => 'إيقاف الاستماع';
+
+  @override
+  String get readingsVoiceListening => 'جارٍ الاستماع… تحدث الآن.';
+
+  @override
+  String get readingsVoiceRecognizedText => 'النص الذي تم التعرف عليه';
+
+  @override
+  String get readingsVoiceWaitingForText => 'سيظهر الكلام الذي تقوله هنا.';
+
+  @override
+  String readingsVoiceActiveLanguage(String language, String locale) {
+    return 'لغة التعرف: $language ($locale)';
+  }
+
+  @override
+  String get readingsVoiceLanguageArabic => 'العربية';
+
+  @override
+  String get readingsVoiceLanguageEnglish => 'الإنجليزية';
+
+  @override
+  String get readingsVoiceLanguageSelector => 'لغة التعرف على الكلام';
+
+  @override
+  String readingsVoiceLanguageFallback(String requestedLanguage, String activeLanguage) {
+    return 'التعرف على الكلام بلغة $requestedLanguage غير متاح. سيتم استخدام $activeLanguage بدلاً منها.';
+  }
+
+  @override
+  String get readingsVoiceLanguagesUnsupported =>
+      'لا توجد لغة عربية أو إنجليزية للتعرف على الكلام مثبتة على هذا الجهاز.';
+
+  @override
+  String get readingsVoiceRetry => 'إعادة المحاولة';
 }
 
 /// The translations for Arabic, as used in Egypt (`ar_EG`).
@@ -1114,6 +1201,18 @@ class AppLocalizationsArEg extends AppLocalizationsAr {
   String get readingsMethodVoice => 'إدخال صوتي';
 
   @override
+  String get readingsManualInputLabel => 'أدخل قراءة العداد';
+
+  @override
+  String get readingsManualInputHint => 'أدخل القراءة بالكيلوواط ساعة؛ تُقبل الكسور العشرية';
+
+  @override
+  String get readingsManualInputRequired => 'يرجى إدخال قراءة العداد.';
+
+  @override
+  String get readingsManualInputConfirm => 'اعتماد القراءة';
+
+  @override
   String get readingsDetectedMeterScreen => 'شاشة العداد المكتشفة';
 
   @override
@@ -1190,4 +1289,79 @@ class AppLocalizationsArEg extends AppLocalizationsAr {
 
   @override
   String get readingsConfirmationPreviewMessage => 'هذه معاينة فقط؛ لم يتم حفظ القراءة.';
+
+  @override
+  String get readingsVoiceTitle => 'إدخال القراءة صوتياً';
+
+  @override
+  String get readingsVoicePrompt => 'تحدث بقراءة العداد بعد الضغط على الميكروفون.';
+
+  @override
+  String get readingsVoiceInitializing => 'جارٍ تجهيز التعرف على الكلام…';
+
+  @override
+  String get readingsVoiceUnavailable => 'التعرف على الكلام غير متاح على هذا الجهاز.';
+
+  @override
+  String get readingsVoicePermissionDenied =>
+      'تم رفض إذن الميكروفون أو التعرف على الكلام. اسمح بالوصول من الإعدادات ثم حاول مرة أخرى.';
+
+  @override
+  String get readingsVoiceError => 'حدث خطأ أثناء التعرف على الكلام. حاول مرة أخرى.';
+
+  @override
+  String get readingsVoiceNoNumberDetected =>
+      'لم يتم العثور على قراءة للعداد. حاول نطق القراءة مرة أخرى.';
+
+  @override
+  String get readingsVoiceMultipleNumbersDetected =>
+      'تم التعرف على أكثر من رقم. يُرجى نطق قراءة واحدة للعداد.';
+
+  @override
+  String get readingsVoiceInvalidDecimal => 'القراءة العشرية غير واضحة. حاول مرة أخرى.';
+
+  @override
+  String get readingsVoiceInvalidNumber =>
+      'القراءة التي تم التعرف عليها ليست رقمًا صالحًا. حاول مرة أخرى.';
+
+  @override
+  String get readingsVoiceStart => 'ابدأ الاستماع';
+
+  @override
+  String get readingsVoiceStop => 'إيقاف الاستماع';
+
+  @override
+  String get readingsVoiceListening => 'جارٍ الاستماع… تحدث الآن.';
+
+  @override
+  String get readingsVoiceRecognizedText => 'النص الذي تم التعرف عليه';
+
+  @override
+  String get readingsVoiceWaitingForText => 'سيظهر الكلام الذي تقوله هنا.';
+
+  @override
+  String readingsVoiceActiveLanguage(String language, String locale) {
+    return 'لغة التعرف: $language ($locale)';
+  }
+
+  @override
+  String get readingsVoiceLanguageArabic => 'العربية';
+
+  @override
+  String get readingsVoiceLanguageEnglish => 'الإنجليزية';
+
+  @override
+  String get readingsVoiceLanguageSelector => 'لغة التعرف على الكلام';
+
+  @override
+  String readingsVoiceLanguageFallback(String requestedLanguage, String activeLanguage) {
+    return 'التعرف على الكلام بلغة $requestedLanguage غير متاح. سيتم استخدام $activeLanguage بدلاً منها.';
+  }
+
+  @override
+  String get readingsVoiceLanguagesUnsupported =>
+      'لا توجد لغة عربية أو إنجليزية للتعرف على الكلام مثبتة على هذا الجهاز.';
+
+  @override
+  String get readingsVoiceRetry => 'إعادة المحاولة';
 }

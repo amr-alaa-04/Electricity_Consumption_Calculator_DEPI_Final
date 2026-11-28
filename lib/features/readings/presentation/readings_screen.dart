@@ -8,15 +8,48 @@ import '../../../core/widgets/buttons/app_button.dart';
 import '../../../core/widgets/navigation/app_bottom_navigation_bar.dart';
 import '../../../l10n/generated/app_localizations.dart';
 import '../data/readings_demo_data.dart';
+import '../services/reading_number_parser.dart';
+import 'widgets/manual_reading_input.dart';
 import 'widgets/reading_confirmation_card.dart';
 import 'widgets/reading_input_methods.dart';
 import 'widgets/reading_scanner_viewfinder.dart';
 import 'widgets/reading_safety_notice.dart';
 import 'widgets/reading_voice_input_invitation.dart';
+import 'widgets/reading_voice_input.dart';
 import 'widgets/readings_header.dart';
 
-class ReadingsScreen extends StatelessWidget {
+class ReadingsScreen extends StatefulWidget {
   const ReadingsScreen({super.key});
+
+  @override
+  State<ReadingsScreen> createState() => _ReadingsScreenState();
+}
+
+class _ReadingsScreenState extends State<ReadingsScreen> {
+  ReadingInputMethod _selectedInputMethod = ReadingInputMethod.camera;
+  String _acceptedReading = ReadingsDemoData.confirmedReading;
+  String? _voiceParsingError;
+
+  void _handleVoiceFinalResult(String transcript, AppLocalizations l10n) {
+    final result = const ReadingNumberParser().parse(transcript);
+    if (result.succeeded) {
+      setState(() {
+        _acceptedReading = result.value.toString();
+        _voiceParsingError = null;
+      });
+      return;
+    }
+
+    setState(
+      () => _voiceParsingError = switch (result.failureReason) {
+        ReadingNumberParseFailure.noNumberFound => l10n.readingsVoiceNoNumberDetected,
+        ReadingNumberParseFailure.multipleNumbersFound => l10n.readingsVoiceMultipleNumbersDetected,
+        ReadingNumberParseFailure.invalidDecimalExpression => l10n.readingsVoiceInvalidDecimal,
+        ReadingNumberParseFailure.numberOutOfRange => l10n.readingsVoiceInvalidNumber,
+        null => l10n.readingsVoiceInvalidNumber,
+      },
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -49,21 +82,49 @@ class ReadingsScreen extends StatelessWidget {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.stretch,
                       children: [
-                        ReadingInputMethods(l10n: l10n),
-                        const SizedBox(height: AppSpacing.medium),
-                        ReadingScannerViewfinder(
+                        ReadingInputMethods(
                           l10n: l10n,
-                          readingDigits: ReadingsDemoData.detectedReadingDigits,
-                          readingFraction: ReadingsDemoData.detectedReadingFraction,
-                          accuracyPercent: ReadingsDemoData.ocrAccuracyPercent,
-                          ocrVersion: ReadingsDemoData.ocrVersion,
-                          onFlashPressed: () {},
-                          onRetakePressed: () {},
+                          selectedMethod: _selectedInputMethod,
+                          onMethodSelected: (method) {
+                            setState(() {
+                              _selectedInputMethod = method;
+                              _voiceParsingError = null;
+                            });
+                          },
                         ),
+                        const SizedBox(height: AppSpacing.medium),
+                        if (_selectedInputMethod == ReadingInputMethod.manual)
+                          ManualReadingInput(
+                            key: const ValueKey('manual-reading-input'),
+                            l10n: l10n,
+                            onReadingConfirmed: (reading) {
+                              setState(() => _acceptedReading = reading);
+                            },
+                          )
+                        else if (_selectedInputMethod == ReadingInputMethod.camera)
+                          ReadingScannerViewfinder(
+                            l10n: l10n,
+                            readingDigits: ReadingsDemoData.detectedReadingDigits,
+                            readingFraction: ReadingsDemoData.detectedReadingFraction,
+                            accuracyPercent: ReadingsDemoData.ocrAccuracyPercent,
+                            ocrVersion: ReadingsDemoData.ocrVersion,
+                            onFlashPressed: () {},
+                            onRetakePressed: () {},
+                          )
+                        else
+                          ReadingVoiceInput(
+                            l10n: l10n,
+                            resultError: _voiceParsingError,
+                            onFinalResult: (transcript) =>
+                                _handleVoiceFinalResult(transcript, l10n),
+                            onRecognitionStarted: () => setState(
+                              () => _voiceParsingError = null,
+                            ),
+                          ),
                         const SizedBox(height: AppSpacing.medium),
                         ReadingConfirmationCard(
                           l10n: l10n,
-                          initialReading: ReadingsDemoData.confirmedReading,
+                          initialReading: _acceptedReading,
                           previousReading: ReadingsDemoData.previousReading,
                           consumptionDifference: ReadingsDemoData.consumptionDifference,
                           consumptionTier: ReadingsDemoData.consumptionTier,
@@ -72,7 +133,13 @@ class ReadingsScreen extends StatelessWidget {
                           initialNotes: l10n.readingsSampleNotes,
                         ),
                         const SizedBox(height: AppSpacing.medium),
-                        ReadingVoiceInputInvitation(l10n: l10n),
+                        if (_selectedInputMethod != ReadingInputMethod.voice)
+                          ReadingVoiceInputInvitation(
+                            l10n: l10n,
+                            onPressed: () => setState(
+                              () => _selectedInputMethod = ReadingInputMethod.voice,
+                            ),
+                          ),
                         const SizedBox(height: AppSpacing.medium),
                         ReadingSafetyNotice(l10n: l10n),
                         const SizedBox(height: AppSpacing.medium),
